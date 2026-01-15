@@ -70,31 +70,35 @@
 }
 
 body {
+  @apply text-purple-800 dark:text-white;
   background: var(--background);
-  color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
-h1,
+
+h1{
+  @apply font-heading font-thin text-[54px] leading-[80%] sm:text-[72px] md:text-[92px] lg:text-[120px] xl:text-[160px] uppercase tracking-tighter text-cyan-600 -ml-[0.5%]
+}
+
 h2,
 h3,
 h4,
 h5,
 h6 {
+  @apply font-heading text-pink-500 font-semibold text-[24px] leading-[80%] sm:text-[32px] md:text-[42px] lg:text-[52px] ;
   font-family: var(--font-heading), var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
-
 .top-line{
-  @apply before:absolute before:top-0 before:h-px before:w-[200vw] before:bg-purple-200 dark:before:bg-purple-800 before:-left-[100vw];
+  @apply before:absolute before:top-0 before:h-px before:w-[200vw] before:bg-purple-100 dark:before:bg-purple-800 before:-left-[100vw];
 }
 
 .bottom-line{
-  @apply after:absolute after:bottom-0 after:h-px after:w-[200vw] after:bg-purple-200 dark:after:bg-purple-800 after:-left-[100vw];
+  @apply after:absolute after:bottom-0 after:h-px after:w-[200vw] after:bg-purple-100 dark:after:bg-purple-800 after:-left-[100vw];
 }
 .pattern-bg{
-  @apply  bg-[repeating-linear-gradient(45deg,#d1bede_0,#d1bede_1px,#ffffff00_1,#ffffff00_50%)] dark:bg-[repeating-linear-gradient(45deg,#4a166c_0,#4a166c_1px,#ffffff00_1,#ffffff00_50%)] bg-size-[6px_6px];
+  @apply  bg-[repeating-linear-gradient(45deg,#e5ddea_0,#e5ddea_1px,#ffffff00_1,#ffffff00_50%)] dark:bg-[repeating-linear-gradient(45deg,#4a166c_0,#4a166c_1px,#ffffff00_1,#ffffff00_50%)] bg-size-[6px_6px];
 }
 .border-line{
-  @apply border border-purple-200 dark:border-purple-800;
+  @apply border border-purple-100 dark:border-purple-800;
 }
