@@ -11,15 +11,17 @@ import About from "@/components/sections/About";
 
 export default function Home() {
   return (
+    <>
+    <Navbar />
     <MainContainer>
-      <Navbar />
       <Intro />
       <Header />
-      <About />
-      <Works />
-      <Skills />
-      <Agenda />
+        <About />
+        <Works />
+        <Skills />
+        <Agenda />
+      </MainContainer>
       <Footer />
-    </MainContainer>
-  );
+    </>
+);
 }
