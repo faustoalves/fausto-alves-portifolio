@@ -29,7 +29,7 @@
   --color-pink-600: #c9208b;
   --color-pink-700: #9b1a6c;
   --color-pink-800: #6e144d;
-  --color-pink-900: #336699;
+  --color-pink-900: #410C2E;
   --color-pink-950: #15040f;
   --color-primary-50: #f9f9fb;
   --color-primary-100: #dadceb;
@@ -85,19 +85,19 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-heading bg-linear-to-br from-[#ecb315] via-[#dc3b6f] to-[#faa62f] inline-block text-transparent bg-clip-text text-shadow-lg font-semibold text-[34px] leading-[80%] sm:text-[42px] md:text-[52px] lg:text-[52px] uppercase;
+  @apply font-heading text-pink-700 dark:text-pink-500  inline-block  font-semibold text-[34px] leading-[80%] sm:text-[42px] md:text-[52px] lg:text-[52px] uppercase;
   font-family: var(--font-heading), var(--font-sans), Arial, Helvetica, sans-serif;
 }
 .top-line{
-  @apply before:absolute before:top-0 before:h-px before:w-[200vw] before:bg-purple-100 dark:before:bg-purple-800 before:-left-[100vw];
+  @apply before:absolute before:top-0 before:z-10 before:h-px before:w-[200vw] before:bg-purple-900/20 dark:before:bg-white/10 before:-left-[100vw];
 }
 
 .bottom-line{
-  @apply after:absolute after:bottom-0 after:h-px after:w-[200vw] after:bg-purple-100 dark:after:bg-purple-800 after:-left-[100vw];
+  @apply after:absolute after:z-10 after:bottom-0 after:h-px after:w-[200vw] after:bg-purple-900/20 dark:after:bg-white/10 after:-left-[100vw];
 }
 .pattern-bg{
-  @apply  bg-[repeating-linear-gradient(45deg,#e5ddea_0,#e5ddea_1px,#ffffff00_1,#ffffff00_50%)] dark:bg-[repeating-linear-gradient(45deg,#4a166c_0,#4a166c_1px,#ffffff00_1,#ffffff00_50%)] bg-size-[6px_6px];
+  @apply bg-[repeating-linear-gradient(45deg,#2c0e4030_0,#2c0e4030_1px,#ffffff00_1,#ffffff00_50%)] dark:bg-[repeating-linear-gradient(45deg,#4a166c_0,#4a166c_1px,#ffffff00_1,#ffffff00_50%)] bg-size-[8px_8px]  ;
 }
 .border-line{
-  @apply border border-purple-100 dark:border-purple-800;
+  @apply border border-purple-900/20 dark:border-white/10; 
 }

@@ -1,17 +1,15 @@
 "use client"
-
+import { motion } from "motion/react"
 import { useRef } from 'react'
-import gsap from 'gsap'
 import type { ComponentProps, ReactNode } from 'react'
 import { cn, tv, type VariantProps } from '@/lib/utils'
-import { useGSAP } from '@gsap/react'
 
 const buttonStyles = tv({
-  base: 'inline-flex items-center justify-center gap-2 rounded-full px-5 py-2 text-sm font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-60',
+  base: 'relative w-full bg-purple-300/50 block overflow-hidden p-4 whitespace-nowrap text-2xl font-black uppercase sm:text-2xl md:text-3xl lg:text-3xl',
   variants: {
     variant: {
-      primary: 'bg-primary-500 text-white hover:bg-primary-600',
-      secondary: 'border border-primary-500 text-primary-500 hover:bg-primary-50',
+      primary: '',
+      secondary: '',
     },
     size: {
       sm: 'h-9 text-xs',
@@ -48,56 +46,63 @@ const Button = ({
   size,
   ...props
 }: ButtonProps) => {
-  const buttonRef = useRef<HTMLButtonElement>(null)
-  useGSAP(() => {
-    gsap.fromTo(buttonRef.current, {
-      opacity: 0,
-      y: 100,
-    }, {
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      ease: 'power2.inOut',
-    })
-  })
-
-  // INSERT_YOUR_CODE
-  const handleMouseOver = () => {
-    if (buttonRef.current) {
-      gsap.to(buttonRef.current, {
-        scale: 1.06,
-        duration: 0.3,
-        ease: 'power2.out',
-      })
-    }
-  }
-
-  const handleMouseOut = () => {
-    if (buttonRef.current) {
-      gsap.to(buttonRef.current, {
-        scale: 1,
-        duration: 0.3,
-        ease: 'power2.inOut',
-      })
-    }
-  }
-
+  const DURATION = 0.4;
+  const STAGGER = 0.01;
   return (
-    <button
-      {...props}
-      type={type}
-      ref={buttonRef}
-      id='button'
+    <motion.button
+          initial="initial"
+          whileHover="hovered"
+          // href="#test"
+    className={cn("relative bg-purple-300/50 block overflow-hidden whitespace-nowrap text-2xl font-black uppercase sm:text-2xl md:text-3xl lg:text-3xl", className)}>
+      <div className={cn("relative w-full flex items-center justify-center")}>
+      {label!.split("").map((l, i) => (
+          <motion.span
+            variants={{
+              initial: {
+                y: 0,
+              },
+              hovered: {
+                y: "-200%",
+              },
+            }}
+            transition={{
+              duration: DURATION,
+              ease: "easeInOut",
+              delay: STAGGER * i,
+            }}
+            className="inline-block"
+            key={i}
+          >
+            {l}
+          </motion.span>
+        ))}
+      </div>
+      <div className={cn("absolute top-0 left-0 right-0 bottom-0 z-10 w-full h-full flex items-center justify-center text-cyan-500/50 ")}>
+        {label!.split("").map((l, i) => (
+          <motion.span
+            variants={{
+              initial: {
+                y: "200%",
+              },
+              hovered: {
+                y: 0,
+              },
+            }}
+            transition={{
+              duration: DURATION,
+              ease: "easeInOut",
+              delay: STAGGER * i /2,
+            }}
+            className="inline-block"
+            key={i}
+          >
+            {l}
+          </motion.span>
+        ))}
+      </div>
 
-      onMouseOver={handleMouseOver}
-      onMouseOut={handleMouseOut}
-      disabled={disabled || loading}
-      aria-busy={loading || undefined}
-      className={cn(buttonStyles({ variant, size }), className)}
-    >
-      {icon}
-      {children ?? label}
-    </button>
+      
+    </motion.button>
   )
 }
 
