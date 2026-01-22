@@ -9,7 +9,7 @@ type Props = {
 
 const HeaderImageContainer = ({ imageFront, imageBg }: DayScheduleItem) => {
 
-  const [mousePercent, setMousePercent] = React.useState({ x: 0, y: 0 });
+  const [mousePercent, setMousePercent] = React.useState({ x: 0.5, y: 0.5 });
 
   React.useEffect(() => {
     
@@ -17,7 +17,7 @@ const HeaderImageContainer = ({ imageFront, imageBg }: DayScheduleItem) => {
       const x = (e.clientX / window.innerWidth) ;
       const y = (e.clientY / window.innerHeight);
       if(window.innerWidth < 768) {
-        setMousePercent({ x: 0, y: 0.4 });
+        setMousePercent({ x: 0.5, y: 0.5 });
       }else{
         setMousePercent({ x, y });
       }
@@ -26,9 +26,6 @@ const HeaderImageContainer = ({ imageFront, imageBg }: DayScheduleItem) => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-
-
-  
   return (
 
     
@@ -40,8 +37,12 @@ const HeaderImageContainer = ({ imageFront, imageBg }: DayScheduleItem) => {
           width="1600"
           height="884"
           src={imageFront}
-          sizes="100vw"
+          sizes="(max-width: 768px) 100vw,
+          (max-width: 1200px) 50vw,
+          33vw"
           alt="Description of my image"
+        quality={850}
+
           className='w-full h-full relative z-20 object-cover scale-115 md:scale-[107%] md:pt-10'
           style={{
             transform: `translate(${mousePercent.x * 50 - 25}px) translateY(${mousePercent.y * 50 }px)`,
@@ -53,6 +54,10 @@ const HeaderImageContainer = ({ imageFront, imageBg }: DayScheduleItem) => {
           width="1519"
           height="700"
           src={imageBg}
+          sizes="(max-width: 768px) 100vw,
+          (max-width: 1200px) 50vw,
+          33vw"
+        quality={850}
           alt="Description of my image"
           className='w-full h-full object-cover scale-115 md:scale-[107%]'
           style={{
