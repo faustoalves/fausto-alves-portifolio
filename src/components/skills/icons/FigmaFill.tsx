@@ -1,0 +1,15 @@
+import * as React from 'react'
+
+export type IconProps = React.SVGProps<SVGSVGElement> & { title?: string }
+
+const FigmaFill = ({ title, ...props }: IconProps) => (
+  <svg width="1em" height="1em" {...props} viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">{title ? <title>{title}</title> : null}
+<path fillRule="evenodd" clipRule="evenodd" d="M400 400C400 344.772 444.772 300 500 300C555.228 300 600 344.772 600 400C600 455.228 555.228 500 500 500C444.772 500 400 455.228 400 400Z" fill="#1ABCFE"/>
+<path fillRule="evenodd" clipRule="evenodd" d="M200 600C200 544.772 244.771 500 300 500H400V600C400 655.228 355.228 700 300 700C244.771 700 200 655.228 200 600Z" fill="#0ACF83"/>
+<path fillRule="evenodd" clipRule="evenodd" d="M400 100V300H500C555.228 300 600 255.228 600 200C600 144.771 555.228 100 500 100H400Z" fill="#FF7262"/>
+<path fillRule="evenodd" clipRule="evenodd" d="M200 200C200 255.228 244.771 300 300 300H400V100H300C244.771 100 200 144.771 200 200Z" fill="#F24E1E"/>
+<path fillRule="evenodd" clipRule="evenodd" d="M200 400C200 455.228 244.771 500 300 500H400V300H300C244.771 300 200 344.772 200 400Z" fill="#A259FF"/>
+</svg>
+)
+
+export default FigmaFill
