@@ -10,8 +10,8 @@ const AVATAR_REAL_URL = 'https://res.cloudinary.com/faustoalves/image/upload/v17
 
 const AboutAvatar = (props: Props) => {
   return (
-    <div className='w-full py-32 group relative perspective-1000 flex items-center justify-center   '>
-      <div className='w-[300px] rounded-full border-4 border-purple-500/20 aspect-square transition-all duration-500 transform-3d group-hover:rotate-y-180 group-hover:scale-110 scale-100 z-10'>
+    <div className='py-8 md:py-16 lg:py-32 group relative perspective-1000 flex items-center justify-center   '>
+      <div className='w-[200px] md:w-[300px] max-w-full rounded-full border-4 border-purple-500/20 transition-all duration-500 transform-3d group-hover:rotate-y-180 group-hover:scale-115 scale-100 z-10'>
         <CldImage
           width="512"
           height="512"
@@ -36,7 +36,7 @@ const AboutAvatar = (props: Props) => {
 
         />
       </div>
-      <div className='absolute top-0 left-0 w-full h-full flex items-center justify-center group-hover:scale-120 scale-110 md:scale-100 md:group-hover:scale-110 transition-all duration-500 '>
+      <div className='absolute top-0 left-0 w-full h-full flex items-center justify-center group-hover:scale-120 scale-130 lg:scale-100 md:group-hover:scale-110 transition-all duration-500 '>
         <svg
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -56,7 +56,7 @@ const AboutAvatar = (props: Props) => {
               xlinkHref="#textcircle"
               aria-label="Fighting the good battle of pixels since 2005"
               textLength="940"
-              className='text-circle text-purple-500 '
+              className='text-circle text-purple-200 dark:text-purple-700 group-hover:text-pink-500 transition-all duration-500 '
             > Fighting the pixel's battle since 2005 -&nbsp;
             </textPath>
           </text>
