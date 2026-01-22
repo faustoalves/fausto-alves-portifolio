@@ -117,3 +117,6 @@ h6 {
   transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1);
   transform-origin: 250px 250px;
 }
+p{
+  @apply w-full ;
+}
