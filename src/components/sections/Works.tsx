@@ -1,31 +1,52 @@
 "use client"
 import React, { useEffect, useRef } from 'react'
 import Button from '../common/ui/button/Button';
+import { workList } from '@/lib/works';
+import WorkCard from '../works/WorkCard';
+import { useScroll } from 'framer-motion';
+import Lenis from '@studio-freight/lenis'
 
 type Props = {}
 
 const Works = (props: Props) => {
+  const container = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ['start start', 'end end']
+  })
 
+  useEffect(() => {
+    const lenis = new Lenis()
+
+    function raf(time: number) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+
+    const rafId = requestAnimationFrame(raf)
+
+    return () => {
+      cancelAnimationFrame(rafId)
+      lenis.destroy()
+    }
+  }, [])
   return (
     <>
-    <section className='w-full flex flex-col items-start justify-center relative mt-10 top-line bottom-line '>
-    <div className='w-full bottom-line pattern-bg lg:col-span-2 p-4 text-center relative'>
-        <h2>Last works</h2>
+    <section
+      ref={container}
+      className='w-full flex flex-col items-start justify-center relative  mt-10 top-line bottom-line '
+    >
+
+      <div className='w-full h-full flex flex-col items-start justify-center my-10 sticky top-0 gap-4 pb-60'>
+        <div className='w-full bottom-line pattern-bg lg:col-span-2 p-4 text-center sticky top-0'>
+          <h2>Last works</h2>
+        </div>
+        {workList.map((work, index) => {
+          const targetScale = 1 - ( (workList.length - index) * 0.05);         
+          // return <WorkCard key={work.title} index={index} {...work} progress={scrollYProgress} range={[index * .25, 1]} targetScale={targetScale}/>
+          return <WorkCard key={work.title} index={index} {...work} progress={scrollYProgress} range={[index * .25, 1]} targetScale={targetScale}/>
+        })}
       </div>
-      <div className='w-full h-full flex flex-col items-start justify-center my-10'>
-
-      </div>
-      {/* <div className="absolute top-0 right-0 left-0 2xl:right-[50%] 2xl:left-[50%] min-w-full 2xl:translate-x-[-50%] 2xl:w-screen flex items-end justify-end h-full bg-pink-100 dark:bg-pink-950">
-        <div className="w-full h-full  max-w-[1456px] mx-auto bg-pink-200 dark:bg-pink-950 p-4"> 
-          <h2 className="text-2xl font-bold">
-          Works
-        </h2>
-      </div>
-
-      </div> */}
-      
-
-
     </section>
 
 </>
