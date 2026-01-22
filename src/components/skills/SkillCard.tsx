@@ -6,11 +6,11 @@ import { IconFill, IconStroke } from './icons/Icon'
 type Props = {}
 
 const SkillCard = ({ skill }: { skill: Skill }) => {
-  const sizeClass = '!aspect-square w-1/3 md:w-1/4 lg:w-1/6 xl:w-[12.5%] 2xl:w-[186px]'
+  const sizeClass = '!aspect-square'
 
   return (
     <div
-      className={`relative flex justify-center items-center border border-baseline group bg-transparent hover:bg-baseline duration-700 ${sizeClass}`}
+      className={`relative flex justify-center items-center border-[0.5px] border-purple-100 dark:border-purple-800 group bg-transparent hover:bg-baseline duration-700 ${sizeClass}`}
     >
       <PixelCard
         gap={2}
@@ -23,23 +23,23 @@ const SkillCard = ({ skill }: { skill: Skill }) => {
           <div className="relative w-full h-full ">
             <div className="absolute w-full h-full opacity-0 group-hover:opacity-80 duration-800 delay-100 transition-all">
               <div
-                className="absolute w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]
-            from-background from-30% to-transparent to-120% opacity-100"
+                className="absolute w-full h-full bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))]
+            from-purple-100 dark:from-purple-800 from-30% to-transparent to-120% opacity-100"
               ></div>
-              <div className="absolute w-full h-full bg-gradient-to-t from-background from-20% to-transparent to-70% opacity-100"></div>
+              <div className="absolute w-full h-full bg-linear-to-t from-purple-50 dark:from-purple-900 from-20% to-transparent to-70% opacity-100"></div>
             </div>
             <div className="relative flex flex-col justify-center items-center w-full h-full">
               <div className="flex justify-center items-center relative translate-y-0 group-hover:translate-y-[-14px] transition-all duration-500">
                 <IconStroke
                   name={skill.asset}
-                  className="absolute w-12 h-12 text-baseline translate-y-0 group-hover:scale-[140%] lg:group-hover:scale-[170%] group-hover:text-background group-hover:blur-md group-hover:translate-y-[4px] transition-transform duration-300 m-auto"
+                  className="absolute w-12 h-12 text-purple-300 dark:text-purple-700 translate-y-0 group-hover:scale-[140%] lg:group-hover:scale-[170%] group-hover:text-purple-500 group-hover:blur-md group-hover:translate-y-[4px] transition-transform duration-300 m-auto"
                 />
                 <IconFill
                   name={skill.asset}
                   className="absolute w-12 h-12 group-hover:scale-[130%] lg:group-hover:scale-[150%] transition-all duration-500 opacity-0 group-hover:opacity-100 m-auto text-foreground"
                 />
               </div>
-              <p className="text-foreground font-[500] text-[14px] absolute -bottom-12 group-hover:bottom-2 lg:group-hover:bottom-6 transition-all duration-300 ease-out">
+              <p className="text-purple-700 dark:text-purple-300 font-heading uppercase font-semibold text-center text-[14px] absolute -bottom-12 group-hover:bottom-2 lg:group-hover:bottom-6 transition-all duration-300 ease-out">
                 {skill.name}
               </p>
             </div>
