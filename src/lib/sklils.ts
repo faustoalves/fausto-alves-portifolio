@@ -12,7 +12,7 @@ export const skillsList: Skill[] = [
   },
   {
     name: 'JavaScript',
-    color: ['#f1e05a', 'transparent', '#c9b939', '#000000'],
+    color: ['#f1e05a70', 'transparent', '#c9b93970', '#00000070'],
     asset: 'js',
   },
   {

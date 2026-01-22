@@ -41,7 +41,7 @@ const HeaderImageContainer = ({ imageFront, imageBg }: DayScheduleItem) => {
           (max-width: 1200px) 50vw,
           33vw"
           alt="Description of my image"
-        quality={85}
+        quality={75}
 
           className='w-full h-full relative z-20 object-cover scale-115 md:scale-[107%] md:pt-10'
           style={{
@@ -57,7 +57,7 @@ const HeaderImageContainer = ({ imageFront, imageBg }: DayScheduleItem) => {
           sizes="(max-width: 768px) 100vw,
           (max-width: 1200px) 50vw,
           33vw"
-        quality={85}
+        quality={75}
           alt="Description of my image"
           className='w-full h-full object-cover scale-115 md:scale-[107%]'
           style={{
