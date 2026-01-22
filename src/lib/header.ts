@@ -50,7 +50,7 @@ export const Header:HeaderProps[] = [
     title: 'Developing',
     description: 'I develop 8 hours a day',
     imageFront: 'https://res.cloudinary.com/faustoalves/image/upload/v1769032714/portifolio/header/dev_front_i51k9w.png',
-    imageBg: 'https://res.cloudinary.com/faustoalves/image/upload/v1769032705/portifolio/header/dev_back_y4kxtc.png≈',
+    imageBg: 'https://res.cloudinary.com/faustoalves/image/upload/v1769032705/portifolio/header/dev_back_y4kxtc.png',
     days: [1, 2, 3, 4, 5],
     time: {
       start: 10,
@@ -347,6 +347,7 @@ export const getDaySchedule = (dateTime: Date): DayScheduleItem[] => {
 
 
 export const getHeaderByDateTime = (dateTime: Date): DayScheduleItem | null => {
+  console.log(dateTime);
   const day = dateTime.getDay();
   const hour = dateTime.getHours(); 
   const currentDay = dateTime.getDate();

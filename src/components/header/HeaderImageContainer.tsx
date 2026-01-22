@@ -12,6 +12,7 @@ const HeaderImageContainer = ({ imageFront, imageBg }: DayScheduleItem) => {
   const [mousePercent, setMousePercent] = React.useState({ x: 0, y: 0 });
 
   React.useEffect(() => {
+    
     const handleMouseMove = (e: MouseEvent) => {
       const x = (e.clientX / window.innerWidth) ;
       const y = (e.clientY / window.innerHeight);
@@ -33,7 +34,7 @@ const HeaderImageContainer = ({ imageFront, imageBg }: DayScheduleItem) => {
     
 
 
-    <div className='w-full aspect-8/4 md:aspect-video lg:aspect-16/8 xl:aspect-16/7'>
+    <div className='w-full h-full'>
       <div className='w-full h-[calc(125%)] absolute rounded-lg top-[-25%] overflow-hidden '>
       {imageFront && <CldImage
           width="1600"
@@ -47,7 +48,7 @@ const HeaderImageContainer = ({ imageFront, imageBg }: DayScheduleItem) => {
           }}
         />}
       </div>
-      <div className='w-full h-full block bg-cyan-400/40 overflow-hidden rounded-lg '>
+      <div className='w-full h-full block  overflow-hidden rounded-lg '>
       {imageFront && <CldImage
           width="1519"
           height="700"
