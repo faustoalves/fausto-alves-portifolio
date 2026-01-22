@@ -1,0 +1,66 @@
+"use client"
+import type { DayScheduleItem } from '@/lib/header'
+import { CldImage } from 'next-cloudinary'
+import React from 'react'
+
+type Props = {
+  daySchedule: DayScheduleItem
+}
+
+const HeaderImageContainer = ({ imageFront, imageBg }: DayScheduleItem) => {
+
+  const [mousePercent, setMousePercent] = React.useState({ x: 0, y: 0 });
+
+  React.useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const x = (e.clientX / window.innerWidth) ;
+      const y = (e.clientY / window.innerHeight);
+      if(window.innerWidth < 768) {
+        setMousePercent({ x: 0, y: 0.4 });
+      }else{
+        setMousePercent({ x, y });
+      }
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+
+
+  
+  return (
+
+    
+
+
+    <div className='w-full aspect-8/4 md:aspect-video lg:aspect-16/8 xl:aspect-16/7'>
+      <div className='w-full h-[calc(125%)] absolute rounded-lg top-[-25%] overflow-hidden '>
+      {imageFront && <CldImage
+          width="1600"
+          height="884"
+          src={imageFront}
+          sizes="100vw"
+          alt="Description of my image"
+          className='w-full h-full relative pt-10 z-20 object-cover scale-[107%]'
+          style={{
+            transform: `translate(${mousePercent.x * 50 - 25}px) translateY(${mousePercent.y * 50 }px)`,
+          }}
+        />}
+      </div>
+      <div className='w-full h-full block bg-cyan-400/40 overflow-hidden rounded-lg '>
+      {imageFront && <CldImage
+          width="1519"
+          height="700"
+          src={imageBg}
+          alt="Description of my image"
+          className='w-full h-full object-cover scale-[107%]'
+          style={{
+            transform: `translate(${mousePercent.x * 30 - 15}px) translateY(${mousePercent.y * 30 - 15}px)`,
+          }}
+        />}
+      </div>
+    </div>
+  )
+}
+
+export default HeaderImageContainer

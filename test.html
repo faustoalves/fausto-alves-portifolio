@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motion Neon Lab — Wireframe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        neon: {
+                            pink: '#ff006e',
+                            blue: '#00f5ff',
+                            purple: '#8338ec',
+                            green: '#06ffa5',
+                            yellow: '#ffbe0b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: #0a0a0f;
+            color: #e0e0e0;
+        }
+        .neon-glow {
+            text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+        }
+        .section-card {
+            background: rgba(20, 20, 30, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- HEADER / NAV -->
+    <header class="fixed top-0 w-full z-50 section-card border-b border-neon-blue/20">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-neon-blue neon-glow">
+                Motion Lab
+            </div>
+            <ul class="hidden md:flex gap-8 text-sm uppercase tracking-wider">
+                <li><a href="#home" class="hover:text-neon-pink transition">Home</a></li>
+                <li><a href="#micro" class="hover:text-neon-pink transition">Micro</a></li>
+                <li><a href="#scroll" class="hover:text-neon-pink transition">Scroll</a></li>
+                <li><a href="#layout" class="hover:text-neon-pink transition">Layout</a></li>
+                <li><a href="#gestures" class="hover:text-neon-pink transition">Gestures</a></li>
+                <li><a href="#transitions" class="hover:text-neon-pink transition">Transitions</a></li>
+                <li><a href="#advanced" class="hover:text-neon-pink transition">Advanced</a></li>
+                <li><a href="#timeline" class="hover:text-neon-pink transition">Timeline</a></li>
+                <li><a href="#performance" class="hover:text-neon-pink transition">Performance</a></li>
+            </ul>
+            <button class="md:hidden text-neon-blue">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- HERO / HOME -->
+    <section id="home" class="min-h-screen flex items-center justify-center px-6 pt-20">
+        <div class="text-center max-w-4xl">
+            <h1 class="text-6xl md:text-8xl font-black mb-6 text-neon-pink neon-glow">
+                Motion Neon Lab
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-400 mb-8">
+                Um playground interativo explorando todas as dimensões do Motion<br/>
+                <span class="text-neon-blue">Variants · Gestures · Scroll · Layout · Timeline · Performance</span>
+            </p>
+            <div class="flex gap-4 justify-center flex-wrap">
+                <a href="#micro" class="px-8 py-3 bg-neon-pink/20 border border-neon-pink text-neon-pink hover:bg-neon-pink hover:text-black transition rounded-lg">
+                    Explorar
+                </a>
+                <a href="https://github.com/seuuser/motion-lab" class="px-8 py-3 bg-neon-blue/20 border border-neon-blue text-neon-blue hover:bg-neon-blue hover:text-black transition rounded-lg">
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MICRO-INTERACTIONS -->
+    <section id="micro" class="min-h-screen py-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl md:text-6xl font-bold mb-4 text-neon-green neon-glow">
+                01. Micro-interactions
+            </h2>
+            <p class="text-gray-400 mb-12 text-lg">
+                Botões, cards, hover states — variants + transitions + gestures básicos
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="section-card p-8 rounded-xl hover:border-neon-green/50 transition">
+                    <div class="w-16 h-16 bg-neon-green/20 rounded-lg mb-4"></div>
+                    <h3 class="text-xl font-bold mb-2">Hover Effects</h3>
+                    <p class="text-gray-500 text-sm">whileHover + scale + glow</p>
+                </div>
+                <div class="section-card p-8 rounded-xl hover:border-neon-green/50 transition">
+                    <div class="w-16 h-16 bg-neon-pink/20 rounded-lg mb-4"></div>
+                    <h3 class="text-xl font-bold mb-2">Tap Feedback</h3>
+                    <p class="text-gray-500 text-sm">whileTap + spring physics</p>
+                </div>
+                <div class="section-card p-8 rounded-xl hover:border-neon-green/50 transition">
+                    <div class="w-16 h-16 bg-neon-blue/20 rounded-lg mb-4"></div>
+                    <h3 class="text-xl font-bold mb-2">Card Expand</h3>
+                    <p class="text-gray-500 text-sm">variants + stagger</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCROLL-DRIVEN -->
+    <section id="scroll" class="min-h-screen py-20 px-6 bg-gradient-to-b from-transparent to-neon-purple/5">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl md:text-6xl font-bold mb-4 text-neon-purple neon-glow">
+                02. Scroll-driven Universe
+            </h2>
+            <p class="text-gray-400 mb-12 text-lg">
+                Parallax, progress bars, transformações — useScroll + useTransform
+            </p>
+
+            <div class="section-card p-12 rounded-xl">
+                <div class="h-64 bg-gradient-to-r from-neon-purple/20 to-neon-pink/20 rounded-lg flex items-center justify-center">
+                    <p class="text-2xl text-gray-500">[ Scroll Progress Demo Area ]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LAYOUT MORPHING -->
+    <section id="layout" class="min-h-screen py-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl md:text-6xl font-bold mb-4 text-neon-blue neon-glow">
+                03. Layout Morphing
+            </h2>
+            <p class="text-gray-400 mb-12 text-lg">
+                Transições fluidas entre estados — layoutId + shared transitions + FLIP
+            </p>
+
+            <div class="grid md:grid-cols-4 gap-4">
+                <div class="section-card aspect-square rounded-xl hover:border-neon-blue/50 transition"></div>
+                <div class="section-card aspect-square rounded-xl hover:border-neon-blue/50 transition"></div>
+                <div class="section-card aspect-square rounded-xl hover:border-neon-blue/50 transition"></div>
+                <div class="section-card aspect-square rounded-xl hover:border-neon-blue/50 transition"></div>
+                <div class="section-card aspect-square rounded-xl hover:border-neon-blue/50 transition"></div>
+                <div class="section-card aspect-square rounded-xl hover:border-neon-blue/50 transition"></div>
+                <div class="section-card aspect-square rounded-xl hover:border-neon-blue/50 transition"></div>
+                <div class="section-card aspect-square rounded-xl hover:border-neon-blue/50 transition"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GESTURE PLAYGROUND -->
+    <section id="gestures" class="min-h-screen py-20 px-6 bg-gradient-to-b from-transparent to-neon-pink/5">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl md:text-6xl font-bold mb-4 text-neon-pink neon-glow">
+                04. Gesture Playground
+            </h2>
+            <p class="text-gray-400 mb-12 text-lg">
+                Drag, inertia, constraints — física realista + interações complexas
+            </p>
+
+            <div class="section-card p-12 rounded-xl">
+                <div class="h-96 border-2 border-dashed border-neon-pink/30 rounded-lg flex items-center justify-center">
+                    <div class="w-32 h-32 bg-neon-pink/30 rounded-lg flex items-center justify-center">
+                        <p class="text-sm">Drag me</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE TRANSITIONS -->
+    <section id="transitions" class="min-h-screen py-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl md:text-6xl font-bold mb-4 text-neon-yellow neon-glow">
+                05. Page Transitions
+            </h2>
+            <p class="text-gray-400 mb-12 text-lg">
+                AnimatePresence avançado — crossfade + slide + coordenação
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="section-card p-8 rounded-xl">
+                    <h3 class="text-2xl font-bold mb-4">Route A</h3>
+                    <p class="text-gray-500">Transição suave entre páginas</p>
+                </div>
+                <div class="section-card p-8 rounded-xl">
+                    <h3 class="text-2xl font-bold mb-4">Route B</h3>
+                    <p class="text-gray-500">Entrada/saída coordenada</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADVANCED / MOTIONVALUE -->
+    <section id="advanced" class="min-h-screen py-20 px-6 bg-gradient-to-b from-transparent to-neon-green/5">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl md:text-6xl font-bold mb-4 text-neon-green neon-glow">
+                06. MotionValue Laboratory
+            </h2>
+            <p class="text-gray-400 mb-12 text-lg">
+                Programação avançada — useMotionValue + useTransform + animationFrame
+            </p>
+
+            <div class="section-card p-12 rounded-xl">
+                <div class="h-64 bg-gradient-to-br from-neon-green/20 to-neon-blue/20 rounded-lg flex items-center justify-center">
+                    <p class="text-2xl text-gray-500">[ Custom Cursor / Dynamic Values ]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIMELINE CONTROL -->
+    <section id="timeline" class="min-h-screen py-20 px-6 bg-gradient-to-b from-transparent to-neon-blue/5">
+        <div class="container mx-auto max-w-6xl">
+
+            <!-- Title -->
+            <h2 class="text-4xl md:text-6xl font-bold mb-4 text-neon-blue neon-glow">
+                07. Timeline & Sequencing Lab
+            </h2>
+
+            <p class="text-gray-400 mb-12 text-lg">
+                Controle total de uma sequência complexa: play, pause, reverse, seek, loop & estados encadeados.
+            </p>
+
+            <!-- Controls -->
+            <div class="section-card p-6 rounded-xl mb-10">
+                <h3 class="text-xl font-bold mb-4 text-neon-blue">Controles da Timeline</h3>
+
+                <div class="flex flex-wrap gap-4 mb-6">
+                    <button class="px-6 py-2 border border-neon-blue text-neon-blue rounded hover:bg-neon-blue hover:text-black transition">Play</button>
+                    <button class="px-6 py-2 border border-neon-pink text-neon-pink rounded hover:bg-neon-pink hover:text-black transition">Pause</button>
+                    <button class="px-6 py-2 border border-neon-green text-neon-green rounded hover:bg-neon-green hover:text-black transition">Reverse</button>
+                    <button class="px-6 py-2 border border-neon-yellow text-neon-yellow rounded hover:bg-neon-yellow hover:text-black transition">Restart</button>
+                </div>
+
+                <!-- Seek Bar -->
+                <div class="my-6">
+                    <label class="text-sm text-gray-400">Progresso da Timeline</label>
+                    <input type="range" min="0" max="100" value="0"
+                           class="w-full accent-neon-blue mt-2"/>
+                </div>
+
+                <!-- Debug info -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 text-xs text-gray-500">
+                    <div class="section-card p-3 rounded">
+                        <p>Status:</p>
+                        <p class="text-neon-blue font-bold">Idle</p>
+                    </div>
+                    <div class="section-card p-3 rounded">
+                        <p>Progress:</p>
+                        <p class="text-neon-pink font-bold">0%</p>
+                    </div>
+                    <div class="section-card p-3 rounded">
+                        <p>Direction:</p>
+                        <p class="text-neon-green font-bold">Forward</p>
+                    </div>
+                    <div class="section-card p-3 rounded">
+                        <p>Loop:</p>
+                        <p class="text-neon-yellow font-bold">Off</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline Preview Area -->
+            <div class="section-card p-8 rounded-xl">
+                <h3 class="text-xl font-bold mb-6 text-neon-blue">Preview da Timeline</h3>
+
+                <!-- Área onde seus elementos animados irão ficar -->
+                <div class="relative h-96 border border-neon-blue/20 rounded-lg overflow-hidden flex items-center justify-center">
+
+                    <div class="absolute top-10 left-10 w-20 h-20 bg-neon-blue/30 rounded-lg"></div>
+                    <div class="absolute top-10 right-10 w-20 h-20 bg-neon-pink/30 rounded-lg"></div>
+
+                    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 w-24 h-24 bg-neon-green/30 rounded-lg"></div>
+
+                    <!-- Elemento principal da timeline -->
+                    <div class="w-48 h-48 bg-neon-purple/20 rounded-lg flex items-center justify-center border border-neon-purple/40">
+                        <p class="text-neon-purple font-bold">[Timeline Core]</p>
+                    </div>
+
+                </div>
+
+                <!-- mini legend -->
+                <p class="text-gray-500 text-sm mt-4">
+                    A timeline controla a sequência completa desses elementos com orquestração paralela e sequencial.
+                </p>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PERFORMANCE -->
+    <section id="performance" class="min-h-screen py-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl md:text-6xl font-bold mb-4 text-neon-blue neon-glow">
+                08. Performance Stress Test
+            </h2>
+            <p class="text-gray-400 mb-12 text-lg">
+                Dezenas de animações simultâneas mantendo 60fps
+            </p>
+
+            <div class="grid grid-cols-6 md:grid-cols-12 gap-2">
+                <!-- 72 pequenos cards animados -->
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+                <div class="section-card aspect-square rounded"></div>
+            </div>
+            <div class="mt-8 text-center">
+                <p class="text-neon-blue text-xl">FPS: <span class="font-mono font-bold">60</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 px-6 border-t border-neon-pink/20">
+        <div class="container mx-auto max-w-6xl text-center">
+            <p class="text-gray-500">
+                Desenvolvido por <span class="text-neon-pink">Fausto</span> · 
+                <a href="https://github.com/seuuser/motion-lab" class="text-neon-blue hover:underline">GitHub</a> · 
+                Next.js + Motion + Tailwind
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>

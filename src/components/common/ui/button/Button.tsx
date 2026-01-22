@@ -1,8 +1,9 @@
 "use client"
-import { motion } from "motion/react"
+
 import { useRef } from 'react'
 import type { ComponentProps, ReactNode } from 'react'
 import { cn, tv, type VariantProps } from '@/lib/utils'
+import { motion } from 'framer-motion'
 
 const buttonStyles = tv({
   base: 'relative w-full bg-purple-300/50 block overflow-hidden p-4 whitespace-nowrap text-2xl font-black uppercase sm:text-2xl md:text-3xl lg:text-3xl',
