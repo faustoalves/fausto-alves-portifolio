@@ -25,8 +25,8 @@ export const Header:HeaderProps[] = [
     id: 1,
     title: 'Sleeping',
     description: 'I sleep 8 hours a day',
-    imageBg: 'https://res.cloudinary.com/faustoalves/image/upload/v1769032711/portifolio/header/sleep_front_kcycc2.png',
-    imageFront: 'https://res.cloudinary.com/faustoalves/image/upload/v1769032696/portifolio/header/sleep_back_eqhujk.png',
+    imageFront: 'https://res.cloudinary.com/faustoalves/image/upload/v1769032711/portifolio/header/sleep_front_kcycc2.png',
+    imageBg: 'https://res.cloudinary.com/faustoalves/image/upload/v1769032696/portifolio/header/sleep_back_eqhujk.png',
     days: [1, 2, 3, 4, 5, 6, 7, 8],
     time: {
       start: 0,
@@ -37,8 +37,8 @@ export const Header:HeaderProps[] = [
     id: 2,
     title: 'Sleeping',
     description: 'I sleep 8 hours a day',
-    imageFront: 'https://res.cloudinary.com/faustoalves/image/upload/v1769032696/portifolio/header/sleep_back_eqhujk.png',
-    imageBg: 'https://res.cloudinary.com/faustoalves/image/upload/v1769032711/portifolio/header/sleep_front_kcycc2.png',
+    imageBg: 'https://res.cloudinary.com/faustoalves/image/upload/v1769032696/portifolio/header/sleep_back_eqhujk.png',
+    imageFront: 'https://res.cloudinary.com/faustoalves/image/upload/v1769032711/portifolio/header/sleep_front_kcycc2.png',
     days: [1, 2, 3, 4, 5, 6, 7, 8],
     time: {
       start: 23,
@@ -62,7 +62,7 @@ export const Header:HeaderProps[] = [
     title: 'Developing',
     description: 'I develop 8 hours a day',
     imageFront: 'https://res.cloudinary.com/faustoalves/image/upload/v1769032714/portifolio/header/dev_front_i51k9w.png',
-    imageBg: 'https://res.cloudinary.com/faustoalves/image/upload/v1769032705/portifolio/header/dev_back_y4kxtc.png≈',
+    imageBg: 'https://res.cloudinary.com/faustoalves/image/upload/v1769032705/portifolio/header/dev_back_y4kxtc.png',
     days: [1, 2, 3, 4, 5],
     time: {
       start: 14,
