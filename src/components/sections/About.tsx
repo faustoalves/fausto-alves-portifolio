@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from '../common/ui/button/Button'
+import AboutAvatar from '../about/AboutAvatar'
 
 type Props = {}
 
@@ -7,9 +8,11 @@ const About = (props: Props) => {
   return (
     <section className='w-full grid grid-cols-1 md:grid-cols-2 relative mt-10 top-line bottom-line '>
 
-      
-      <div className='w-full h-full  pattern-bg'>
-      <h2 className='text-2xl font-bold p-6'>About</h2>
+<AboutAvatar />
+      <div className='w-full h-full pattern-bg'>
+      <h2 className='text-2xl font-bold p-6'>
+        aaaa
+      </h2>
       </div>
     </section>
   )

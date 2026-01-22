@@ -101,3 +101,19 @@ h6 {
 .border-line{
   @apply border border-purple-900/20 dark:border-white/10; 
 }
+.text-circle {
+  @apply fill-current;
+  animation: rotate 25s linear infinite;
+  transform-origin: 250px 250px;
+
+}
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+
+  }
+}
+.textcircle {
+  transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1);
+  transform-origin: 250px 250px;
+}
