@@ -42,7 +42,7 @@ const HeaderImageContainer = ({ imageFront, imageBg }: DayScheduleItem) => {
           src={imageFront}
           sizes="100vw"
           alt="Description of my image"
-          className='w-full h-full relative pt-10 z-20 object-cover scale-[107%]'
+          className='w-full h-full relative z-20 object-cover scale-115 md:scale-[107%] md:pt-10'
           style={{
             transform: `translate(${mousePercent.x * 50 - 25}px) translateY(${mousePercent.y * 50 }px)`,
           }}
@@ -54,7 +54,7 @@ const HeaderImageContainer = ({ imageFront, imageBg }: DayScheduleItem) => {
           height="700"
           src={imageBg}
           alt="Description of my image"
-          className='w-full h-full object-cover scale-[107%]'
+          className='w-full h-full object-cover scale-115 md:scale-[107%]'
           style={{
             transform: `translate(${mousePercent.x * 30 - 15}px) translateY(${mousePercent.y * 30 - 15}px)`,
           }}
