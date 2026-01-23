@@ -10,7 +10,7 @@ const AVATAR_REAL_URL = 'https://res.cloudinary.com/faustoalves/image/upload/v17
 
 const AboutAvatar = (props: Props) => {
   return (
-    <div className='py-8 md:py-16 lg:py-32 group relative perspective-1000 flex items-center justify-center   '>
+    <div className='py-8 md:py-16 lg:py-32 group relative perspective-1000 flex items-center justify-center overflow-hidden'>
       <div className='w-[200px] md:w-[300px] max-w-full rounded-full border-4 border-purple-500/20 transition-all duration-500 transform-3d group-hover:rotate-y-180 group-hover:scale-115 scale-100 z-10'>
         <CldImage
           width="512"

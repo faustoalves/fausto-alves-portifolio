@@ -8,11 +8,13 @@ import Agenda from "@/components/sections/Agenda";
 import Footer from "@/components/sections/Footer";
 import Works from "@/components/sections/Works";
 import About from "@/components/sections/About";
+import Benu from "@/components/works/benu/Benu";
 
 export default function Home() {
   return (
     <>
     <Navbar />
+
     <MainContainer>
       <Intro />
       <Header />
@@ -21,7 +23,6 @@ export default function Home() {
         <Skills />
         <Agenda />
       </MainContainer>
-      {/* <Footer /> */}
     </>
 );
 }

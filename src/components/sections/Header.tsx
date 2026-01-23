@@ -1,8 +1,4 @@
-"use client"
-import React from 'react'
 import { getHeaderByDateTime } from '@/lib/header'
-import Image from 'next/image'
-import { CldImage } from 'next-cloudinary'
 import HeaderImageContainer from '../header/HeaderImageContainer'
 
 type Props = {}

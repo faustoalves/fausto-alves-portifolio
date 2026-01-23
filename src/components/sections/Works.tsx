@@ -36,7 +36,7 @@ const Works = (props: Props) => {
       ref={container}
       className='w-full flex flex-col items-start justify-center relative mt-10 top-line bottom-line '
     >
-      <div className='w-full h-full flex flex-col items-start justify-center mb-10 sticky top-0 gap-4 pb-60'>
+      <div className='w-full h-full flex flex-col items-start justify-center mb-10 sticky top-0 gap-4 pb-72'>
         <div className='w-full bottom-line pattern-bg lg:col-span-2 p-4 text-center sticky top-0'>
           <h2>Last works</h2>
         </div>
