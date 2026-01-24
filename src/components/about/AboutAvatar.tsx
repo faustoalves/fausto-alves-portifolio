@@ -16,8 +16,7 @@ const AboutAvatar = (props: Props) => {
           width="512"
           height="512"
           src={AVATAR_3D_URL}
-          sizes="(max-width: 768px) 100vw,
-          (max-width: 1200px) 50vw,
+          sizes="(max-width: 768px) 50vw,
           33vw"
           alt="Avatar 3D"
           quality={75}
