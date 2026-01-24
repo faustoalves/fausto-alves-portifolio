@@ -20,7 +20,7 @@ const AboutAvatar = (props: Props) => {
           (max-width: 1200px) 50vw,
           33vw"
           alt="Avatar 3D"
-          quality={85}
+          quality={75}
           className='w-full object-cover rounded-full aspect-square backface-hidden'
         />
         <CldImage
@@ -31,7 +31,7 @@ const AboutAvatar = (props: Props) => {
           (max-width: 1200px) 50vw,
           33vw"
           alt="Avatar Real"
-          quality={85}
+          quality={75}
           className='w-full object-cover rounded-full aspect-square absolute top-0 left-0 backface-hidden rotate-y-180'
 
         />

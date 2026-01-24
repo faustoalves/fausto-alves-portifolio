@@ -2,6 +2,7 @@
 import type { DayScheduleItem } from '@/lib/header'
 import { CldImage } from 'next-cloudinary'
 import React from 'react'
+import { useMousePercent } from '@/hooks/MousePercent'
 
 type Props = {
   daySchedule: DayScheduleItem
@@ -9,22 +10,10 @@ type Props = {
 
 const HeaderImageContainer = ({ imageFront, imageBg }: DayScheduleItem) => {
 
-  const [mousePercent, setMousePercent] = React.useState({ x: 0.5, y: 0.5 });
+  const mousePercent = useMousePercent();
 
-  React.useEffect(() => {
-    
-    const handleMouseMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth) ;
-      const y = (e.clientY / window.innerHeight);
-      if(window.innerWidth < 768) {
-        setMousePercent({ x: 0.5, y: 0.5 });
-      }else{
-        setMousePercent({ x, y });
-      }
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+
+
 
   return (
 

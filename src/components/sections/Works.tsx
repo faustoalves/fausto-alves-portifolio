@@ -36,14 +36,14 @@ const Works = (props: Props) => {
       ref={container}
       className='w-full flex flex-col items-start justify-center relative mt-10 top-line bottom-line '
     >
-      <div className='w-full h-full flex flex-col items-start justify-center mb-10 sticky top-0 gap-4 pb-72'>
+      <div className='w-full h-full flex flex-col items-start justify-center mb-10 sticky top-0 gap-4 pb-28'>
         <div className='w-full bottom-line pattern-bg lg:col-span-2 p-4 text-center sticky top-0'>
           <h2>Last works</h2>
         </div>
         {workList.map((work, index) => {
-          const targetScale = 1 - ( (workList.length - index) * 0.05);         
+          const targetScale = 1 - ( (workList.length + 1 - index) * 0.05);     
           // return <WorkCard key={work.title} index={index} {...work} progress={scrollYProgress} range={[index * .25, 1]} targetScale={targetScale}/>
-          return <WorkCard key={work.title} index={index} {...work} progress={scrollYProgress} range={[index * .25, 1]} targetScale={targetScale}/>
+          return <WorkCard key={index} index={index} {...work} progress={scrollYProgress} range={[index * (1 /workList.length ), 1]} targetScale={targetScale}/>
         })}
       </div>
     </section>
