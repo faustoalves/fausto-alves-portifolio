@@ -145,7 +145,7 @@ export async function POST(req: Request) {
 
     const meetLink =
       created.conferenceData?.entryPoints?.find(
-        (e: any) => e.entryPointType === "video",
+        (e) => typeof e === "object" && e.entryPointType === "video",
       )?.uri ?? null;
 
     // 👇 ADICIONA ISSO

@@ -1,9 +1,12 @@
 import React from "react";
 import AgendaDayDot from "./AgendaDayDot";
 
-type Props = {};
+type Props = {
+  day: number;
+  month: string;
+};
 
-const AgendaDay = (props: Props) => {
+const AgendaDay = ({ day, month }: Props) => {
   // tailwind-variants for agenda item status: 'disable', 'actual', 'available'
   const agendaDayVariants = {
     disable: "bg-purple-900 text-purple-500 opacity-50 cursor-not-allowed",
@@ -15,9 +18,11 @@ const AgendaDay = (props: Props) => {
   return (
     <div className="relative font-heading w-full aspect-square lg:aspect-4/3 bg-purple-700 flex items-center justify-center flex-col rounded-sm">
       <p className="text-center text-lg lg:text-2xl leading-5 font-bold relative">
-        21
+        {day}
       </p>
-      <p className=" text-center text-xs lg:text-sm leading-4 relative">jan</p>
+      <p className=" text-center text-xs lg:text-sm leading-4 relative">
+        {month}
+      </p>
       <div className="absolute right-0 top-0 p-0.5 lg:p-1 flex flex-col items-start justify-start gap-0.5 lg:gap-0.75">
         <AgendaDayDot variant="disable" />
       </div>
