@@ -10,11 +10,15 @@
   },
   "dependencies": {
     "@studio-freight/lenis": "^1.0.42",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "framer-motion": "^12.28.1",
+    "googleapis": "^170.1.0",
     "next": "16.1.2",
     "next-cloudinary": "^6.17.5",
     "react": "19.2.3",
     "react-dom": "19.2.3",
+    "resend": "^6.8.0",
     "tailwind-merge": "^3.4.0",
     "tailwind-variants": "^3.2.2",
     "zustand": "^5.0.10"
