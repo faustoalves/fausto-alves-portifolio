@@ -33,7 +33,7 @@ const AgendaDay = ({
     actual:
       "bg-pink-500 text-white border-2 border-pink-200 cursor-not-allowed`",
     available:
-      "bg-purple-200 border border-purple-700/20 dark:bg-purple-600 text-purple-700 dark:text-white hover:bg-purple-300 cursor-pointer transition",
+      "bg-purple-200 border border-purple-700/20 dark:bg-purple-700 text-purple-700 dark:text-white hover:bg-purple-300 cursor-pointer transition",
   };
 
   const { schedule, updateSchedule } = useScheduleStore();
