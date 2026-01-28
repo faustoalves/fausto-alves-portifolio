@@ -1,11 +1,11 @@
 import React from "react";
 import AgendaDayDot, { AgendaDayDotVariants } from "./AgendaDayDot";
-import { Slot } from "@/lib/slots";
+import type { SlotItem } from "@/lib/schedule";
 
 type Props = {
   day: number;
   month: string;
-  slots: Slot[];
+  slots: SlotItem[];
   enabled?: boolean;
   actual?: boolean;
 };

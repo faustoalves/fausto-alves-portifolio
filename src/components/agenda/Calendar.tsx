@@ -3,7 +3,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import AgendaItem from "../agenda/AgendaDay";
 import { TimezoneSelector } from "../agenda/TimezoneSelector";
 import type { Timezone } from "@/lib/timezone";
-import { AvailableSlotsResponse } from "@/lib/slots";
+import type { AvailableSlotsResponse } from "@/lib/schedule";
 
 type Props = Record<string, unknown>;
 
@@ -153,7 +153,7 @@ const Calendar = (_props: Props) => {
                   onChange={(tz) => setSelectedTimezone(tz)}
                   placeholder="Selecione o fuso horário"
                 />
-                {selectedTimezone && slotsFormatted.length > 0 && (
+                {/* {selectedTimezone && slotsFormatted.length > 0 && (
                   <div className="w-full">
                     <p className="text-purple-300 text-xs lg:text-sm uppercase tracking-widest mb-2">
                       Horários disponíveis (no seu fuso)
@@ -171,7 +171,7 @@ const Calendar = (_props: Props) => {
                         ))}
                     </ul>
                   </div>
-                )}
+                )} */}
               </div>
             </div>
           </div>
