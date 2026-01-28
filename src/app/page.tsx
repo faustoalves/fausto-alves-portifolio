@@ -2,7 +2,6 @@ import MainContainer from "@/components/common/container/MainContainer";
 import Header from "@/components/sections/Header";
 import Navbar from "@/components/sections/Navbar";
 import Intro from "@/components/sections/Intro";
-import Image from "next/image";
 import Skills from "@/components/sections/Skills";
 import Agenda from "@/components/sections/Agenda";
 import Footer from "@/components/sections/Footer";
@@ -19,7 +18,7 @@ export default function Home() {
         <About />
         <Works />
         <Skills />
-        <Agenda />
+        {/* <Agenda /> */}
       </MainContainer>
       <Footer />
     </>
