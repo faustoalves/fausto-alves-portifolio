@@ -35,7 +35,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${urbanist.variable} ${geistMono.variable}`}
     >
-      <body className="antialiased max-w-screen overflow-x-hidden bg-purple-900 min-h-screen">
+      <body className="antialiased max-w-screen overflow-x-hidden min-h-screen">
         
         {children}
       </body>
