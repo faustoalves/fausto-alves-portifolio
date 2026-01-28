@@ -5,7 +5,11 @@ import { TimezoneSelector } from "../agenda/TimezoneSelector";
 import type { Timezone } from "@/lib/timezone";
 import { dateInTimezone, weekdayOf } from "@/lib/schedule";
 import type { AvailableSlotsResponse, SlotItem } from "@/lib/schedule";
-import { useScheduleSlotsStore } from "@/stores/ScheduleStore";
+import {
+  useScheduleSlotsStore,
+  useScheduleStore,
+} from "@/stores/ScheduleStore";
+import { cn } from "@/lib/utils";
 
 type Props = Record<string, unknown>;
 
@@ -23,6 +27,7 @@ type CalendarGridProps = {
   cells: CalendarCell[];
   selectedTimezone: Timezone | "";
   onTimezoneChange: (timezone: Timezone | "") => void;
+  className?: string;
 };
 
 type BuildCalendarCellsArgs = {
@@ -92,12 +97,15 @@ const CalendarGrid = ({
   cells,
   selectedTimezone,
   onTimezoneChange,
+  className,
 }: CalendarGridProps) => (
-  <div className="w-full grid grid-cols-7 gap-2 lg:gap-3 ">
+  <div
+    className={cn("w-full grid grid-cols-7 gap-1 lg:gap-3 mx-auto`", className)}
+  >
     {WEEKDAYS.map((weekday) => (
       <p
         key={weekday}
-        className="tracking-widest text-center uppercase text-[10px] lg:text-xs text-purple-300"
+        className="tracking-widest text-center uppercase text-[10px] lg:text-xs py-2 text-purple-500 dark:text-purple-300"
       >
         {weekday}
       </p>
@@ -115,7 +123,7 @@ const CalendarGrid = ({
       />
     ))}
 
-    <div className="w-full col-span-7 flex flex-col gap-4">
+    <div className="w-full col-span-7 flex flex-col pt-2">
       <TimezoneSelector
         value={selectedTimezone}
         onChange={onTimezoneChange}
@@ -125,9 +133,9 @@ const CalendarGrid = ({
   </div>
 );
 
-
 const Calendar = (_props: Props) => {
   const { slots, updateSlots } = useScheduleSlotsStore();
+  const { schedule } = useScheduleStore();
   const [selectedTimezone, setSelectedTimezone] = useState<Timezone | "">("");
   useEffect(() => {
     const fetchAvailableSlots = async () => {

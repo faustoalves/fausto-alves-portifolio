@@ -13,15 +13,15 @@ import Benu from "@/components/works/benu/Benu";
 export default function Home() {
   return (
     <>
-    <Navbar />
-    <MainContainer>
-      <Intro />
-      <Agenda />
-      <Header />
-      <About />
-      <Works />
-      <Skills />
-    </MainContainer>
-  </>
-);
+      <Navbar />
+      <MainContainer>
+        <Intro />
+        <Header />
+        <About />
+        <Works />
+        <Skills />
+        <Agenda />
+      </MainContainer>
+    </>
+  );
 }

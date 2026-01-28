@@ -2,9 +2,9 @@ import { cn } from "@/utilities/ui";
 import { twMerge } from "tailwind-merge";
 
 const agendaDayDotVariants = {
-  booked: "bg-cyan-500",
-  locked: "bg-cyan-500",
-  available: "bg-transparent",
+  booked: "bg-cyan-700 border-cyan-500 dark:bg-cyan-500 dark:border-cyan-700",
+  locked: "bg-cyan-700 border-cyan-500 dark:bg-cyan-500 dark:border-cyan-700",
+  available: "bg-transparent border-purple-600 dark:border-purple-300",
 };
 
 export type AgendaDayDotVariants = keyof typeof agendaDayDotVariants;

@@ -3,6 +3,8 @@ import { useScheduleStore } from "@/stores/ScheduleStore";
 import Calendar from "../agenda/Calendar";
 import CalendarHeader from "../agenda/CalendarHeader";
 import SlotTime from "../agenda/SlotTime";
+import { AnimatePresence, motion } from "framer-motion";
+import AgendaUserInfo from "../agenda/AgendaUserInfo";
 
 type Props = Record<string, unknown>;
 
@@ -11,12 +13,22 @@ const Agenda = (_props: Props) => {
   return (
     <section className="w-full flex flex-col items-start justify-center relative mt-10 top-line bottom-line ">
       <CalendarHeader />
-      <div className="w-full h-full flex flex-col items-center justify-center my-6 px-4 lg:px-0 ">
-        <div className="w-full lg:w-1/2 flex flex-col items-start justify-center my-10 bg-purple-800   mb-50">
-          <div className="w-full h-full flex flex-col items-start justify-center p-2 lg:p-4 top-line bottom-line relative">
+      <div className="w-full mx-auto h-full flex flex-col items-center justify-center my-6 px-0 ">
+        <div
+          className={`w-full lg:w-1/2 flex flex-col relative items-start justify-center my-10 bg-purple-100/50 dark:bg-purple-800 top-line bottom-line `}
+        >
+          <motion.div
+            layout
+            className={`w-full h-full flex flex-col items-start justify-center relative p-2 overflow-hidden`}
+          >
             <Calendar />
-            {schedule.state === "time" && <SlotTime />}
-          </div>
+            <AnimatePresence>
+              {schedule.state === "time" && <SlotTime key="slot-time" />}
+              {schedule.state === "user-info" && (
+                <AgendaUserInfo key="agenda-user-info" />
+              )}
+            </AnimatePresence>
+          </motion.div>
         </div>
       </div>
     </section>
