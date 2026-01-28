@@ -69,17 +69,13 @@ export async function GET() {
       freeBusyResponse.data.calendars?.[process.env.GOOGLE_CALENDAR_ID!]
         ?.busy || [];
 
-    // 3. Gera estrutura de dias + slots
-    const days = [];
+    // 3. Gera lista plana de slots em UTC
+    const slots = [];
     const current = new Date(tomorrow);
 
     while (current <= endDate) {
       const dateStr = current.toISOString().split("T")[0];
-      const dayOfWeek = current.toLocaleDateString("en-US", {
-        weekday: "long",
-      });
-
-      const slots = BASE_SLOTS.map((time, idx) => {
+      const daySlots = BASE_SLOTS.map((time, idx) => {
         const dateTime = `${dateStr}T${time}:00-03:00`;
         const slotStart = new Date(dateTime);
         const slotEnd = new Date(slotStart.getTime() + 30 * 60 * 1000);
@@ -93,8 +89,7 @@ export async function GET() {
 
         if (isBooked) {
           return {
-            time,
-            dateTime,
+            dateTimeUTC: slotStart.toISOString(),
             status: "booked" as const,
           };
         }
@@ -103,24 +98,18 @@ export async function GET() {
         const lockedIndices = getLockedSlotsForDate(dateStr);
         if (lockedIndices.includes(idx)) {
           return {
-            time,
-            dateTime,
+            dateTimeUTC: slotStart.toISOString(),
             status: "locked" as const,
           };
         }
 
         return {
-          time,
-          dateTime,
+          dateTimeUTC: slotStart.toISOString(),
           status: "available" as const,
         };
       });
 
-      days.push({
-        date: dateStr,
-        dayOfWeek,
-        slots,
-      });
+      slots.push(...daySlots);
 
       current.setDate(current.getDate() + 1);
     }
@@ -131,7 +120,7 @@ export async function GET() {
         start: tomorrow.toISOString().split("T")[0],
         end: endDate.toISOString().split("T")[0],
       },
-      days,
+      slots,
     });
   } catch (err: any) {
     console.error("Error in available-slots:", err);
