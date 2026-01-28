@@ -18,7 +18,7 @@ export default function Home() {
         <About />
         <Works />
         <Skills />
-        {/* <Agenda /> */}
+        <Agenda />
       </MainContainer>
       <Footer />
     </>
