@@ -3,11 +3,20 @@ import { getCalendarClient } from "@/lib/google-auth";
 
 const BASE_SLOTS = ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00"];
 
+const AGENDA_TZ = "-03:00"; // Brasília — mesmo fuso dos slots
+
 function getLockedSlotsForDate(dateStr: string): number[] {
+  // Interpreta a data no fuso da agenda (-03:00) para não depender do TZ do servidor
+  const targetDate = new Date(`${dateStr}T12:00:00${AGENDA_TZ}`);
+  const dayOfWeek = targetDate.getUTCDay(); // 0 = domingo, 6 = sábado
+
+  // Fim de semana: todos os slots travados
+  if (dayOfWeek === 0 || dayOfWeek === 6) {
+    return [0, 1, 2, 3, 4, 5];
+  }
+
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-
-  const targetDate = new Date(dateStr);
   targetDate.setHours(0, 0, 0, 0);
 
   const daysAhead = Math.floor(
@@ -19,10 +28,10 @@ function getLockedSlotsForDate(dateStr: string): number[] {
   if (daysAhead <= 1)
     maxLocked = 4; // amanhã: 4 travados
   else if (daysAhead <= 3)
-    maxLocked = 3; // próximos 3 dias: 3 travados
+    maxLocked = 2; // próximos 3 dias: 3 travados
   else if (daysAhead <= 7)
-    maxLocked = 2; // próxima semana: 2 travados
-  else maxLocked = 1; // depois: 1 travado
+    maxLocked = 1; // próxima semana: 2 travados
+  else maxLocked = 0; // depois: 1 travado
 
   // Usa a data como seed pra gerar sempre os mesmos slots travados
   const seed = targetDate.getTime();
