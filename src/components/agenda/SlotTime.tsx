@@ -58,7 +58,7 @@ const SlotTime = (props: Props) => {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
         transition={{ duration: 0.3 }}
-        className="flex flex-col gap-2 items-center justify-center w-3/5 p-2 lg:p-4 mx-auto bg-purple-100 dark:bg-purple-800 rounded-lg drop-shadow-lg border-2 border-purple-900/10"
+        className="flex flex-col gap-2 items-center justify-center w-full lg:w-3/5 p-2 lg:p-4 mx-auto bg-purple-100 dark:bg-purple-800 rounded-lg drop-shadow-lg border-2 border-purple-900/10"
       >
         <button
           onClick={handleClose}
@@ -66,7 +66,7 @@ const SlotTime = (props: Props) => {
         >
           <X />
         </button>
-        <p className="text-2xl font-semibold text-purple-800 dark:text-white text-center w-full">
+        <p className="lg:text-2xl text-xl font-semibold text-purple-800 dark:text-white text-center w-full">
           <span className="font-light`">{weekday}</span> - {schedule.day}{" "}
           {monthLabel}
         </p>
@@ -83,7 +83,8 @@ const SlotTime = (props: Props) => {
                 key={slot.dateTimeUTC + idx}
                 onClick={() => handleSelectTime(slot.dateTimeUTC)}
                 disabled={slot.status === "locked" || slot.status === "booked"}
-                className="w-full py-2 px-4  bg-purple-700 rounded cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed hover:bg-purple-600 transition"
+                className="w-full py-2 px-4 bg-pink-600 text-white font-semibold rounded cursor-pointer 
+                disabled:opacity-20 disabled:cursor-not-allowed hover:bg-pink-700 transition"
               >
                 {hours}:{minutes} - {hours}:{30}
               </button>

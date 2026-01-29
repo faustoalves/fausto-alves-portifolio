@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Check, ChevronsUpDown } from "lucide-react";
+import { Check, ChevronDown, ChevronsUpDown, Globe } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -18,10 +18,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import {
-  getTimezonesByRegion,
-  type Timezone,
-} from "@/lib/timezone";
+import { getTimezonesByRegion, type Timezone } from "@/lib/timezone";
 import { useScheduleStore } from "@/stores/ScheduleStore";
 
 function formatTimezoneLabel(tz: string): string {
@@ -58,52 +55,58 @@ export function TimezoneSelector({
   };
 
   return (
-    <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
-        <Button
-          variant="outline"
-          role="combobox"
-          aria-expanded={open}
-          className={cn("w-full justify-between font-normal", className)}
-        >
-          {currentValue ? formatTimezoneLabel(currentValue) : placeholder}
-          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent
-        className="w-(--radix-popover-trigger-width) p-0"
-        align="start"
-      >
-        <Command>
-          <CommandInput placeholder="Search timezone..." className="h-9" />
-          <CommandList>
-            <CommandEmpty>No timezone found.</CommandEmpty>
-            {Object.entries(regions).map(
-              ([region, zones]) =>
-                zones.length > 0 && (
-                  <CommandGroup key={region} heading={region}>
-                    {zones.map((tz) => (
-                      <CommandItem
-                        key={tz}
-                        value={tz}
-                        onSelect={() => handleSelect(tz as Timezone)}
-                      >
-                        {formatTimezoneLabel(tz)}
-                        <Check
-                          className={cn(
-                            "ml-auto h-4 w-4",
-                            currentValue === tz ? "opacity-100" : "opacity-0",
-                          )}
-                        />
-                      </CommandItem>
-                    ))}
-                  </CommandGroup>
-                ),
+    <div className="flex items-center justify-end w-auto min-w-[260px] px-2  ml-auto rounded-md border border-purple-200 dark:border-purple-800 bg-purple-50 dark:bg-purple-900/50">
+      <Globe className="h-4 w-4 opacity-50 mr-3 text-purple-800 dark:text-purple-200" />
+      <Popover open={open} onOpenChange={setOpen}>
+        <PopoverTrigger asChild>
+          <Button
+            variant="icon"
+            role="combobox"
+            aria-expanded={open}
+            className={cn(
+              "justify-between font-normal max-w-[260px] w-full  py-1 px-0 bg-transparent border-none  text-purple-800 dark:text-purple-200",
+              className,
             )}
-          </CommandList>
-        </Command>
-      </PopoverContent>
-    </Popover>
+          >
+            {currentValue ? formatTimezoneLabel(currentValue) : placeholder}
+            <ChevronDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent
+          className="w-(--radix-popover-trigger-width) p-0"
+          align="start"
+        >
+          <Command>
+            <CommandInput placeholder="Search timezone..." className="h-9" />
+            <CommandList>
+              <CommandEmpty>No timezone found.</CommandEmpty>
+              {Object.entries(regions).map(
+                ([region, zones]) =>
+                  zones.length > 0 && (
+                    <CommandGroup key={region} heading={region}>
+                      {zones.map((tz) => (
+                        <CommandItem
+                          key={tz}
+                          value={tz}
+                          onSelect={() => handleSelect(tz as Timezone)}
+                        >
+                          {formatTimezoneLabel(tz)}
+                          <Check
+                            className={cn(
+                              "ml-auto h-4 w-4",
+                              currentValue === tz ? "opacity-100" : "opacity-0",
+                            )}
+                          />
+                        </CommandItem>
+                      ))}
+                    </CommandGroup>
+                  ),
+              )}
+            </CommandList>
+          </Command>
+        </PopoverContent>
+      </Popover>
+    </div>
   );
 }
 
