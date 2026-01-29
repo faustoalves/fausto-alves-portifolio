@@ -5,7 +5,7 @@ type Props = {};
 
 const Header = (props: Props) => {
   const dateTime = new Date();
-  dateTime.setHours(dateTime.getHours() - 4);
+  dateTime.setHours(dateTime.getHours() - 3);
   const daySchedule = getHeaderByDateTime(dateTime);
   return (
     <section className="w-full aspect-8/4 md:aspect-video lg:aspect-16/8 xl:aspect-16/7 mt-4 flex flex-col items-center justify-center relative top-line bottom-line pattern-bg p-2 ">
