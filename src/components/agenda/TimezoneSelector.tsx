@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Check, ChevronDown, ChevronsUpDown, Globe } from "lucide-react";
+import { Check, ChevronDown, Earth } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -56,7 +56,7 @@ export function TimezoneSelector({
 
   return (
     <div className="flex items-center justify-end w-auto min-w-[260px] px-2  ml-auto rounded-md border border-purple-200 dark:border-purple-800 bg-purple-50 dark:bg-purple-900/50">
-      <Globe className="h-4 w-4 opacity-50 mr-3 text-purple-800 dark:text-purple-200" />
+      <Earth className="h-4 w-4 opacity-50 mr-3 text-purple-800 dark:text-purple-200" />
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <Button

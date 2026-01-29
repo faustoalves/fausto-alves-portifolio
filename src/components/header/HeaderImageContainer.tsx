@@ -3,13 +3,23 @@ import type { DayScheduleItem } from "@/lib/header";
 import { CldImage } from "next-cloudinary";
 import React from "react";
 import { useMousePercent } from "@/hooks/MousePercent";
+import { getHeaderByDateTime } from "@/lib/header";
 
 type Props = {
   daySchedule: DayScheduleItem;
 };
 
-const HeaderImageContainer = ({ imageFront, imageBg }: DayScheduleItem) => {
+const HeaderImageContainer = () => {
   const mousePercent = useMousePercent();
+
+  const dateTime = new Date();
+  // Adjust dateTime to São Paulo Timezone (UTC-3)
+  const dateTimeSaoPaulo = new Date(
+    dateTime.toLocaleString("en-US", { timeZone: "America/Sao_Paulo" }),
+  );
+  const daySchedule = getHeaderByDateTime(dateTimeSaoPaulo);
+  if (!daySchedule) return null;
+  const { imageFront, imageBg } = daySchedule;
   return (
     <div className="w-full h-full">
       <div className="w-full h-[calc(125%)] absolute rounded-lg top-[-25%] overflow-hidden ">

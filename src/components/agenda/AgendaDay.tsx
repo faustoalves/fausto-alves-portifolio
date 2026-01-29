@@ -38,22 +38,23 @@ const AgendaDay = ({
     disable:
       "bg-purple-200 dark:bg-purple-900 text-purple-700 opacity-50 cursor-not-allowed",
     actual:
-      "bg-pink-500 text-white border-2 border-pink-200 cursor-not-allowed`",
+      "bg-cyan-200  border-cyan-700 text-cyan-800 dark:text-white border-2 dark:bg-cyan-900 dark:border-cyan-800 cursor-not-allowed`",
     available:
       "bg-purple-200 border border-purple-700/20 dark:bg-purple-700 text-purple-700 dark:text-white hover:bg-purple-300 cursor-pointer transition",
   };
 
+  const daySlots = getSlotsForDay();
+
   const { schedule, updateSchedule } = useScheduleStore();
 
   const handleClick = () => {
-    if (slots.length === 0) return;
+    if (daySlots.length === 0) return;
     updateSchedule({ state: "time", day: day, month: month, year: year });
-    console.log(schedule);
   };
 
   const variantClass = !enabled
     ? agendaDayVariants.disable
-    : slots.length === 0 && !actual
+    : daySlots.length === 0 && !actual
       ? agendaDayVariants.disable
       : // : agendaDayVariants.disable
         actual
@@ -62,7 +63,7 @@ const AgendaDay = ({
 
   return (
     <div
-      className={`relative font-heading w-full aspect-square lg:aspect-4/3 flex items-center justify-center flex-col rounded-sm ${variantClass}`}
+      className={`relative overflow-hidden font-heading w-full aspect-square lg:aspect-4/3 flex items-center group justify-center flex-col rounded-sm ${variantClass}`}
       onClick={handleClick}
     >
       <p className="text-center text-base lg:text-2xl leading-5 font-bold relative">
@@ -71,9 +72,19 @@ const AgendaDay = ({
       <p className=" text-center text-xs lg:text-sm leading-4 relative">
         {monthLabel}
       </p>
+      {daySlots.length > 0 && enabled && (
+        <div className="absolute top-0 left-0 right-0 bottom-0 bg-pink-600 dark:bg-pink-600 backdrop-blur-xl translate-y-full group-hover:translate-y-0 transition duration-300 ease-out w-full h-full flex flex-col items-center justify-center">
+          <p className="text-center text-base lg:text-2xl leading-5 font-bold relative text-white">
+            {day}
+          </p>
+          <p className=" text-center text-xs lg:text-sm leading-4 relative text-white">
+            {monthLabel}
+          </p>
+        </div>
+      )}
       {enabled && (
         <div className="absolute right-0 top-0 p-0.5 lg:p-1 flex flex-col items-start justify-start gap-0.5 lg:gap-0.5">
-          {getSlotsForDay().map((slot) => (
+          {daySlots.map((slot) => (
             <AgendaDayDot
               key={slot.dateTimeUTC}
               variant={slot.status as AgendaDayDotVariants}
