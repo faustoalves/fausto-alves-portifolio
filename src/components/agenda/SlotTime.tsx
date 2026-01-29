@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import {
   useScheduleSlotsStore,
   useScheduleStore,
@@ -6,11 +6,23 @@ import {
 import { X } from "lucide-react";
 import { motion } from "framer-motion";
 
+import { format } from "date-fns";
+import { toZonedTime } from "date-fns-tz";
+
 type Props = {};
 
 const SlotTime = (props: Props) => {
   const { schedule, updateSchedule } = useScheduleStore();
-  const { slots } = useScheduleSlotsStore();
+  const { slots, getSlotsInTimezone } = useScheduleSlotsStore();
+
+  const pad = (n: number) => n.toString().padStart(2, "0");
+  const datePrefix = `${schedule.year}-${pad(schedule.month)}-${pad(schedule.day)}`;
+
+  const getSlotsForDay = useCallback(() => {
+    return slots.filter((slot) => {
+      return slot.dateTimeUTC.startsWith(datePrefix);
+    });
+  }, [slots, schedule.year, schedule.month, schedule.day]);
   const monthLabel = new Date(
     Date.UTC(schedule.year, schedule.month - 1, schedule.day),
   ).toLocaleString("en", { month: "long", timeZone: "UTC" });
@@ -55,41 +67,28 @@ const SlotTime = (props: Props) => {
           <X />
         </button>
         <p className="text-2xl font-semibold text-purple-800 dark:text-white text-center w-full">
-          {weekday} - {schedule.day} {monthLabel}
+          <span className="font-light`">{weekday}</span> - {schedule.day}{" "}
+          {monthLabel}
         </p>
-        <p className="text-sm tracking-widest uppercase text-purple-800 dark:text-white text-center">
+        <p className="text-xs tracking-widest uppercase text-purple-800 dark:text-white text-center">
           Pick a time
         </p>
         <div className="h-auto grid grid-cols-2 gap-1 w-full mx-auto">
-          {slots
-            .filter(
-              (slot) =>
-                slot.dateTimeUTC &&
-                (() => {
-                  const date = new Date(slot.dateTimeUTC);
-                  return (
-                    date.getUTCDate() === schedule.day &&
-                    date.getUTCMonth() + 1 === schedule.month
-                  );
-                })(),
-            )
-            .map((slot, idx) => {
-              const date = new Date(slot.dateTimeUTC);
-              const hours = String(date.getUTCHours()).padStart(2, "0");
-              const minutes = String(date.getUTCMinutes()).padStart(2, "0");
-              return (
-                <button
-                  key={slot.dateTimeUTC + idx}
-                  onClick={() => handleSelectTime(slot.dateTimeUTC)}
-                  disabled={
-                    slot.status === "locked" || slot.status === "booked"
-                  }
-                  className="w-full py-2 px-4  bg-purple-700 rounded cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed hover:bg-purple-600 transition"
-                >
-                  {hours}:{minutes} - {hours}:{30}
-                </button>
-              );
-            })}
+          {getSlotsForDay().map((slot, idx) => {
+            const zonedDate = toZonedTime(slot.dateTimeUTC, schedule.timezone);
+            const hours = String(zonedDate.getHours()).padStart(2, "0");
+            const minutes = String(zonedDate.getMinutes()).padStart(2, "0");
+            return (
+              <button
+                key={slot.dateTimeUTC + idx}
+                onClick={() => handleSelectTime(slot.dateTimeUTC)}
+                disabled={slot.status === "locked" || slot.status === "booked"}
+                className="w-full py-2 px-4  bg-purple-700 rounded cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed hover:bg-purple-600 transition"
+              >
+                {hours}:{minutes} - {hours}:{30}
+              </button>
+            );
+          })}
         </div>
       </motion.div>
     </motion.div>

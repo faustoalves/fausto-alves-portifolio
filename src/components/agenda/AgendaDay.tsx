@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import AgendaDayDot, { AgendaDayDotVariants } from "./AgendaDayDot";
 import type { SlotItem } from "@/lib/schedule";
 import {
@@ -10,7 +10,6 @@ type Props = {
   day: number;
   month: number;
   year: number;
-  slots: SlotItem[];
   enabled?: boolean;
   actual?: boolean;
 };
@@ -19,10 +18,18 @@ const AgendaDay = ({
   day,
   month,
   year,
-  slots,
   enabled = true,
   actual = false,
 }: Props) => {
+  const { slots } = useScheduleSlotsStore();
+  const getSlotsForDay = useCallback(() => {
+    return slots.filter((slot) => {
+      const pad = (n: number) => n.toString().padStart(2, "0");
+      const datePrefix = `${year}-${pad(month)}-${pad(day)}`;
+      return slot.dateTimeUTC.startsWith(datePrefix);
+    });
+  }, [slots, year, month, day]);
+
   const monthLabel = new Date(Date.UTC(2000, month, 1))
     .toLocaleString("en", { month: "short" })
     .toUpperCase();
@@ -65,13 +72,14 @@ const AgendaDay = ({
         {monthLabel}
       </p>
       {enabled && (
-        <div className="absolute right-0 top-0 p-0.5 lg:p-1 flex flex-col items-start justify-start gap-0.5 lg:gap-0.75">
-          {slots.map((slot) => (
+        <div className="absolute right-0 top-0 p-0.5 lg:p-1 flex flex-col items-start justify-start gap-0.5 lg:gap-0.5">
+          {getSlotsForDay().map((slot) => (
             <AgendaDayDot
               key={slot.dateTimeUTC}
               variant={slot.status as AgendaDayDotVariants}
             />
           ))}
+
           {/* <AgendaDayDot variant="disable" /> */}
         </div>
       )}

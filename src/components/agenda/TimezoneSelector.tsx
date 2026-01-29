@@ -20,9 +20,9 @@ import {
 } from "@/components/ui/popover";
 import {
   getTimezonesByRegion,
-  isValidTimezone,
   type Timezone,
 } from "@/lib/timezone";
+import { useScheduleStore } from "@/stores/ScheduleStore";
 
 function formatTimezoneLabel(tz: string): string {
   if (tz === "UTC") return "UTC";
@@ -31,44 +31,28 @@ function formatTimezoneLabel(tz: string): string {
 }
 
 type TimezoneSelectorProps = {
-  value?: Timezone | string;
-  onChange?: (value: Timezone) => void;
+  value?: string;
+  onChange?: (value: string) => void;
   placeholder?: string;
   className?: string;
 };
 
-function getSystemTimezone(): Timezone | null {
-  if (typeof Intl === "undefined" || !Intl.DateTimeFormat) return null;
-  const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-  return isValidTimezone(tz) ? (tz as Timezone) : null;
-}
-
 export function TimezoneSelector({
-  value = "",
+  value,
   onChange,
   placeholder = "Select timezone...",
   className,
 }: TimezoneSelectorProps) {
   const [open, setOpen] = React.useState(false);
-  const [internalValue, setInternalValue] = React.useState(value as string);
+  const { schedule, updateSchedule } = useScheduleStore();
+  const storeTimezone = schedule.timezone ?? "";
 
-  React.useEffect(() => {
-    const systemTz = getSystemTimezone();
-    const hasNoValue = value === undefined || value === "";
-    if (hasNoValue && systemTz) {
-      setInternalValue(systemTz);
-      onChange?.(systemTz);
-    }
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps -- init from system timezone once on mount
-
-  const currentValue = (
-    value !== undefined && value !== "" ? value : internalValue
-  ) as string;
+  const currentValue = ((value ?? storeTimezone) as string) ?? "";
 
   const regions = React.useMemo(() => getTimezonesByRegion(), []);
 
   const handleSelect = (tz: Timezone) => {
-    setInternalValue(tz);
+    updateSchedule({ timezone: tz });
     onChange?.(tz);
     setOpen(false);
   };
