@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "../ui/textarea";
 
 const userInfoSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -38,21 +39,26 @@ const UserInfoForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-      <div className="space-y-2">
-        <label className="text-sm font-medium text-foreground">Name</label>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="w-full flex flex-col items-center justify-center px-4 gap-2"
+    >
+      <div className="w-full flex flex-col items-center justify-center ">
+        {/* <label className="text-sm font-medium text-foreground">Name</label> */}
         <Input
           placeholder="Your name"
           autoComplete="name"
           {...register("name")}
         />
         {errors.name ? (
-          <p className="text-sm text-destructive">{errors.name.message}</p>
+          <p className="w-full text-sm text-destructive">
+            {errors.name.message}
+          </p>
         ) : null}
       </div>
 
-      <div className="space-y-2">
-        <label className="text-sm font-medium text-foreground">E-mail</label>
+      <div className="w-full ">
+        {/* <label className="text-sm font-medium text-foreground">E-mail</label> */}
         <Input
           type="email"
           placeholder="you@example.com"
@@ -60,16 +66,23 @@ const UserInfoForm = () => {
           {...register("email")}
         />
         {errors.email ? (
-          <p className="text-sm text-destructive">{errors.email.message}</p>
+          <p className="w-full text-sm text-destructive">
+            {errors.email.message}
+          </p>
         ) : null}
       </div>
 
-      <div className="space-y-2">
-        <label className="text-sm font-medium text-foreground">
+      <div className="w-full ">
+        {/* <label className="text-sm font-medium text-foreground">
           Subject
           <span className="text-muted-foreground"> (optional)</span>
-        </label>
-        <Input placeholder="Subject" {...register("subject")} />
+        </label> */}
+        <Textarea
+          rows={3}
+          className="h-10"
+          placeholder="subject"
+          {...register("subject")}
+        />
       </div>
 
       <Button type="submit" disabled={isSubmitting}>
