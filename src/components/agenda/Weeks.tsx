@@ -90,13 +90,11 @@ const CalendarGrid = ({
   onTimezoneChange,
   className,
 }: CalendarGridProps) => (
-  <div
-    className={cn("w-full grid grid-cols-7 gap-1 lg:gap-3 mx-auto`", className)}
-  >
+  <div className={cn("w-full grid grid-cols-7 gap-2 py-2 mx-auto`", className)}>
     {WEEKDAYS.map((weekday) => (
       <p
         key={weekday}
-        className="tracking-widest text-center uppercase text-[10px] lg:text-xs py-2 text-purple-500 dark:text-purple-300"
+        className="tracking-widest text-center uppercase text-[12px] lg:text-xs py-3 text-purple-500 dark:text-purple-300"
       >
         {weekday}
       </p>

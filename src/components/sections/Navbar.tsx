@@ -3,13 +3,12 @@
 import React, { useEffect, useState } from "react";
 import LogoFausto from "../common/logo/LogoFausto";
 import Link from "next/link";
+import { MoonIcon, SunIcon } from "lucide-react";
 
 type Props = {};
 
 const Navbar = (props: Props) => {
-  const [themeMode, setThemeMode] = useState<"auto" | "light" | "dark">(
-    "auto",
-  );
+  const [themeMode, setThemeMode] = useState<"auto" | "light" | "dark">("auto");
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
@@ -23,7 +22,11 @@ const Navbar = (props: Props) => {
     const root = document.documentElement;
     const media = window.matchMedia("(prefers-color-scheme: dark)");
     const dark =
-      themeMode === "dark" ? true : themeMode === "light" ? false : media.matches;
+      themeMode === "dark"
+        ? true
+        : themeMode === "light"
+          ? false
+          : media.matches;
 
     root.classList.toggle("dark", dark);
     setIsDark(dark);
@@ -54,21 +57,21 @@ const Navbar = (props: Props) => {
     <nav className="w-full flex items-center justify-between p-4 top-line bottom-line bg-purple-50/50 dark:bg-purple-900/50 sticky top-0 z-50 backdrop-blur-2xl ">
       <LogoFausto className="text-pink-700 dark:text-pink-100 h-8 w-auto" />
       <div className="flex items-center gap-2">
-        <button
+        {/* <button
           type="button"
           onClick={() => setThemeMode("auto")}
           aria-pressed={themeMode === "auto"}
           className={getButtonClass(themeMode === "auto")}
         >
           Auto
-        </button>
+        </button> */}
         <button
           type="button"
           onClick={() => setThemeMode("light")}
           aria-pressed={themeMode === "light"}
           className={getButtonClass(themeMode === "light")}
         >
-          Claro
+          <SunIcon className="w-4 h-4" />
         </button>
         <button
           type="button"
@@ -76,7 +79,7 @@ const Navbar = (props: Props) => {
           aria-pressed={themeMode === "dark"}
           className={getButtonClass(themeMode === "dark")}
         >
-          Escuro
+          <MoonIcon className="w-4 h-4" />
         </button>
       </div>
     </nav>

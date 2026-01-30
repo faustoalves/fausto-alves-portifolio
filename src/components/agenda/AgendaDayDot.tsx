@@ -13,7 +13,7 @@ const AgendaDayDot = ({ variant }: { variant: AgendaDayDotVariants }) => {
   return (
     <div
       className={twMerge(
-        "w-0.75 h-0.75 lg:w-1.5 lg:h-1.5 bg-transparent rounded-full border-[0.5px]",
+        "w-1.25 h-1.25 lg:w-1.5 lg:h-1.5 bg-transparent rounded-full border-[0.5px]",
         cn(agendaDayDotVariants[variant]),
       )}
     ></div>

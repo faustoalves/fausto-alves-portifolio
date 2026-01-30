@@ -69,7 +69,7 @@ const WorkCard = ({
   return (
     <div
       ref={container}
-      className="w-full sticky top-0 px-2 lg:px-0 flex items-end justify-center lg:pt-24 "
+      className="w-full sticky top-0 px-2 lg:px-0 flex items-end justify-center pt-16 lg:pt-24 "
     >
       <div
         className={`w-full lg:w-7/8 aspect-square lg:aspect-21/9 relative flex flex-col-reverse lg:flex-row items-center justify-center origin-top rounded-lg overflow-hidden bg-linear-to-br ${color} drop-shadow-xl border border-purple-200/80 dark:border-purple-800/80`}

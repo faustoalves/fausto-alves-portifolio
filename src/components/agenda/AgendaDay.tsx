@@ -63,27 +63,23 @@ const AgendaDay = ({
 
   return (
     <div
-      className={`relative overflow-hidden font-heading w-full aspect-square lg:aspect-4/3 flex items-center group justify-center flex-col rounded-sm ${variantClass}`}
+      className={`relative overflow-hidden font-heading w-full aspect-6/9 lg:aspect-4/3 py-4 flex items-center group justify-center flex-col rounded-sm ${variantClass}`}
       onClick={handleClick}
     >
-      <p className="text-center text-base lg:text-2xl leading-5 font-bold relative">
-        {day}
-      </p>
-      <p className=" text-center text-xs lg:text-sm leading-4 relative">
-        {monthLabel}
-      </p>
+      <p className="text-center text-2xl leading-5 font-bold relative">{day}</p>
+      <p className=" text-center text-sm leading-4 relative">{monthLabel}</p>
       {daySlots.length > 0 && enabled && (
         <div className="absolute top-0 left-0 right-0 bottom-0 bg-pink-600 dark:bg-pink-600 backdrop-blur-xl translate-y-full group-hover:translate-y-0 transition duration-300 ease-out w-full h-full flex flex-col items-center justify-center">
-          <p className="text-center text-base lg:text-2xl leading-5 font-bold relative text-white">
+          <p className="text-center text-2xl leading-5 font-bold relative text-white">
             {day}
           </p>
-          <p className=" text-center text-xs lg:text-sm leading-4 relative text-white">
+          <p className=" text-center text-sm leading-4 relative text-white">
             {monthLabel}
           </p>
         </div>
       )}
       {enabled && (
-        <div className="absolute right-0 top-0 p-0.5 lg:p-1 flex flex-col items-start justify-start gap-0.5 lg:gap-0.5">
+        <div className="absolute bottom-1 lg:right-0 lg:top-0 p-0.5 lg:p-1 flex flex-row lg:flex-col items-start justify-start gap-0.5 lg:gap-0.5">
           {daySlots.map((slot) => (
             <AgendaDayDot
               key={slot.dateTimeUTC}
