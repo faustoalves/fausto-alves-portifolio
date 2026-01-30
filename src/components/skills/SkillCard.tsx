@@ -1,12 +1,11 @@
-import type { Skill } from '@/lib/sklils'
-import PixelCard from '../bits/PixelCard/PixelCard'
-import { IconFill, IconStroke } from './icons/Icon'
+import type { Skill } from "@/lib/sklils";
+import PixelCard from "../bits/PixelCard/PixelCard";
+import { IconFill, IconStroke } from "./icons/Icon";
 
-
-type Props = {}
+type Props = {};
 
 const SkillCard = ({ skill }: { skill: Skill }) => {
-  const sizeClass = '!aspect-square'
+  const sizeClass = "!aspect-square";
 
   return (
     <div
@@ -15,7 +14,7 @@ const SkillCard = ({ skill }: { skill: Skill }) => {
       <PixelCard
         gap={2}
         speed={120}
-        colors={`${skill.color.join(',')}`}
+        colors={`${skill.color.join(",")}`}
         className="w-full h-full"
         noFocus={false}
       >
@@ -39,7 +38,7 @@ const SkillCard = ({ skill }: { skill: Skill }) => {
                   className="absolute w-12 h-12 group-hover:scale-[130%] lg:group-hover:scale-[150%] transition-all duration-500 opacity-0 group-hover:opacity-100 m-auto text-foreground"
                 />
               </div>
-              <p className="text-purple-700 dark:text-purple-300 font-heading uppercase font-semibold text-center text-[14px] absolute -bottom-12 group-hover:bottom-2 lg:group-hover:bottom-6 transition-all duration-300 ease-out">
+              <p className="text-purple-700 dark:text-purple-300 font-heading uppercase font-semibold text-[11px] text-center lg:text-[14px] absolute bottom-1 lg:-bottom-12 group-hover:bottom-2 lg:group-hover:bottom-6 transition-all duration-300 ease-out">
                 {skill.name}
               </p>
             </div>
@@ -47,7 +46,7 @@ const SkillCard = ({ skill }: { skill: Skill }) => {
         </div>
       </PixelCard>
     </div>
-  )
-}
+  );
+};
 
-export default SkillCard
+export default SkillCard;

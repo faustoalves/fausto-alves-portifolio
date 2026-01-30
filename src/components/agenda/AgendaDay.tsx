@@ -48,7 +48,7 @@ const AgendaDay = ({
   const { schedule, updateSchedule } = useScheduleStore();
 
   const handleClick = () => {
-    if (daySlots.length === 0) return;
+    if (daySlots.length === 0 || !enabled) return;
     updateSchedule({ state: "time", day: day, month: month, year: year });
   };
 
