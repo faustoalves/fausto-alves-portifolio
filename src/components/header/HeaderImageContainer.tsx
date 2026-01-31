@@ -66,7 +66,7 @@ const HeaderImageContainerContent = ({
     }
     const timer = setTimeout(() => {
       setValue((prev) => (prev < 5 ? prev + 1 : prev));
-    }, 1000);
+    }, 5000);
     return () => {
       clearTimeout(timer);
     };
@@ -81,9 +81,6 @@ const HeaderImageContainerContent = ({
       className="w-full absolute top-0 left-0 right-0 bottom-0 h-full pt-10 min-h-[calc(100% + 40px)] flex items-center justify-center rounded-lg "
     >
       <AnimatePresence mode="wait">
-        {value === 0 && (
-          <HeaderImageContainerContentItem key="0" text="Hello 0" />
-        )}
         {value === 1 && (
           <HeaderImageContainerContentItem key="1" text="Hello 1" />
         )}
@@ -95,9 +92,6 @@ const HeaderImageContainerContent = ({
         )}
         {value === 4 && (
           <HeaderImageContainerContentItem key="4" text="Hello 4" />
-        )}
-        {value === 5 && (
-          <HeaderImageContainerContentItem key="5" text="Hello 5" />
         )}
       </AnimatePresence>
     </motion.div>
