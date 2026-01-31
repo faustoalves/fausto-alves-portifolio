@@ -214,7 +214,7 @@ export const HeaderImageContainerSkeleton = ({
       33vw"
                 quality={75}
                 alt="Description of my image"
-                className="w-full aspect-square md:hidden"
+                className="w-full aspect-square md:hidden scale-115"
                 style={{
                   transform: `translate(${mousePercent.x * 30 - 15}px) translateY(${mousePercent.y * 30 - 15}px)`,
                 }}
