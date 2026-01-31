@@ -6,6 +6,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "../ui/textarea";
+import { CustomInput } from "../ui/CustomInput";
+import { CustomTextArea } from "../ui/CustomTextArea";
+import { useScheduleStore } from "@/stores/ScheduleStore";
 
 const userInfoSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -21,6 +24,7 @@ const userInfoSchema = z.object({
 type UserInfoFormValues = z.infer<typeof userInfoSchema>;
 
 const UserInfoForm = () => {
+  const { schedule } = useScheduleStore();
   const {
     register,
     handleSubmit,
@@ -35,52 +39,43 @@ const UserInfoForm = () => {
   });
 
   const onSubmit = (values: UserInfoFormValues) => {
-    console.log("User info submitted", values);
+    console.log("User info submitted", values, schedule);
   };
 
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="w-full flex flex-col items-center justify-center px-4 gap-2"
+      className="w-full flex flex-col items-end justify-center gap-2 relative"
     >
-      <div className="w-full flex flex-col items-center justify-center ">
-        {/* <label className="text-sm font-medium text-foreground">Name</label> */}
-        <Input
-          placeholder="Your name"
-          autoComplete="name"
-          {...register("name")}
-        />
-        {errors.name ? (
-          <p className="w-full text-sm text-destructive">
-            {errors.name.message}
-          </p>
-        ) : null}
-      </div>
+      <CustomInput
+        // label="Name"
+        error={errors.name ? errors.name.message : null}
+        className="w-full bg-purple-50/50 dark:bg-purple-950/50 border-purple-300 dark:border-purple-600 focus:border-purple-200 dark:focus:border-purple-600 resize-none shadow-none placeholder:text-purple-400 dark:placeholder:text-purple-600"
+        type="text"
+        placeholder="Your name"
+        autoComplete="name"
+        {...register("name")}
+      />
 
-      <div className="w-full ">
-        {/* <label className="text-sm font-medium text-foreground">E-mail</label> */}
-        <Input
-          type="email"
-          placeholder="you@example.com"
-          autoComplete="email"
-          {...register("email")}
-        />
-        {errors.email ? (
-          <p className="w-full text-sm text-destructive">
-            {errors.email.message}
-          </p>
-        ) : null}
-      </div>
+      <CustomInput
+        // label="E-mail"
+        error={errors.email ? errors.email.message : null}
+        className="w-full bg-purple-50/50 dark:bg-purple-950/50 border-purple-300 dark:border-purple-600 focus:border-purple-200 dark:focus:border-purple-600 resize-none shadow-none placeholder:text-purple-400 dark:placeholder:text-purple-600"
+        type="email"
+        placeholder="you@example.com"
+        autoComplete="email"
+        {...register("email")}
+      />
 
       <div className="w-full ">
         {/* <label className="text-sm font-medium text-foreground">
           Subject
           <span className="text-muted-foreground"> (optional)</span>
         </label> */}
-        <Textarea
-          rows={3}
-          className="h-10"
-          placeholder="subject"
+        <CustomTextArea
+          // label="Subject"
+          className="w-full bg-purple-50/50 dark:bg-purple-950/50 border-purple-300 dark:border-purple-600 focus:border-purple-200 dark:focus:border-purple-600 resize-none shadow-none placeholder:text-purple-400 dark:placeholder:text-purple-600"
+          placeholder="Subject"
           {...register("subject")}
         />
       </div>

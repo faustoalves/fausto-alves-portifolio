@@ -66,7 +66,7 @@ const HeaderImageContainerContent = ({
     }
     const timer = setTimeout(() => {
       setValue((prev) => (prev < 5 ? prev + 1 : prev));
-    }, 5000);
+    }, 3000);
     return () => {
       clearTimeout(timer);
     };
@@ -80,7 +80,7 @@ const HeaderImageContainerContent = ({
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="w-full absolute top-0 left-0 right-0 bottom-0 h-full pt-10 min-h-[calc(100% + 40px)] flex items-center justify-center rounded-lg "
     >
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="popLayout">
         {value === 1 && (
           <HeaderImageContainerContentItem key="1" text="Hello 1" />
         )}
@@ -107,10 +107,23 @@ const HeaderImageContainerContentItem = ({
 }: HeaderImageContainerContentItemProps) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: -100 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 100 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
+      initial={{
+        opacity: 0,
+        x: -50,
+        transition: { duration: 0.5, ease: "easeIn", delay: 0.6 },
+      }}
+      animate={{
+        opacity: 1,
+        x: 0,
+        transition: { duration: 0.5, ease: "easeIn", delay: 0.4 },
+      }}
+      exit={{
+        opacity: 0,
+        x: 50,
+        transition: { duration: 0.5, ease: "easeIn", delay: 0.2 },
+      }}
+      transition={{ duration: 0.5, ease: "easeIn" }}
+      className="w-full h-full flex items-center justify-center absolute top-0 left-0 right-0 bottom-0"
     >
       <h2>{text}</h2>
     </motion.div>

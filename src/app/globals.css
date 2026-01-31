@@ -2,7 +2,7 @@
 
 @plugin "tailwindcss-animate";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (@media (prefers-color-scheme: dark));
 
 @theme inline {
   --color-*: initial;
@@ -28,7 +28,7 @@
   --color-pink-600: #c9208b;
   --color-pink-700: #9b1a6c;
   --color-pink-800: #6e144d;
-  --color-pink-900: #410C2E;
+  --color-pink-900: #410c2e;
   --color-pink-950: #15040f;
   --color-primary-50: #f9f9fb;
   --color-primary-100: #dadceb;
@@ -53,7 +53,7 @@
   --color-purple-900: #2c0e40;
   --color-purple-950: #0e0515;
   --color-black: #000000;
-  --color-white: #FFFFFF;
+  --color-white: #ffffff;
   --line-color: var(--color-purple-200);
   --line-color-dark: var(--color-purple-800);
   --font-sans: var(--font-inter);
@@ -103,8 +103,8 @@ body {
   overflow-x: none;
 }
 
-h1{
-  @apply font-heading font-light  text-[58px] leading-[80%] sm:text-[72px] md:text-[92px] lg:text-[120px] xl:text-[160px] uppercase tracking-tighter text-cyan-800 dark:text-cyan-500 -ml-[0.5%]
+h1 {
+  @apply font-heading font-light  text-[58px] leading-[80%] sm:text-[72px] md:text-[92px] lg:text-[120px] xl:text-[160px] uppercase tracking-tighter text-cyan-800 dark:text-cyan-500 -ml-[0.5%];
 }
 
 h2,
@@ -113,31 +113,30 @@ h4,
 h5,
 h6 {
   @apply font-heading text-pink-700 dark:text-pink-500  inline-block  font-semibold text-[34px] leading-[80%] sm:text-[42px] md:text-[52px] lg:text-[52px] uppercase;
-  font-family: var(--font-heading), var(--font-sans), Arial, Helvetica, sans-serif;
+  font-family:
+    var(--font-heading), var(--font-sans), Arial, Helvetica, sans-serif;
 }
-.top-line{
+.top-line {
   @apply before:absolute before:top-0 before:z-10 before:h-px before:w-[200vw] before:bg-purple-900/20 dark:before:bg-white/10 before:-left-[100vw];
 }
 
-.bottom-line{
+.bottom-line {
   @apply after:absolute after:z-10 after:bottom-0 after:h-px after:w-[200vw] after:bg-purple-900/20 dark:after:bg-white/10 after:-left-[100vw];
 }
-.pattern-bg{
-  @apply bg-[repeating-linear-gradient(45deg,#2c0e4030_0,#2c0e4030_1px,#ffffff00_1,#ffffff00_50%)] dark:bg-[repeating-linear-gradient(45deg,#4a166c_0,#4a166c_1px,#ffffff00_1,#ffffff00_50%)] bg-size-[8px_8px]  ;
+.pattern-bg {
+  @apply bg-[repeating-linear-gradient(45deg,#2c0e4030_0,#2c0e4030_1px,#ffffff00_1,#ffffff00_50%)] dark:bg-[repeating-linear-gradient(45deg,#4a166c_0,#4a166c_1px,#ffffff00_1,#ffffff00_50%)] bg-size-[8px_8px];
 }
-.border-line{
-  @apply border border-purple-900/20 dark:border-white/10; 
+.border-line {
+  @apply border border-purple-900/20 dark:border-white/10;
 }
 .text-circle {
   @apply fill-current;
   animation: rotate 25s linear infinite;
   transform-origin: 250px 250px;
-
 }
 @keyframes rotate {
   to {
     transform: rotate(360deg);
-
   }
 }
 
@@ -162,8 +161,8 @@ h6 {
   transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1);
   transform-origin: 250px 250px;
 }
-p{
-  @apply w-full ;
+p {
+  @apply w-full;
 }
 
 :root {

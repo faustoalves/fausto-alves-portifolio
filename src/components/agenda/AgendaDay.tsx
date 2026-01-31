@@ -35,10 +35,10 @@ const AgendaDay = ({
     .toUpperCase();
   // tailwind-variants for agenda item status: 'disable', 'actual', 'available'
   const agendaDayVariants = {
-    disable:
-      "bg-purple-200 dark:bg-purple-900 text-purple-700 opacity-50 cursor-not-allowed",
     actual:
       "bg-cyan-200  border-cyan-700 text-cyan-800 dark:text-white border-2 dark:bg-cyan-900 dark:border-cyan-800 cursor-not-allowed`",
+    disable:
+      "bg-purple-200 dark:bg-purple-900 text-purple-700 opacity-50 cursor-not-allowed",
     available:
       "bg-purple-200 border border-purple-700/20 dark:bg-purple-700 text-purple-700 dark:text-white hover:bg-purple-300 cursor-pointer transition",
   };
@@ -53,13 +53,12 @@ const AgendaDay = ({
   };
 
   const variantClass = !enabled
-    ? agendaDayVariants.disable
+    ? actual
+      ? agendaDayVariants.actual
+      : agendaDayVariants.disable
     : daySlots.length === 0 && !actual
       ? agendaDayVariants.disable
-      : // : agendaDayVariants.disable
-        actual
-        ? agendaDayVariants.actual
-        : agendaDayVariants.available;
+      : agendaDayVariants.available;
 
   return (
     <div
@@ -72,6 +71,7 @@ const AgendaDay = ({
         <div className="absolute top-0 left-0 right-0 bottom-0 bg-pink-600 dark:bg-pink-600 backdrop-blur-xl translate-y-full group-hover:translate-y-0 transition duration-300 ease-out w-full h-full flex flex-col items-center justify-center">
           <p className="text-center text-2xl leading-5 font-bold relative text-white">
             {day}
+            {actual}
           </p>
           <p className=" text-center text-sm leading-4 relative text-white">
             {monthLabel}
@@ -86,8 +86,6 @@ const AgendaDay = ({
               variant={slot.status as AgendaDayDotVariants}
             />
           ))}
-
-          {/* <AgendaDayDot variant="disable" /> */}
         </div>
       )}
     </div>
