@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useMemo } from "react";
+import React, { forwardRef, useEffect, useMemo, useRef } from "react";
 import AgendaItem from "./AgendaDay";
 import { TimezoneSelector } from "./TimezoneSelector";
 import { dateInTimezone, weekdayOf } from "@/lib/schedule";
@@ -84,82 +84,83 @@ function buildCalendarCells({
   return cells;
 }
 
-const CalendarGrid = ({
-  cells,
-  selectedTimezone,
-  onTimezoneChange,
-  className,
-}: CalendarGridProps) => (
-  <div className={cn("w-full grid grid-cols-7 gap-2 py-2 mx-auto`", className)}>
-    {WEEKDAYS.map((weekday) => (
-      <p
-        key={weekday}
-        className="tracking-widest text-center uppercase text-[12px] lg:text-xs py-3 text-purple-500 dark:text-purple-300"
+const CalendarGrid = forwardRef<HTMLDivElement, CalendarGridProps>(
+  function CalendarGrid(
+    { cells, selectedTimezone, onTimezoneChange, className },
+    ref,
+  ) {
+    return (
+      <div
+        ref={ref}
+        className={cn("w-full grid grid-cols-7 gap-2 py-2 mx-auto`", className)}
       >
-        {weekday}
-      </p>
-    ))}
+        {WEEKDAYS.map((weekday) => (
+          <p
+            key={weekday}
+            className="tracking-widest text-center uppercase text-[12px] lg:text-xs py-3 text-purple-500 dark:text-purple-300"
+          >
+            {weekday}
+          </p>
+        ))}
 
-    {cells.map((cell) => (
-      <AgendaItem
-        key={cell.key}
-        day={cell.day}
-        month={cell.month}
-        year={cell.year}
-        enabled={cell.enabled}
-        actual={cell.actual}
-      />
-    ))}
+        {cells.map((cell) => (
+          <AgendaItem
+            key={cell.key}
+            day={cell.day}
+            month={cell.month}
+            year={cell.year}
+            enabled={cell.enabled}
+            actual={cell.actual}
+          />
+        ))}
 
-    <div className="w-full col-span-7 flex flex-col pt-2">
-      <TimezoneSelector
-        value={selectedTimezone}
-        onChange={onTimezoneChange}
-        placeholder="Selecione o fuso horário"
-      />
-    </div>
-  </div>
+        <div className="w-full col-span-7 flex flex-col pt-2">
+          <TimezoneSelector
+            value={selectedTimezone}
+            onChange={onTimezoneChange}
+            placeholder="Selecione o fuso horário"
+          />
+        </div>
+      </div>
+    );
+  },
 );
 
 const Weeks = (_props: Props) => {
+  const containerRef = useRef<HTMLDivElement>(null);
   const { slots, updateSlots } = useScheduleSlotsStore();
   const { schedule, updateSchedule } = useScheduleStore();
 
-  // After mount, load fetchAvailableSlots after 5s
   useEffect(() => {
-    const timer = setTimeout(() => {
-      const fetchAvailableSlots = async () => {
-        try {
-          const baseUrl =
-            process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-          const res = await fetch(`${baseUrl}/api/schedule/available-slots`);
-          if (!res.ok) throw new Error("Failed to fetch slots");
-          const data = await res.json();
-          updateSlots((data as AvailableSlotsResponse)?.slots ?? []);
-        } catch {
-          updateSlots([]);
-        }
-      };
-      fetchAvailableSlots();
-    }, 5000);
+    const el = containerRef.current;
+    if (!el) return;
 
-    return () => clearTimeout(timer);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (!entry.isIntersecting) return;
+
+        const fetchAvailableSlots = async () => {
+          try {
+            const baseUrl =
+              process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+            const res = await fetch(`${baseUrl}/api/schedule/available-slots`);
+            if (!res.ok) throw new Error("Failed to fetch slots");
+            const data = await res.json();
+            updateSlots((data as AvailableSlotsResponse)?.slots ?? []);
+          } catch {
+            updateSlots([]);
+          }
+        };
+        fetchAvailableSlots();
+        observer.disconnect();
+      },
+      { threshold: 0.1, rootMargin: "50px" },
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
   }, [updateSlots]);
-  // useEffect(() => {
-  //   const fetchAvailableSlots = async () => {
-  //     try {
-  //       const baseUrl =
-  //         process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-  //       const res = await fetch(`${baseUrl}/api/schedule/available-slots`);
-  //       if (!res.ok) throw new Error("Failed to fetch slots");
-  //       const data = await res.json();
-  //       updateSlots((data as AvailableSlotsResponse)?.slots ?? []);
-  //     } catch {
-  //       updateSlots([]);
-  //     }
-  //   };
-  //   fetchAvailableSlots();
-  // }, [updateSlots]);
 
   const timezone =
     schedule.timezone || Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -176,6 +177,7 @@ const Weeks = (_props: Props) => {
 
   return (
     <CalendarGrid
+      ref={containerRef}
       cells={calendarCells}
       selectedTimezone={schedule.timezone}
       onTimezoneChange={(tz) => {
