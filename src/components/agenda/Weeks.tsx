@@ -124,21 +124,42 @@ const CalendarGrid = ({
 const Weeks = (_props: Props) => {
   const { slots, updateSlots } = useScheduleSlotsStore();
   const { schedule, updateSchedule } = useScheduleStore();
+
+  // After mount, load fetchAvailableSlots after 5s
   useEffect(() => {
-    const fetchAvailableSlots = async () => {
-      try {
-        const baseUrl =
-          process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-        const res = await fetch(`${baseUrl}/api/schedule/available-slots`);
-        if (!res.ok) throw new Error("Failed to fetch slots");
-        const data = await res.json();
-        updateSlots((data as AvailableSlotsResponse)?.slots ?? []);
-      } catch {
-        updateSlots([]);
-      }
-    };
-    fetchAvailableSlots();
+    const timer = setTimeout(() => {
+      const fetchAvailableSlots = async () => {
+        try {
+          const baseUrl =
+            process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+          const res = await fetch(`${baseUrl}/api/schedule/available-slots`);
+          if (!res.ok) throw new Error("Failed to fetch slots");
+          const data = await res.json();
+          updateSlots((data as AvailableSlotsResponse)?.slots ?? []);
+        } catch {
+          updateSlots([]);
+        }
+      };
+      fetchAvailableSlots();
+    }, 5000);
+
+    return () => clearTimeout(timer);
   }, [updateSlots]);
+  // useEffect(() => {
+  //   const fetchAvailableSlots = async () => {
+  //     try {
+  //       const baseUrl =
+  //         process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+  //       const res = await fetch(`${baseUrl}/api/schedule/available-slots`);
+  //       if (!res.ok) throw new Error("Failed to fetch slots");
+  //       const data = await res.json();
+  //       updateSlots((data as AvailableSlotsResponse)?.slots ?? []);
+  //     } catch {
+  //       updateSlots([]);
+  //     }
+  //   };
+  //   fetchAvailableSlots();
+  // }, [updateSlots]);
 
   const timezone =
     schedule.timezone || Intl.DateTimeFormat().resolvedOptions().timeZone;
