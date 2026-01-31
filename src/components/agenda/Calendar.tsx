@@ -19,9 +19,9 @@ const Calendar = (props: Props) => {
   }, [schedule.timezone, updateSchedule]);
 
   return (
-    <div className="w-full mx-auto h-full flex flex-col items-center justify-center my-6 px-0 ">
+    <div className="w-full mx-auto h-full flex flex-col items-center justify-center  px-0 ">
       <div
-        className={`w-full lg:w-[calc(50%-1px)] -ml-px flex flex-col relative items-start justify-center my-10 bg-purple-100/50 dark:bg-purple-800 top-line bottom-line `}
+        className={`w-full lg:w-[calc(50%-1px)] -ml-px flex flex-col relative items-start justify-center  bg-purple-100/50 dark:bg-purple-800 top-line bottom-line `}
       >
         <motion.div
           layout

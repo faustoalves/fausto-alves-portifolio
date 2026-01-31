@@ -219,7 +219,6 @@ export const HeaderImageContainerSkeleton = ({
                   transform: `translate(${mousePercent.x * 30 - 15}px) translateY(${mousePercent.y * 30 - 15}px)`,
                 }}
                 onLoad={handleImageBgLoad}
-                // preload
               />
               <CldImage
                 width="1519"
@@ -235,7 +234,6 @@ export const HeaderImageContainerSkeleton = ({
                   transform: `translate(${mousePercent.x * 30 - 15}px) translateY(${mousePercent.y * 30 - 15}px)`,
                 }}
                 onLoad={handleImageBgLoad}
-                // preload
               />
             </>
           )}

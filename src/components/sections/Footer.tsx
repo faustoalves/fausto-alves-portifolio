@@ -25,7 +25,7 @@ const Footer = (props: Props) => {
             </div>
             <div className="flex flex-row items-center justify-center w-full h-12 border-t border-purple-700/30 dark:border-purple-500/30 z-1">
               <p className="text-xs text-purple-800 dark:text-purple-300 text-center uppercase tracking-widest">
-                2026 - Todos os direitos reservados
+                2026 - All rights reserved
               </p>
             </div>
           </div>
