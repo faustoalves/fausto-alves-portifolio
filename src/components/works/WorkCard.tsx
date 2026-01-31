@@ -85,7 +85,7 @@ const WorkCard = ({
             height={500}
             className="h-2/3 w-3/5 lg:w-3/7 lg:h-auto object-contain"
             loading="lazy"
-            sizes="(max-width: 768px) 100vw,
+            sizes="(max-width: 768px) 50vw,
                     (max-width: 1200px) 50vw,
                     33vw"
             style={{

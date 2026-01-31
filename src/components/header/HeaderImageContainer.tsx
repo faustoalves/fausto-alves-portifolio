@@ -157,7 +157,7 @@ export const HeaderImageContainerSkeleton = ({
         <motion.div
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 100 }}
-          transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+          transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
           className="w-full h-full"
         >
           {imageFront && (
@@ -175,7 +175,6 @@ export const HeaderImageContainerSkeleton = ({
                 style={{
                   transform: `translate(${mousePercent.x * 50 - 25}px) translateY(${mousePercent.y * 50}px)`,
                 }}
-                preload
                 onLoad={handleImageFrontLoad}
               />
               <CldImage
@@ -191,7 +190,6 @@ export const HeaderImageContainerSkeleton = ({
                 style={{
                   transform: `translate(${mousePercent.x * 50 - 25}px) translateY(${mousePercent.y * 50}px)`,
                 }}
-                preload
                 onLoad={handleImageFrontLoad}
               />
             </>
@@ -202,7 +200,7 @@ export const HeaderImageContainerSkeleton = ({
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 100 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
           className="w-full h-full max-h-[620px]"
         >
           {imageFront && (
@@ -216,12 +214,12 @@ export const HeaderImageContainerSkeleton = ({
       33vw"
                 quality={75}
                 alt="Description of my image"
-                className="w-full h-full object-cover scale-115 md:scale-[107%] md:hidden"
+                className="w-full aspect-square md:hidden"
                 style={{
                   transform: `translate(${mousePercent.x * 30 - 15}px) translateY(${mousePercent.y * 30 - 15}px)`,
                 }}
                 onLoad={handleImageBgLoad}
-                preload
+                // preload
               />
               <CldImage
                 width="1519"
@@ -237,7 +235,7 @@ export const HeaderImageContainerSkeleton = ({
                   transform: `translate(${mousePercent.x * 30 - 15}px) translateY(${mousePercent.y * 30 - 15}px)`,
                 }}
                 onLoad={handleImageBgLoad}
-                preload
+                // preload
               />
             </>
           )}
