@@ -66,7 +66,7 @@ const HeaderImageContainerContent = ({
     }
     const timer = setTimeout(() => {
       setValue((prev) => (prev < 5 ? prev + 1 : prev));
-    }, 3000);
+    }, 6000);
     return () => {
       clearTimeout(timer);
     };
