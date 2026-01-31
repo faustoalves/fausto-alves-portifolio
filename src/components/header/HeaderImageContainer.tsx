@@ -130,6 +130,8 @@ interface HeaderImageContainerSkeletonProps extends DayScheduleItem {
 export const HeaderImageContainerSkeleton = ({
   imageFront,
   imageBg,
+  imageFrontMobile,
+  imageBgMobile,
   onComplete,
   isLoaded,
 }: HeaderImageContainerSkeletonProps) => {
@@ -159,22 +161,40 @@ export const HeaderImageContainerSkeleton = ({
           className="w-full h-full"
         >
           {imageFront && (
-            <CldImage
-              width="1600"
-              height="884"
-              src={imageFront}
-              sizes="(max-width: 768px) 100vw,
+            <>
+              <CldImage
+                width="440"
+                height="541"
+                src={imageFrontMobile}
+                sizes="(max-width: 768px) 100vw,
       (max-width: 1200px) 50vw,
       33vw"
-              alt="Description of my image"
-              quality={75}
-              className="w-full h-full relative z-2 object-cover scale-115 md:scale-[107%] md:pt-10"
-              style={{
-                transform: `translate(${mousePercent.x * 50 - 25}px) translateY(${mousePercent.y * 50}px)`,
-              }}
-              preload
-              onLoad={handleImageFrontLoad}
-            />
+                alt="Description of my image"
+                quality={75}
+                className="w-full h-full relative z-2 object-cover scale-115 md:scale-[107%] md:pt-10 md:hidden"
+                style={{
+                  transform: `translate(${mousePercent.x * 50 - 25}px) translateY(${mousePercent.y * 50}px)`,
+                }}
+                preload
+                onLoad={handleImageFrontLoad}
+              />
+              <CldImage
+                width="1600"
+                height="884"
+                src={imageFront}
+                sizes="(max-width: 768px) 100vw,
+      (max-width: 1200px) 50vw,
+      33vw"
+                alt="Description of my image"
+                quality={75}
+                className="w-full h-full relative z-2 object-cover scale-115 md:scale-[107%] md:pt-10 hidden md:block"
+                style={{
+                  transform: `translate(${mousePercent.x * 50 - 25}px) translateY(${mousePercent.y * 50}px)`,
+                }}
+                preload
+                onLoad={handleImageFrontLoad}
+              />
+            </>
           )}
         </motion.div>
       </div>
@@ -186,22 +206,40 @@ export const HeaderImageContainerSkeleton = ({
           className="w-full h-full max-h-[620px]"
         >
           {imageFront && (
-            <CldImage
-              width="1519"
-              height="700"
-              src={imageBg}
-              sizes="(max-width: 768px) 100vw,
+            <>
+              <CldImage
+                width="440"
+                height="461"
+                src={imageBgMobile}
+                sizes="(max-width: 768px) 100vw,
       (max-width: 1200px) 50vw,
       33vw"
-              quality={75}
-              alt="Description of my image"
-              className="w-full h-full object-cover scale-115 md:scale-[107%]"
-              style={{
-                transform: `translate(${mousePercent.x * 30 - 15}px) translateY(${mousePercent.y * 30 - 15}px)`,
-              }}
-              onLoad={handleImageBgLoad}
-              preload
-            />
+                quality={75}
+                alt="Description of my image"
+                className="w-full h-full object-cover scale-115 md:scale-[107%] md:hidden"
+                style={{
+                  transform: `translate(${mousePercent.x * 30 - 15}px) translateY(${mousePercent.y * 30 - 15}px)`,
+                }}
+                onLoad={handleImageBgLoad}
+                preload
+              />
+              <CldImage
+                width="1519"
+                height="700"
+                src={imageBg}
+                sizes="(max-width: 768px) 100vw,
+      (max-width: 1200px) 50vw,
+      33vw"
+                quality={75}
+                alt="Description of my image"
+                className="w-full h-full object-cover scale-115 md:scale-[107%] hidden md:block"
+                style={{
+                  transform: `translate(${mousePercent.x * 30 - 15}px) translateY(${mousePercent.y * 30 - 15}px)`,
+                }}
+                onLoad={handleImageBgLoad}
+                preload
+              />
+            </>
           )}
         </motion.div>
       </div>

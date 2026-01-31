@@ -4,6 +4,8 @@ export interface HeaderProps {
   description: string;
   imageFront: string;
   imageBg: string;
+  imageFrontMobile: string;
+  imageBgMobile: string;
   days: number[];
   time: {
     start: number;
@@ -29,6 +31,10 @@ export const Header: HeaderProps[] = [
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032711/portifolio/header/sleep_front_kcycc2.png",
     imageBg:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032696/portifolio/header/sleep_back_eqhujk.png",
+    imageFrontMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881326/portifolio/header/sleep_mobile_front_qdi4ri.png",
+    imageBgMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881318/portifolio/header/sleep_mobile_back_oqntzg.png",
     days: [1, 2, 3, 4, 5, 6, 7, 8],
     time: {
       start: 0,
@@ -43,6 +49,10 @@ export const Header: HeaderProps[] = [
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032696/portifolio/header/sleep_back_eqhujk.png",
     imageFront:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032711/portifolio/header/sleep_front_kcycc2.png",
+    imageFrontMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881326/portifolio/header/sleep_mobile_front_qdi4ri.png",
+    imageBgMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881318/portifolio/header/sleep_mobile_back_oqntzg.png",
     days: [1, 2, 3, 4, 5, 6, 7, 8],
     time: {
       start: 23,
@@ -57,6 +67,10 @@ export const Header: HeaderProps[] = [
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032714/portifolio/header/dev_front_i51k9w.png",
     imageBg:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032705/portifolio/header/dev_back_y4kxtc.png",
+    imageFrontMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881333/portifolio/header/dev_mobile_front_z6zby2.png",
+    imageBgMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881324/portifolio/header/dev_mobile_back_sgh4yy.png",
     days: [1, 2, 3, 4, 5],
     time: {
       start: 10,
@@ -71,6 +85,10 @@ export const Header: HeaderProps[] = [
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032714/portifolio/header/dev_front_i51k9w.png",
     imageBg:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032705/portifolio/header/dev_back_y4kxtc.png",
+    imageFrontMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881333/portifolio/header/dev_mobile_front_z6zby2.png",
+    imageBgMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881324/portifolio/header/dev_mobile_back_sgh4yy.png",
     days: [1, 2, 3, 4, 5],
     time: {
       start: 14,
@@ -85,6 +103,10 @@ export const Header: HeaderProps[] = [
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032714/portifolio/header/call_front_dovke7.png",
     imageBg:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032708/portifolio/header/call_back_gc2pvw.png",
+    imageFrontMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881332/portifolio/header/call_mobile_front_healah.png",
+    imageBgMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881323/portifolio/header/call_mobile_back_ca9ixh.png",
     days: [1, 2, 3, 4, 5],
     time: {
       start: 9,
@@ -99,6 +121,10 @@ export const Header: HeaderProps[] = [
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032714/portifolio/header/call_front_dovke7.png",
     imageBg:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032708/portifolio/header/call_back_gc2pvw.png",
+    imageFrontMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881332/portifolio/header/call_mobile_front_healah.png",
+    imageBgMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881323/portifolio/header/call_mobile_back_ca9ixh.png",
     days: [1, 2, 3, 4, 5],
     time: {
       start: 13,
@@ -113,6 +139,10 @@ export const Header: HeaderProps[] = [
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032713/portifolio/header/coffee_front_tiajkv.png",
     imageBg:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032706/portifolio/header/coffee_back_j3gi7x.png",
+    imageFrontMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881330/portifolio/header/coffee_mobile_front_nsj1vg.png",
+    imageBgMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881319/portifolio/header/coffee_mobile_back_x6wqcf.png",
     days: [1, 2, 3, 4, 5, 6, 7, 8],
     time: {
       start: 8,
@@ -127,6 +157,10 @@ export const Header: HeaderProps[] = [
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032712/portifolio/header/gym_front_nvthy0.png",
     imageBg:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032705/portifolio/header/gym_back_lmtypg.png",
+    imageFrontMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881331/portifolio/header/gym_mobile_front_jkysyc.png",
+    imageBgMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881319/portifolio/header/gym_mobile_back_xla0pg.png",
     days: [1, 3, 5],
     time: {
       start: 18,
@@ -141,6 +175,10 @@ export const Header: HeaderProps[] = [
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032712/portifolio/header/pub_front_dpdgtc.png",
     imageBg:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032703/portifolio/header/pub_back_inryxr.png",
+    imageFrontMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881329/portifolio/header/pub_mobile_front_lueuz5.png",
+    imageBgMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881319/portifolio/header/pub_mobile_back_sog6w5.png",
     days: [5, 6, 8],
     time: {
       start: 21,
@@ -155,6 +193,10 @@ export const Header: HeaderProps[] = [
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032712/portifolio/header/relax_front_wglsmw.png",
     imageBg:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032699/portifolio/header/relax_back_p9qkwv.png",
+    imageFrontMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881324/portifolio/header/relax_mobile_front_tiheww.png",
+    imageBgMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881318/portifolio/header/relax_mobile_back_fvis9q.png",
     days: [1, 2, 3, 4],
     time: {
       start: 22,
@@ -169,6 +211,10 @@ export const Header: HeaderProps[] = [
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032712/portifolio/header/relax_front_wglsmw.png",
     imageBg:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032699/portifolio/header/relax_back_p9qkwv.png",
+    imageFrontMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881324/portifolio/header/relax_mobile_front_tiheww.png",
+    imageBgMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881318/portifolio/header/relax_mobile_back_fvis9q.png",
     days: [7],
     time: {
       start: 21,
@@ -183,6 +229,10 @@ export const Header: HeaderProps[] = [
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032711/portifolio/header/dinner_front_kaejvi.png",
     imageBg:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769039417/portifolio/header/dinner_back_sr4dpt.png",
+    imageFrontMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881326/portifolio/header/dinner_mobile_front_jmu4b8.png",
+    imageBgMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881318/portifolio/header/dinner_mobile_back_tb660x.png",
     days: [1, 2, 3, 4, 5, 6, 7, 8],
     time: {
       start: 20,
@@ -197,6 +247,10 @@ export const Header: HeaderProps[] = [
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032712/portifolio/header/bbq_front_mc0ryq.png",
     imageBg:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032701/portifolio/header/bbq_back_tmh7mk.png",
+    imageFrontMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881328/portifolio/header/bbq_mobile_front_pmitbz.png",
+    imageBgMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881319/portifolio/header/bbq_mobile_back_x4ngyw.png",
     days: [7, 8],
     time: {
       start: 12,
@@ -211,6 +265,10 @@ export const Header: HeaderProps[] = [
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032712/portifolio/header/support_front_rqztui.png",
     imageBg:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032703/portifolio/header/support_back_hgb2ug.png",
+    imageFrontMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881329/portifolio/header/support_mobile_front_nmzzle.png",
+    imageBgMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881319/portifolio/header/support_mobile_back_jh9lxa.png",
     days: [7, 8],
     time: {
       start: 18,
@@ -225,6 +283,10 @@ export const Header: HeaderProps[] = [
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032711/portifolio/header/cats_front_vbr3xa.png",
     imageBg:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032703/portifolio/header/cats_back_vfzkia.png",
+    imageFrontMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881328/portifolio/header/cats_mobile_front_y0jycv.png",
+    imageBgMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881319/portifolio/header/cats_mobile_back_r2sk5o.png",
     days: [1, 2, 3, 4, 5, 6, 7, 8],
     time: {
       start: 7,
@@ -239,6 +301,10 @@ export const Header: HeaderProps[] = [
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032711/portifolio/header/cats_front_vbr3xa.png",
     imageBg:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032703/portifolio/header/cats_back_vfzkia.png",
+    imageFrontMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881328/portifolio/header/cats_mobile_front_y0jycv.png",
+    imageBgMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881319/portifolio/header/cats_mobile_back_r2sk5o.png",
     days: [1, 2, 3, 4, 5, 8],
     time: {
       start: 21,
@@ -253,6 +319,10 @@ export const Header: HeaderProps[] = [
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032709/portifolio/header/lunch_front_dp8kae.png",
     imageBg:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032698/portifolio/header/lunch_back_vdyvuo.png",
+    imageFrontMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881328/portifolio/header/lunch_mobile_front_hevcbl.png",
+    imageBgMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881319/portifolio/header/lunch_mobile_back_zyjdrn.png",
     days: [1, 2, 3, 4, 5],
     time: {
       start: 12,
@@ -267,6 +337,10 @@ export const Header: HeaderProps[] = [
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032708/portifolio/header/beach_front_ks9wup.png",
     imageBg:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032699/portifolio/header/beach_back_cnzep5.png",
+    imageFrontMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881325/portifolio/header/beach_mobile_front_f6pqef.png",
+    imageBgMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881318/portifolio/header/beach_mobile_back_edf5gj.png",
     days: [6],
     time: {
       start: 9,
@@ -281,6 +355,10 @@ export const Header: HeaderProps[] = [
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032708/portifolio/header/beach_front_ks9wup.png",
     imageBg:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032699/portifolio/header/beach_back_cnzep5.png",
+    imageFrontMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881325/portifolio/header/beach_mobile_front_f6pqef.png",
+    imageBgMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881318/portifolio/header/beach_mobile_back_edf5gj.png",
     days: [6],
     time: {
       start: 13,
@@ -295,6 +373,10 @@ export const Header: HeaderProps[] = [
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032706/portifolio/header/sun_front_vjkwxa.png",
     imageBg:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032706/portifolio/header/sun_back_l1fxnw.png",
+    imageFrontMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881325/portifolio/header/sun_mobile_front_cjk5oi.png",
+    imageBgMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881318/portifolio/header/sun_mobile_back_hlclwo.png",
     days: [6],
     time: {
       start: 19,
@@ -309,6 +391,10 @@ export const Header: HeaderProps[] = [
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032708/portifolio/header/cycling_front_srs7f1.png",
     imageBg:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032697/portifolio/header/cycling_back_c9lxrx.png",
+    imageFrontMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881325/portifolio/header/cycling_mobile_front_vnstgl.png",
+    imageBgMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881317/portifolio/header/cycling_mobile_back_szetbo.png",
     days: [2, 4],
     time: {
       start: 18,
@@ -323,6 +409,10 @@ export const Header: HeaderProps[] = [
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032708/portifolio/header/cycling_front_srs7f1.png",
     imageBg:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032697/portifolio/header/cycling_back_c9lxrx.png",
+    imageFrontMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881325/portifolio/header/cycling_mobile_front_vnstgl.png",
+    imageBgMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881317/portifolio/header/cycling_mobile_back_szetbo.png",
     days: [7, 8],
     time: {
       start: 9,
@@ -337,6 +427,10 @@ export const Header: HeaderProps[] = [
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032707/portifolio/header/beach_lunch_front_pex6jo.png",
     imageBg:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032697/portifolio/header/beach_lunch_back_l1fkog.png",
+    imageFrontMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881324/portifolio/header/beach_lunch_mobile_front_rwwsss.png",
+    imageBgMobile:
+      "https://res.cloudinary.com/faustoalves/image/upload/v1769881318/portifolio/header/beach_lunch_mobile_back_fmnibf.png",
     days: [6],
     time: {
       start: 12,
