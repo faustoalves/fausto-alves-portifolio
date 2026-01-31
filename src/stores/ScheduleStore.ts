@@ -59,7 +59,7 @@ export const useScheduleStore = create<ScheduleStore>()((set) => ({
     time: "",
     name: "",
     email: "",
-    timezone: getUserTimezone(),
+    timezone: "",
     state: "calendar",
   },
   updateSchedule: (updated: Partial<ScheduleInfo>) =>
@@ -68,14 +68,16 @@ export const useScheduleStore = create<ScheduleStore>()((set) => ({
     })),
 }));
 
-export const useScheduleSlotsStore = create<ScheduleSlotsStore>()((set, get) => ({
-  slots: [],
-  updateSlots: (updated: SlotItem[]) => set(() => ({ slots: [...updated] })),
-  getSlotsInTimezone: (timezone?: string) => {
-    const selectedTimezone = timezone ?? getUserTimezone();
-    return get().slots.map((slot) => ({
-      ...slot,
-      dateTimeTZ: toTimezoneRelativeIso(slot.dateTimeUTC, selectedTimezone),
-    }));
-  },
-}));
+export const useScheduleSlotsStore = create<ScheduleSlotsStore>()(
+  (set, get) => ({
+    slots: [],
+    updateSlots: (updated: SlotItem[]) => set(() => ({ slots: [...updated] })),
+    getSlotsInTimezone: (timezone?: string) => {
+      const selectedTimezone = timezone ?? getUserTimezone();
+      return get().slots.map((slot) => ({
+        ...slot,
+        dateTimeTZ: toTimezoneRelativeIso(slot.dateTimeUTC, selectedTimezone),
+      }));
+    },
+  }),
+);

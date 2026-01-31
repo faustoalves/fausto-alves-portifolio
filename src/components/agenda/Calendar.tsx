@@ -1,4 +1,5 @@
 "use client";
+import { useEffect } from "react";
 import { useScheduleStore } from "@/stores/ScheduleStore";
 import Weeks from "../agenda/Weeks";
 import CalendarHeader from "../agenda/CalendarHeader";
@@ -9,7 +10,13 @@ import AgendaUserInfo from "../agenda/AgendaUserInfo";
 type Props = {};
 
 const Calendar = (props: Props) => {
-  const { schedule } = useScheduleStore();
+  const { schedule, updateSchedule } = useScheduleStore();
+
+  useEffect(() => {
+    if (schedule.timezone) return;
+    const clientTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    updateSchedule({ timezone: clientTimezone });
+  }, [schedule.timezone, updateSchedule]);
 
   return (
     <div className="w-full mx-auto h-full flex flex-col items-center justify-center my-6 px-0 ">

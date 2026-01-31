@@ -45,6 +45,9 @@ export function TimezoneSelector({
   const storeTimezone = schedule.timezone ?? "";
 
   const currentValue = ((value ?? storeTimezone) as string) ?? "";
+  const accessibleLabel = currentValue
+    ? `Timezone: ${formatTimezoneLabel(currentValue)}`
+    : "Select timezone";
 
   const regions = React.useMemo(() => getTimezonesByRegion(), []);
 
@@ -63,6 +66,7 @@ export function TimezoneSelector({
             variant="icon"
             role="combobox"
             aria-expanded={open}
+            aria-label={accessibleLabel}
             className={cn(
               "justify-between font-normal max-w-[260px] w-full  py-1 px-0 bg-transparent border-none  text-purple-800 dark:text-purple-200",
               className,

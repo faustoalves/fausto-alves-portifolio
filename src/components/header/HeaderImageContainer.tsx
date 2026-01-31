@@ -6,13 +6,9 @@ import { useMousePercent } from "@/hooks/MousePercent";
 import { getHeaderByDateTime } from "@/lib/header";
 import { AnimatePresence, motion } from "framer-motion";
 
-type Props = {
-  daySchedule: DayScheduleItem;
-};
-
 const HeaderImageContainer = () => {
-  const dateTime = new Date();
   const [isAdded, setIsAdded] = useState(false);
+  const [daySchedule, setDaySchedule] = useState<DayScheduleItem | null>(null);
 
   // useEffect(() => {
   //   const timer = setTimeout(() => {
@@ -23,10 +19,14 @@ const HeaderImageContainer = () => {
 
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const dateTimeSaoPaulo = new Date(
-    dateTime.toLocaleString("en-US", { timeZone: "America/Sao_Paulo" }),
-  );
-  const daySchedule = getHeaderByDateTime(dateTimeSaoPaulo);
+  useEffect(() => {
+    const dateTime = new Date();
+    const dateTimeSaoPaulo = new Date(
+      dateTime.toLocaleString("en-US", { timeZone: "America/Sao_Paulo" }),
+    );
+    setDaySchedule(getHeaderByDateTime(dateTimeSaoPaulo));
+  }, []);
+
   if (!daySchedule) return null;
 
   const onCompleteHandler = () => {

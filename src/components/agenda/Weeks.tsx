@@ -1,5 +1,5 @@
 "use client";
-import React, { forwardRef, useEffect, useMemo, useRef } from "react";
+import React, { forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import AgendaItem from "./AgendaDay";
 import { TimezoneSelector } from "./TimezoneSelector";
 import { dateInTimezone, weekdayOf } from "@/lib/schedule";
@@ -130,6 +130,7 @@ const Weeks = (_props: Props) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { slots, updateSlots } = useScheduleSlotsStore();
   const { schedule, updateSchedule } = useScheduleStore();
+  const [baseDate, setBaseDate] = useState<Date | null>(null);
 
   useEffect(() => {
     const el = containerRef.current;
@@ -162,17 +163,22 @@ const Weeks = (_props: Props) => {
     return () => observer.disconnect();
   }, [updateSlots]);
 
-  const timezone =
-    schedule.timezone || Intl.DateTimeFormat().resolvedOptions().timeZone;
+  useEffect(() => {
+    setBaseDate(new Date());
+  }, []);
+
+  const timezone = schedule.timezone;
   const calendarCells = useMemo(
     () =>
-      buildCalendarCells({
-        baseDate: new Date(),
-        timezone,
-        slots: slots?.length ? slots : EMPTY_SLOTS,
-        weeksToRender: WEEKS_TO_RENDER,
-      }),
-    [slots, timezone],
+      baseDate && timezone
+        ? buildCalendarCells({
+            baseDate,
+            timezone,
+            slots: slots?.length ? slots : EMPTY_SLOTS,
+            weeksToRender: WEEKS_TO_RENDER,
+          })
+        : [],
+    [baseDate, slots, timezone],
   );
 
   return (
