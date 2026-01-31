@@ -10,13 +10,6 @@ const HeaderImageContainer = () => {
   const [isAdded, setIsAdded] = useState(false);
   const [daySchedule, setDaySchedule] = useState<DayScheduleItem | null>(null);
 
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setIsAdded(true);
-  //   }, 3000);
-  //   return () => clearTimeout(timer);
-  // }, []);
-
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -35,18 +28,18 @@ const HeaderImageContainer = () => {
 
   return (
     <div className="w-full h-full">
-      <AnimatePresence mode="popLayout">
+      {/* <AnimatePresence mode="popLayout">
         {!isAdded ? (
           <HeaderImageContainerContent key="content" setIsAdded={setIsAdded} />
-        ) : (
-          <HeaderImageContainerSkeleton
-            key="skeleton"
-            {...daySchedule}
-            isLoaded={isLoaded}
-            onComplete={onCompleteHandler}
-          />
-        )}
-      </AnimatePresence>
+        ) : ( */}
+      <HeaderImageContainerSkeleton
+        key="skeleton"
+        {...daySchedule}
+        isLoaded={isLoaded}
+        onComplete={onCompleteHandler}
+      />
+      {/* )}
+      </AnimatePresence> */}
     </div>
   );
 };
@@ -179,6 +172,7 @@ export const HeaderImageContainerSkeleton = ({
               style={{
                 transform: `translate(${mousePercent.x * 50 - 25}px) translateY(${mousePercent.y * 50}px)`,
               }}
+              preload
               onLoad={handleImageFrontLoad}
             />
           )}
@@ -206,6 +200,7 @@ export const HeaderImageContainerSkeleton = ({
                 transform: `translate(${mousePercent.x * 30 - 15}px) translateY(${mousePercent.y * 30 - 15}px)`,
               }}
               onLoad={handleImageBgLoad}
+              preload
             />
           )}
         </motion.div>

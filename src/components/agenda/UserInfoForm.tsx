@@ -80,7 +80,13 @@ const UserInfoForm = () => {
         />
       </div>
 
-      <Button type="submit" disabled={isSubmitting}>
+      <Button
+        type="submit"
+        disabled={isSubmitting}
+        className="w-full cursor-pointer bg-purple-500 hover:bg-purple-600"
+        variant="default"
+        size="lg"
+      >
         Submit
       </Button>
     </form>
