@@ -26,7 +26,7 @@ export const Header: HeaderProps[] = [
   {
     id: 1,
     title: "Sleeping",
-    description: "I sleep 8 hours a day",
+    description: "Completely out, see you tomorrow",
     imageFront:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032711/portifolio/header/sleep_front_kcycc2.png",
     imageBg:
@@ -44,7 +44,7 @@ export const Header: HeaderProps[] = [
   {
     id: 2,
     title: "Sleeping",
-    description: "I sleep 8 hours a day",
+    description: "Completely out, see you tomorrow",
     imageBg:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032696/portifolio/header/sleep_back_eqhujk.png",
     imageFront:
@@ -62,7 +62,7 @@ export const Header: HeaderProps[] = [
   {
     id: 3,
     title: "Developing",
-    description: "I develop 8 hours a day",
+    description: "Locked on the screen, the rest of the world on pause",
     imageFront:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032714/portifolio/header/dev_front_i51k9w.png",
     imageBg:
@@ -80,7 +80,7 @@ export const Header: HeaderProps[] = [
   {
     id: 4,
     title: "Developing",
-    description: "I develop 8 hours a day",
+    description: "A lot of stuff open and I'm making it all look simple",
     imageFront:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032714/portifolio/header/dev_front_i51k9w.png",
     imageBg:
@@ -98,7 +98,7 @@ export const Header: HeaderProps[] = [
   {
     id: 5,
     title: "Calling",
-    description: "I call 8 hours a day",
+    description: "Talking more than I should, listening less than I'd like",
     imageFront:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032714/portifolio/header/call_front_dovke7.png",
     imageBg:
@@ -116,7 +116,7 @@ export const Header: HeaderProps[] = [
   {
     id: 6,
     title: "Calling",
-    description: "I call 8 hours a day",
+    description: "Waving my hands like everyone's actually here in the room",
     imageFront:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032714/portifolio/header/call_front_dovke7.png",
     imageBg:
@@ -134,7 +134,7 @@ export const Header: HeaderProps[] = [
   {
     id: 7,
     title: "Coffee",
-    description: "I drink coffee 8 hours a day",
+    description: "First sip of the day, still trying to actually wake up",
     imageFront:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032713/portifolio/header/coffee_front_tiajkv.png",
     imageBg:
@@ -152,7 +152,7 @@ export const Header: HeaderProps[] = [
   {
     id: 8,
     title: "Gym",
-    description: "I go to the gym 8 hours a day",
+    description: "My arms are burning and I swore I’d go easy today",
     imageFront:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032712/portifolio/header/gym_front_nvthy0.png",
     imageBg:
@@ -170,7 +170,7 @@ export const Header: HeaderProps[] = [
   {
     id: 9,
     title: "Pub",
-    description: "I go to the pub 8 hours a day",
+    description: "Laughing out loud, not checking the time or my phone",
     imageFront:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032712/portifolio/header/pub_front_dpdgtc.png",
     imageBg:
@@ -188,7 +188,7 @@ export const Header: HeaderProps[] = [
   {
     id: 10,
     title: "Relax",
-    description: "I relax 8 hours a day",
+    description: "Lying down with no rush, just letting time go by",
     imageFront:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032712/portifolio/header/relax_front_wglsmw.png",
     imageBg:
@@ -206,7 +206,7 @@ export const Header: HeaderProps[] = [
   {
     id: 11,
     title: "Relax",
-    description: "I relax 8 hours a day",
+    description: "No plans, no guilt, just resting",
     imageFront:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032712/portifolio/header/relax_front_wglsmw.png",
     imageBg:
@@ -224,7 +224,7 @@ export const Header: HeaderProps[] = [
   {
     id: 12,
     title: "Dinner",
-    description: "I eat dinner 8 hours a day",
+    description: "Full plate, easy talk and no rush to leave the table",
     imageFront:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032711/portifolio/header/dinner_front_kaejvi.png",
     imageBg:
@@ -242,7 +242,7 @@ export const Header: HeaderProps[] = [
   {
     id: 13,
     title: "BBQ",
-    description: "I go to the BBQ 8 hours a day",
+    description: "Barbecue smoke in the air and the conversation going far",
     imageFront:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032712/portifolio/header/bbq_front_mc0ryq.png",
     imageBg:
@@ -260,7 +260,8 @@ export const Header: HeaderProps[] = [
   {
     id: 14,
     title: "Support",
-    description: "I support 8 hours a day",
+    description:
+      "My team mostly loses, when we draw it already feels like a final",
     imageFront:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032712/portifolio/header/support_front_rqztui.png",
     imageBg:
@@ -278,7 +279,8 @@ export const Header: HeaderProps[] = [
   {
     id: 15,
     title: "Cats",
-    description: "I have 8 cats",
+    description:
+      "House is quiet until someone knocks something over in the kitchen",
     imageFront:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032711/portifolio/header/cats_front_vbr3xa.png",
     imageBg:
@@ -296,7 +298,8 @@ export const Header: HeaderProps[] = [
   {
     id: 16,
     title: "Cats",
-    description: "I have 8 cats",
+    description:
+      "House is quiet until someone knocks something over in the kitchen",
     imageFront:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032711/portifolio/header/cats_front_vbr3xa.png",
     imageBg:
@@ -314,7 +317,8 @@ export const Header: HeaderProps[] = [
   {
     id: 17,
     title: "Lunch",
-    description: "I eat lunch 8 hours a day",
+    description:
+      "Simple lunch, but it’s the highlight of the middle of the day",
     imageFront:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032709/portifolio/header/lunch_front_dp8kae.png",
     imageBg:
@@ -332,7 +336,7 @@ export const Header: HeaderProps[] = [
   {
     id: 18,
     title: "Beach",
-    description: "I go to the beach 8 hours a day",
+    description: "Feet in the sand, listening to the waves with zero rush",
     imageFront:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032708/portifolio/header/beach_front_ks9wup.png",
     imageBg:
@@ -350,7 +354,7 @@ export const Header: HeaderProps[] = [
   {
     id: 19,
     title: "Beach",
-    description: "I go to the beach 8 hours a day",
+    description: "Cold water, warm sun and a really light head",
     imageFront:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032708/portifolio/header/beach_front_ks9wup.png",
     imageBg:
@@ -368,7 +372,8 @@ export const Header: HeaderProps[] = [
   {
     id: 20,
     title: "Sun",
-    description: "I go to the sun 8 hours a day",
+    description:
+      "Sun setting on the beach and me wishing the day would last a bit longer",
     imageFront:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032706/portifolio/header/sun_front_vjkwxa.png",
     imageBg:
@@ -386,7 +391,7 @@ export const Header: HeaderProps[] = [
   {
     id: 21,
     title: "Cycling",
-    description: "I cycle 8 hours a day",
+    description: "Wind on my face, tired legs and a clear mind",
     imageFront:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032708/portifolio/header/cycling_front_srs7f1.png",
     imageBg:
@@ -404,7 +409,7 @@ export const Header: HeaderProps[] = [
   {
     id: 22,
     title: "Cycling",
-    description: "I cycle 8 hours a day",
+    description: "Endless climb, but the view at the top makes it worth it",
     imageFront:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032708/portifolio/header/cycling_front_srs7f1.png",
     imageBg:
@@ -422,7 +427,7 @@ export const Header: HeaderProps[] = [
   {
     id: 23,
     title: "Beach Lunch",
-    description: "I go to the beach lunch 8 hours a day",
+    description: "Food on the sand, bare feet and zero formality",
     imageFront:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769032707/portifolio/header/beach_lunch_front_pex6jo.png",
     imageBg:

@@ -57,8 +57,8 @@ const AgendaDay = ({
       ? agendaDayVariants.actual
       : agendaDayVariants.disable
     : daySlots.length === 0 && !actual
-      ? agendaDayVariants.disable
-      : agendaDayVariants.available;
+    ? agendaDayVariants.disable
+    : agendaDayVariants.available;
 
   return (
     <div
@@ -68,7 +68,7 @@ const AgendaDay = ({
       <p className="text-center text-2xl leading-5 font-bold relative">{day}</p>
       <p className=" text-center text-sm leading-4 relative">{monthLabel}</p>
       {daySlots.length > 0 && enabled && (
-        <div className="absolute top-0 left-0 right-0 bottom-0 bg-pink-600 dark:bg-pink-600 backdrop-blur-xl translate-y-full group-hover:translate-y-0 transition duration-300 ease-out w-full h-full flex flex-col items-center justify-center">
+        <div className="absolute top-0 left-0 right-0 bottom-0 bg-pink-600 dark:bg-pink-600 backdrop-blur-xl translate-y-[105%] group-hover:translate-y-0 transition duration-300 ease-out w-full h-full flex flex-col items-center justify-center">
           <p className="text-center text-2xl leading-5 font-bold relative text-white">
             {day}
             {actual}

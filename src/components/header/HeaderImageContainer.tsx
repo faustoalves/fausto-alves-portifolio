@@ -7,7 +7,6 @@ import { getHeaderByDateTime } from "@/lib/header";
 import { AnimatePresence, motion } from "framer-motion";
 
 const HeaderImageContainer = () => {
-  const [isAdded, setIsAdded] = useState(false);
   const [daySchedule, setDaySchedule] = useState<DayScheduleItem | null>(null);
 
   const [isLoaded, setIsLoaded] = useState(false);
@@ -26,8 +25,11 @@ const HeaderImageContainer = () => {
     setIsLoaded(true);
   };
 
+  const weekDay = new Date().toLocaleDateString("en-US", { weekday: "long" });
+  const hours = new Date().toLocaleTimeString("en-US", { hour: "2-digit" });
+
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full relative">
       {/* <AnimatePresence mode="popLayout">
         {!isAdded ? (
           <HeaderImageContainerContent key="content" setIsAdded={setIsAdded} />
@@ -38,6 +40,18 @@ const HeaderImageContainer = () => {
         isLoaded={isLoaded}
         onComplete={onCompleteHandler}
       />
+      <div className="absolute bottom-4 left-4 w-9/10  flex flex-col items-start justify-start -gap-1 z-10">
+        <span className="text-purple-200 bg-purple-700 text-base md:text-lg lg:text-xl mr-auto w-auto px-2 py-1 md:px-4 md:py-2  font-medium uppercase tracking-wider">
+          Florianópolis, Brazil
+        </span>
+        <span className="text-purple-200 bg-purple-800 text-xl md:text-2xl xl:text-4xl mr-auto w-auto px-2 py-1 md:px-4 md:py-2 font-bold uppercase tracking-wider">
+          {weekDay}, {hours}
+        </span>
+        <span className="text-purple-200 bg-purple-900 text-lg md:text-xl xl:text-2xl mr-auto w-auto px-2 py-1 md:px-4 md:py-2 font-semibold tracking-wider rounded-bl-lg">
+          {daySchedule.description}
+        </span>
+      </div>
+
       {/* )}
       </AnimatePresence> */}
     </div>
@@ -173,7 +187,9 @@ export const HeaderImageContainerSkeleton = ({
                 quality={75}
                 className="w-full h-full relative z-2 object-cover scale-115 md:scale-[107%] md:pt-10 md:hidden"
                 style={{
-                  transform: `translate(${mousePercent.x * 50 - 25}px) translateY(${mousePercent.y * 50}px)`,
+                  transform: `translate(${
+                    mousePercent.x * 50 - 25
+                  }px) translateY(${mousePercent.y * 50}px)`,
                 }}
                 onLoad={handleImageFrontLoad}
               />
@@ -188,7 +204,9 @@ export const HeaderImageContainerSkeleton = ({
                 quality={75}
                 className="w-full h-full relative z-2 object-cover scale-115 md:scale-[107%] md:pt-10 hidden md:block"
                 style={{
-                  transform: `translate(${mousePercent.x * 50 - 25}px) translateY(${mousePercent.y * 50}px)`,
+                  transform: `translate(${
+                    mousePercent.x * 50 - 25
+                  }px) translateY(${mousePercent.y * 50}px)`,
                 }}
                 onLoad={handleImageFrontLoad}
               />
@@ -216,7 +234,9 @@ export const HeaderImageContainerSkeleton = ({
                 alt="Description of my image"
                 className="w-full aspect-square md:hidden scale-115"
                 style={{
-                  transform: `translate(${mousePercent.x * 30 - 15}px) translateY(${mousePercent.y * 30 - 15}px)`,
+                  transform: `translate(${
+                    mousePercent.x * 30 - 15
+                  }px) translateY(${mousePercent.y * 30 - 15}px)`,
                 }}
                 onLoad={handleImageBgLoad}
               />
@@ -231,7 +251,9 @@ export const HeaderImageContainerSkeleton = ({
                 alt="Description of my image"
                 className="w-full h-full object-cover scale-115 md:scale-[107%] hidden md:block"
                 style={{
-                  transform: `translate(${mousePercent.x * 30 - 15}px) translateY(${mousePercent.y * 30 - 15}px)`,
+                  transform: `translate(${
+                    mousePercent.x * 30 - 15
+                  }px) translateY(${mousePercent.y * 30 - 15}px)`,
                 }}
                 onLoad={handleImageBgLoad}
               />

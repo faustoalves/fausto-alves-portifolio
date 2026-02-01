@@ -87,7 +87,7 @@ const UserInfoForm = () => {
         variant="default"
         size="lg"
       >
-        Submit
+        Let's schedule a call
       </Button>
     </form>
   );
