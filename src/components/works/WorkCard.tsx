@@ -24,7 +24,7 @@ const WorkCard = ({
   srcImage,
   srcLogo,
   title,
-  link,
+  slug,
   index,
   progress,
   range,
@@ -34,16 +34,16 @@ const WorkCard = ({
     client === "benu"
       ? "from-[#45455F] to-[#303042]"
       : client === "kloster"
-        ? "from-[#668753] to-[#547840]"
-        : client === "crescimentum"
-          ? "from-[#360000] to-[#190000]"
-          : client === "hm"
-            ? "from-[#D51030] to-[#AE0521]"
-            : client === "mementry"
-              ? "from-[#504462] to-[#4F4361]"
-              : client === "mymc"
-                ? "from-[#2B2B2B] to-[#191919]"
-                : "#000000";
+      ? "from-[#668753] to-[#547840]"
+      : client === "crescimentum"
+      ? "from-[#360000] to-[#190000]"
+      : client === "hm"
+      ? "from-[#D51030] to-[#AE0521]"
+      : client === "mementry"
+      ? "from-[#504462] to-[#4F4361]"
+      : client === "mymc"
+      ? "from-[#2B2B2B] to-[#191919]"
+      : "#000000";
 
   const container = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -89,7 +89,9 @@ const WorkCard = ({
                     (max-width: 1200px) 50vw,
                     33vw"
             style={{
-              transform: `translate(${mousePercent.x * 40 - 20}px) translateY(${mousePercent.y * 40 - 20}px)`,
+              transform: `translate(${mousePercent.x * 40 - 20}px) translateY(${
+                mousePercent.y * 40 - 20
+              }px)`,
             }}
           />
         </div>
@@ -105,7 +107,9 @@ const WorkCard = ({
             className="w-full h-full object-cover scale-110"
             loading="lazy"
             style={{
-              transform: `translate(${mousePercent.x * 30 - 15}px) translateY(${mousePercent.y * 30 - 15}px)`,
+              transform: `translate(${mousePercent.x * 30 - 15}px) translateY(${
+                mousePercent.y * 30 - 15
+              }px)`,
             }}
           />
         </div>
