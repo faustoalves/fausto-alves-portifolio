@@ -52,9 +52,11 @@ const AgendaDay = ({
     updateSchedule({ state: "time", day: day, month: month, year: year });
   };
 
-  const variantClass = !enabled
-    ? actual
-      ? agendaDayVariants.actual
+  const variantClass = actual
+    ? agendaDayVariants.actual
+    : !enabled
+    ? !enabled
+      ? agendaDayVariants.disable
       : agendaDayVariants.disable
     : daySlots.length === 0 && !actual
     ? agendaDayVariants.disable

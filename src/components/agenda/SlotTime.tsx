@@ -16,7 +16,9 @@ const SlotTime = (props: Props) => {
   const { slots, getSlotsInTimezone } = useScheduleSlotsStore();
 
   const pad = (n: number) => n.toString().padStart(2, "0");
-  const datePrefix = `${schedule.year}-${pad(schedule.month)}-${pad(schedule.day)}`;
+  const datePrefix = `${schedule.year}-${pad(schedule.month)}-${pad(
+    schedule.day,
+  )}`;
 
   const getSlotsForDay = useCallback(() => {
     return slots.filter((slot) => {
@@ -62,7 +64,7 @@ const SlotTime = (props: Props) => {
       >
         <button
           onClick={handleClose}
-          className="text-purple-800 dark:text-white absolute top-0 right-0 p-4 cursor-pointer"
+          className="text-purple-800 dark:text-white absolute top-0 right-0 p-4 cursor-pointer hover:text-pink-500 transition-colors duration-300"
         >
           <X />
         </button>

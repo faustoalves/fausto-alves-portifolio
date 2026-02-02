@@ -1,14 +1,14 @@
 import { getCalendarClient } from "@/lib/google-auth";
+import { toTimezoneRelativeIso } from "@/lib/timezone";
 
 const ALLOWED_ORIGINS = [
   "https://www.faustoalves.com.br",
   "https://portifolio.faustoalves.com.br",
   "https://faustoalves.com.br",
+  "http://localhost:3000",
 ];
 
-function getCorsHeaders(
-  origin: string | null,
-): HeadersInit | null | undefined {
+function getCorsHeaders(origin: string | null): HeadersInit | null | undefined {
   if (!origin) return undefined;
   if (!ALLOWED_ORIGINS.includes(origin)) return null;
   return {
@@ -56,6 +56,7 @@ async function ensureMeetAllowed(calendar: any) {
 }
 
 export async function POST(req: Request) {
+  console.log("fill-slot");
   const origin = req.headers.get("origin");
   const corsHeaders = getCorsHeaders(origin);
   if (corsHeaders === null) {
@@ -64,11 +65,13 @@ export async function POST(req: Request) {
       { status: 403 },
     );
   }
-
+  // let body = await req.json();
+  // console.log(body);
   try {
-    const { date, time, name, email, timezone } = await req.json();
+    const { time, name, email, timezone } = await req.json();
+    console.log(time, name, email, timezone);
 
-    if (!date || !time || !name || !email) {
+    if (!time || !name || !email || !timezone) {
       return Response.json(
         {
           success: false,
@@ -79,8 +82,10 @@ export async function POST(req: Request) {
       );
     }
 
-    const validSlots = ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00"];
-    if (!validSlots.includes(time)) {
+    const BrazilTime = toTimezoneRelativeIso(time, "America/Sao_Paulo");
+
+    const validSlots = ["09", "10", "11", "14", "15", "16"];
+    if (!validSlots.includes(BrazilTime.split("T")[1].split(":")[0])) {
       return Response.json(
         { success: false, error: "INVALID_SLOT", message: "Horário inválido." },
         { status: 400, headers: corsHeaders },
@@ -93,18 +98,6 @@ export async function POST(req: Request) {
     tomorrow.setDate(tomorrow.getDate() + 1);
     const maxDate = new Date(tomorrow);
     maxDate.setDate(maxDate.getDate() + 14);
-
-    const selectedDate = new Date(`${date}T00:00:00`);
-    if (selectedDate < tomorrow || selectedDate > maxDate) {
-      return Response.json(
-        {
-          success: false,
-          error: "INVALID_DATE",
-          message: "Data fora do intervalo permitido.",
-        },
-        { status: 400, headers: corsHeaders },
-      );
-    }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
@@ -119,9 +112,8 @@ export async function POST(req: Request) {
     }
 
     const calendar = getCalendarClient();
-    const dateTime = `${date}T${time}:00-03:00`;
 
-    const isAvailable = await checkSlotAvailability(calendar, dateTime);
+    const isAvailable = await checkSlotAvailability(calendar, time);
     if (!isAvailable) {
       return Response.json(
         {
@@ -146,7 +138,7 @@ export async function POST(req: Request) {
       );
     }
 
-    const slotStart = new Date(dateTime);
+    const slotStart = new Date(time);
     const slotEnd = new Date(slotStart.getTime() + 30 * 60 * 1000);
 
     const eventResponse = await calendar.events.insert({
@@ -178,6 +170,7 @@ export async function POST(req: Request) {
     });
 
     const created = eventResponse.data;
+    console.log(created);
 
     const meetLink =
       created.conferenceData?.entryPoints?.find(
@@ -187,14 +180,16 @@ export async function POST(req: Request) {
     // 👇 ADICIONA ISSO
     try {
       await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/api/schedule/send-confirmation`,
+        `${
+          process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
+        }/api/schedule/send-confirmation`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             participantEmail: email,
             participantName: name,
-            date,
+            date: BrazilTime,
             time,
             meetLink,
             calendarLink: created.htmlLink,

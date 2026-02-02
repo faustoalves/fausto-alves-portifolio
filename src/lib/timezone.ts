@@ -157,3 +157,43 @@ export function getUserTimezone(): Timezone | string {
   const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
   return isValidTimezone(tz) ? tz : tz;
 }
+
+export const toTimezoneRelativeIso = (
+  dateTimeUTC: string,
+  timezone: string,
+) => {
+  const date = new Date(dateTimeUTC);
+  if (Number.isNaN(date.getTime())) return dateTimeUTC;
+
+  try {
+    const parts = new Intl.DateTimeFormat("en-CA", {
+      timeZone: timezone,
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false,
+    }).formatToParts(date);
+
+    const values = Object.fromEntries(
+      parts
+        .filter((part) => part.type !== "literal")
+        .map((part) => [part.type, part.value]),
+    );
+
+    const year = Number(values.year);
+    const month = Number(values.month);
+    const day = Number(values.day);
+    const hour = Number(values.hour);
+    const minute = Number(values.minute);
+    const second = Number(values.second);
+
+    return new Date(
+      Date.UTC(year, month - 1, day, hour, minute, second),
+    ).toISOString();
+  } catch {
+    return dateTimeUTC;
+  }
+};

@@ -11,7 +11,26 @@ export type WorkContentProps = {
   title: string;
   description: string;
   image?: string;
+  stack: StackItem;
 };
+
+export type StackItem =
+  | "next"
+  | "tailwind"
+  | "typescript"
+  | "react"
+  | "node"
+  | "figma"
+  | "photoshop"
+  | "strapi"
+  | "prisma"
+  | "cypress"
+  | "selenium"
+  | "playwright"
+  | "javascript"
+  | "html"
+  | "css"
+  | "vite";
 
 export const workList: WorkProps[] = [
   {

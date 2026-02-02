@@ -7,11 +7,10 @@ const ALLOWED_ORIGINS = [
   "https://www.faustoalves.com.br",
   "https://portifolio.faustoalves.com.br",
   "https://faustoalves.com.br",
+  "http://localhost:3000",
 ];
 
-function getCorsHeaders(
-  origin: string | null,
-): HeadersInit | null | undefined {
+function getCorsHeaders(origin: string | null): HeadersInit | null | undefined {
   if (!origin) return undefined;
   if (!ALLOWED_ORIGINS.includes(origin)) return null;
   return {
@@ -39,8 +38,9 @@ export async function POST(req: Request) {
       { status: 403 },
     );
   }
-
   try {
+    const body = await req.json();
+    console.log(body);
     const {
       participantEmail,
       participantName,
@@ -48,7 +48,7 @@ export async function POST(req: Request) {
       time,
       meetLink,
       calendarLink,
-    } = await req.json();
+    } = body;
 
     if (!participantEmail || !participantName || !date || !time || !meetLink) {
       return Response.json(

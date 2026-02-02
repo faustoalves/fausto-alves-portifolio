@@ -6,7 +6,8 @@ export interface ScheduleInfo {
   name: string;
   email: string;
   timezone: string;
-  state: "calendar" | "time" | "user-info";
+  state: "calendar" | "time" | "user-info" | "sending" | "success" | "error";
+  subject?: string;
 }
 
 export type SlotItem = {

@@ -6,6 +6,7 @@ import CalendarHeader from "../agenda/CalendarHeader";
 import SlotTime from "../agenda/SlotTime";
 import { AnimatePresence, motion } from "framer-motion";
 import AgendaUserInfo from "../agenda/AgendaUserInfo";
+import AgendaSending from "./AgendaSending";
 
 type Props = {};
 
@@ -32,6 +33,11 @@ const Calendar = (props: Props) => {
             {schedule.state === "time" && <SlotTime key="slot-time" />}
             {schedule.state === "user-info" && (
               <AgendaUserInfo key="agenda-user-info" />
+            )}
+            {(schedule.state === "sending" ||
+              schedule.state === "success" ||
+              schedule.state === "error") && (
+              <AgendaSending key="agenda-sending" />
             )}
           </AnimatePresence>
         </motion.div>

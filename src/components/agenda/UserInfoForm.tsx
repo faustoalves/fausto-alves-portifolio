@@ -24,7 +24,7 @@ const userInfoSchema = z.object({
 type UserInfoFormValues = z.infer<typeof userInfoSchema>;
 
 const UserInfoForm = () => {
-  const { schedule } = useScheduleStore();
+  const { schedule, updateSchedule } = useScheduleStore();
   const {
     register,
     handleSubmit,
@@ -32,14 +32,19 @@ const UserInfoForm = () => {
   } = useForm<UserInfoFormValues>({
     resolver: zodResolver(userInfoSchema),
     defaultValues: {
-      name: "",
-      email: "",
-      subject: "",
+      name: schedule.name ? schedule.name : "",
+      email: schedule.email ? schedule.email : "",
+      subject: schedule.subject ? schedule.subject : "",
     },
   });
 
   const onSubmit = (values: UserInfoFormValues) => {
-    console.log("User info submitted", values, schedule);
+    updateSchedule({
+      state: "sending",
+      name: values.name,
+      email: values.email,
+      subject: values.subject,
+    });
   };
 
   return (

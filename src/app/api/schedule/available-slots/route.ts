@@ -9,11 +9,10 @@ const ALLOWED_ORIGINS = [
   "https://www.faustoalves.com.br",
   "https://portifolio.faustoalves.com.br",
   "https://faustoalves.com.br",
+  "http://localhost:3000",
 ];
 
-function getCorsHeaders(
-  origin: string | null,
-): HeadersInit | null | undefined {
+function getCorsHeaders(origin: string | null): HeadersInit | null | undefined {
   if (!origin) return undefined;
   if (!ALLOWED_ORIGINS.includes(origin)) return null;
   return {
@@ -52,12 +51,9 @@ function getLockedSlotsForDate(dateStr: string): number[] {
 
   // Define quantos slots travar baseado na proximidade
   let maxLocked: number;
-  if (daysAhead <= 1)
-    maxLocked = 4; // amanhã: 4 travados
-  else if (daysAhead <= 3)
-    maxLocked = 2; // próximos 3 dias: 3 travados
-  else if (daysAhead <= 7)
-    maxLocked = 1; // próxima semana: 2 travados
+  if (daysAhead <= 1) maxLocked = 4; // amanhã: 4 travados
+  else if (daysAhead <= 3) maxLocked = 2; // próximos 3 dias: 3 travados
+  else if (daysAhead <= 7) maxLocked = 1; // próxima semana: 2 travados
   else maxLocked = 0; // depois: 1 travado
 
   // Usa a data como seed pra gerar sempre os mesmos slots travados
