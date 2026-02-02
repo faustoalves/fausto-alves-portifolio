@@ -1,5 +1,32 @@
 import { getCalendarClient } from "@/lib/google-auth";
 
+const ALLOWED_ORIGINS = [
+  "https://www.faustoalves.com.br",
+  "https://portifolio.faustoalves.com.br",
+  "https://faustoalves.com.br",
+];
+
+function getCorsHeaders(
+  origin: string | null,
+): HeadersInit | null | undefined {
+  if (!origin) return undefined;
+  if (!ALLOWED_ORIGINS.includes(origin)) return null;
+  return {
+    "Access-Control-Allow-Origin": origin,
+    "Access-Control-Allow-Methods": "POST,OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+  };
+}
+
+export async function OPTIONS(req: Request) {
+  const origin = req.headers.get("origin");
+  const corsHeaders = getCorsHeaders(origin);
+  if (corsHeaders === null) {
+    return new Response(null, { status: 403 });
+  }
+  return new Response(null, { status: 204, headers: corsHeaders });
+}
+
 async function checkSlotAvailability(calendar: any, dateTime: string) {
   const slotStart = new Date(dateTime);
   const slotEnd = new Date(slotStart.getTime() + 30 * 60 * 1000);
@@ -29,6 +56,15 @@ async function ensureMeetAllowed(calendar: any) {
 }
 
 export async function POST(req: Request) {
+  const origin = req.headers.get("origin");
+  const corsHeaders = getCorsHeaders(origin);
+  if (corsHeaders === null) {
+    return Response.json(
+      { success: false, error: "CORS_NOT_ALLOWED" },
+      { status: 403 },
+    );
+  }
+
   try {
     const { date, time, name, email, timezone } = await req.json();
 
@@ -39,7 +75,7 @@ export async function POST(req: Request) {
           error: "MISSING_FIELDS",
           message: "Todos os campos são obrigatórios.",
         },
-        { status: 400 },
+        { status: 400, headers: corsHeaders },
       );
     }
 
@@ -47,7 +83,7 @@ export async function POST(req: Request) {
     if (!validSlots.includes(time)) {
       return Response.json(
         { success: false, error: "INVALID_SLOT", message: "Horário inválido." },
-        { status: 400 },
+        { status: 400, headers: corsHeaders },
       );
     }
 
@@ -66,7 +102,7 @@ export async function POST(req: Request) {
           error: "INVALID_DATE",
           message: "Data fora do intervalo permitido.",
         },
-        { status: 400 },
+        { status: 400, headers: corsHeaders },
       );
     }
 
@@ -78,7 +114,7 @@ export async function POST(req: Request) {
           error: "INVALID_EMAIL",
           message: "Email inválido.",
         },
-        { status: 400 },
+        { status: 400, headers: corsHeaders },
       );
     }
 
@@ -93,7 +129,7 @@ export async function POST(req: Request) {
           error: "SLOT_UNAVAILABLE",
           message: "Este horário já foi preenchido.",
         },
-        { status: 409 },
+        { status: 409, headers: corsHeaders },
       );
     }
 
@@ -106,7 +142,7 @@ export async function POST(req: Request) {
           message:
             "Esta agenda não permite criar Google Meet. Verifique se é uma conta Google Workspace com Meet habilitado e, se estiver usando service account, configure a delegação de domínio e a variável GOOGLE_IMPERSONATED_USER.",
         },
-        { status: 400 },
+        { status: 400, headers: corsHeaders },
       );
     }
 
@@ -170,24 +206,27 @@ export async function POST(req: Request) {
       // Não falha o fluxo se o email der erro
     }
 
-    return Response.json({
-      success: true,
-      event: {
-        id: created.id,
-        summary: created.summary,
-        start: created.start?.dateTime,
-        end: created.end?.dateTime,
-        meetLink,
-        calendarLink: created.htmlLink,
-        participantEmail: email,
-        participantName: name,
+    return Response.json(
+      {
+        success: true,
+        event: {
+          id: created.id,
+          summary: created.summary,
+          start: created.start?.dateTime,
+          end: created.end?.dateTime,
+          meetLink,
+          calendarLink: created.htmlLink,
+          participantEmail: email,
+          participantName: name,
+        },
       },
-    });
+      { headers: corsHeaders },
+    );
   } catch (err: any) {
     console.error("Error in fill-slot:", err);
     return Response.json(
       { success: false, error: err.message, details: err.errors },
-      { status: 500 },
+      { status: 500, headers: corsHeaders ?? undefined },
     );
   }
 }

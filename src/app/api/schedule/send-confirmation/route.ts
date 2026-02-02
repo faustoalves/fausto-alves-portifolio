@@ -3,7 +3,43 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+const ALLOWED_ORIGINS = [
+  "https://www.faustoalves.com.br",
+  "https://portifolio.faustoalves.com.br",
+  "https://faustoalves.com.br",
+];
+
+function getCorsHeaders(
+  origin: string | null,
+): HeadersInit | null | undefined {
+  if (!origin) return undefined;
+  if (!ALLOWED_ORIGINS.includes(origin)) return null;
+  return {
+    "Access-Control-Allow-Origin": origin,
+    "Access-Control-Allow-Methods": "POST,OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+  };
+}
+
+export async function OPTIONS(req: Request) {
+  const origin = req.headers.get("origin");
+  const corsHeaders = getCorsHeaders(origin);
+  if (corsHeaders === null) {
+    return new Response(null, { status: 403 });
+  }
+  return new Response(null, { status: 204, headers: corsHeaders });
+}
+
 export async function POST(req: Request) {
+  const origin = req.headers.get("origin");
+  const corsHeaders = getCorsHeaders(origin);
+  if (corsHeaders === null) {
+    return Response.json(
+      { success: false, error: "CORS_NOT_ALLOWED" },
+      { status: 403 },
+    );
+  }
+
   try {
     const {
       participantEmail,
@@ -17,7 +53,7 @@ export async function POST(req: Request) {
     if (!participantEmail || !participantName || !date || !time || !meetLink) {
       return Response.json(
         { success: false, error: "MISSING_FIELDS" },
-        { status: 400 },
+        { status: 400, headers: corsHeaders },
       );
     }
 
@@ -69,15 +105,18 @@ export async function POST(req: Request) {
       `,
     });
 
-    return Response.json({
-      success: true,
-      message: "Emails enviados com sucesso",
-    });
+    return Response.json(
+      {
+        success: true,
+        message: "Emails enviados com sucesso",
+      },
+      { headers: corsHeaders },
+    );
   } catch (err: any) {
     console.error("Error sending emails:", err);
     return Response.json(
       { success: false, error: err.message },
-      { status: 500 },
+      { status: 500, headers: corsHeaders ?? undefined },
     );
   }
 }

@@ -5,6 +5,33 @@ const BASE_SLOTS = ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00"];
 
 const AGENDA_TZ = "-03:00"; // Brasília — mesmo fuso dos slots
 
+const ALLOWED_ORIGINS = [
+  "https://www.faustoalves.com.br",
+  "https://portifolio.faustoalves.com.br",
+  "https://faustoalves.com.br",
+];
+
+function getCorsHeaders(
+  origin: string | null,
+): HeadersInit | null | undefined {
+  if (!origin) return undefined;
+  if (!ALLOWED_ORIGINS.includes(origin)) return null;
+  return {
+    "Access-Control-Allow-Origin": origin,
+    "Access-Control-Allow-Methods": "GET,OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+  };
+}
+
+export async function OPTIONS(req: Request) {
+  const origin = req.headers.get("origin");
+  const corsHeaders = getCorsHeaders(origin);
+  if (corsHeaders === null) {
+    return new Response(null, { status: 403 });
+  }
+  return new Response(null, { status: 204, headers: corsHeaders });
+}
+
 function getLockedSlotsForDate(dateStr: string): number[] {
   // Interpreta a data no fuso da agenda (-03:00) para não depender do TZ do servidor
   const targetDate = new Date(`${dateStr}T12:00:00${AGENDA_TZ}`);
@@ -51,7 +78,16 @@ function getLockedSlotsForDate(dateStr: string): number[] {
   return lockedIndices;
 }
 
-export async function GET() {
+export async function GET(req: Request) {
+  const origin = req.headers.get("origin");
+  const corsHeaders = getCorsHeaders(origin);
+  if (corsHeaders === null) {
+    return Response.json(
+      { success: false, error: "CORS_NOT_ALLOWED" },
+      { status: 403 },
+    );
+  }
+
   try {
     const calendar = getCalendarClient();
 
@@ -124,18 +160,21 @@ export async function GET() {
     }
 
     // 4. Retorna
-    return Response.json({
-      period: {
-        start: tomorrow.toISOString().split("T")[0],
-        end: endDate.toISOString().split("T")[0],
+    return Response.json(
+      {
+        period: {
+          start: tomorrow.toISOString().split("T")[0],
+          end: endDate.toISOString().split("T")[0],
+        },
+        slots,
       },
-      slots,
-    });
+      { headers: corsHeaders },
+    );
   } catch (err: any) {
     console.error("Error in available-slots:", err);
     return Response.json(
       { success: false, error: err.message },
-      { status: 500 },
+      { status: 500, headers: corsHeaders ?? undefined },
     );
   }
 }
