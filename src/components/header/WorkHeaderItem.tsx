@@ -20,6 +20,7 @@ const WorkHeaderItem = ({ image }: Props) => {
       (max-width: 1200px) 20vw,
       (max-width: 1800px) 20vw,
       20vw"
+      preload
       quality={75}
     />
   );
