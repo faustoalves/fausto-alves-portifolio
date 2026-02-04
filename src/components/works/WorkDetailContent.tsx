@@ -121,11 +121,11 @@ const WorkDetailContentItem = ({
         width={500}
         height={500}
         className="w-full h-auto object-cover rounded-sm lg:rounded-lg border-2 border-purple-700/40 shadow-xl"
-        sizes="(max-width: 420px) 12vw,
-        (max-width: 768px) 12vw,
-        (max-width: 1200px) 10vw,
-        (max-width: 1800px) 10vw,
-        15vw"
+        sizes="(max-width: 420px) 16vw,
+        (max-width: 768px) 16vw,
+        (max-width: 1200px) 20vw,
+        (max-width: 1800px) 20vw,
+        25vw"
         quality={75}
         loading="lazy"
       />
