@@ -16,7 +16,9 @@ const HeaderImageContainer = () => {
     const dateTimeSaoPaulo = new Date(
       dateTime.toLocaleString("en-US", { timeZone: "America/Sao_Paulo" }),
     );
-    setDaySchedule(getHeaderByDateTime(dateTimeSaoPaulo));
+    setTimeout(() => {
+      setDaySchedule(getHeaderByDateTime(dateTimeSaoPaulo));
+    }, 0);
   }, []);
 
   if (!daySchedule) return null;
