@@ -113,8 +113,8 @@ h4,
 h5,
 h6 {
   @apply font-heading text-pink-700 dark:text-pink-500  inline-block  font-semibold text-[34px] leading-[80%] sm:text-[42px] md:text-[52px] lg:text-[52px] uppercase;
-  font-family:
-    var(--font-heading), var(--font-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-heading), var(--font-sans), Arial, Helvetica,
+    sans-serif;
 }
 .top-line {
   @apply before:absolute before:top-0 before:z-10 before:h-px before:w-[200vw] before:bg-purple-900/20 dark:before:bg-white/10 before:-left-[100vw];
@@ -134,6 +134,15 @@ h6 {
   animation: rotate 25s linear infinite;
   transform-origin: 250px 250px;
 }
+
+.html-content {
+  @apply flex justify-center items-start flex-col p-4 text-center lg:text-left text-lg lg:text-xl lg:leading-8 leading-6 gap-4  mr-auto text-purple-800 dark:text-purple-200 font-medium;
+
+  & strong {
+    @apply font-bold text-white py-0.5 px-1 bg-pink-600 dark:bg-pink-600 whitespace-nowrap;
+  }
+}
+
 @keyframes rotate {
   to {
     transform: rotate(360deg);

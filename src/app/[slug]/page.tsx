@@ -6,6 +6,7 @@ import Footer from "@/components/sections/Footer";
 import { workList } from "@/lib/works";
 import { notFound } from "next/navigation";
 import WorkContent from "@/components/works/WorkContent";
+import WorkDescription from "@/components/works/WorkDescription";
 
 export default async function Page({
   params,
@@ -23,6 +24,7 @@ export default async function Page({
       <Navbar />
       <MainContainer>
         <WorkHeader {...work} />
+        <WorkDescription {...work} />
         {work.content.map((item, index) => (
           <WorkContent key={item.title} {...item} index={index} />
         ))}

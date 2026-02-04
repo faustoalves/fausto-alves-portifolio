@@ -14,7 +14,7 @@ const WorkContent = (props: WorkContentProps & Props) => {
         <h2>{props.title}</h2>
       </div>
 
-      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="w-full grid grid-cols-1 md:grid-cols-2">
         <WorkDetailContent {...props} />
         <WorkContentDescription isOdd={isOdd} {...props} />
       </div>

@@ -73,7 +73,7 @@ const WorkCard = ({
     >
       <a
         href={`/${slug}`}
-        className={`w-full lg:w-7/8 aspect-square lg:aspect-21/9 relative flex flex-col-reverse lg:flex-row items-center justify-center origin-top rounded-lg overflow-hidden bg-linear-to-br ${color} drop-shadow-xl outline outline-purple-200/80 dark:outline-purple-800/80 cursor-pointer hover:outline-5 hover:outline-purple-300 hover:dark:outline-purple-700`}
+        className={`w-full lg:w-7/8 aspect-square lg:aspect-21/9 relative flex flex-col-reverse lg:flex-row items-center justify-center origin-top rounded-lg overflow-hidden bg-linear-to-br ${color} drop-shadow-xl outline outline-purple-200/80 dark:outline-purple-800/80 cursor-pointer hover:outline-5 hover:outline-purple-300 hover:dark:outline-purple-700 z-3`}
         style={{ scale: currentScale, top: `calc(80px + ${index * 20}px)` }}
       >
         <div

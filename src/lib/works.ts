@@ -2,6 +2,7 @@ export type WorkProps = {
   title: string;
   client: "mymc" | "benu" | "kloster" | "crescimentum" | "hm" | "mementry";
   srcImage: string;
+  description: string;
   srcLogo: string;
   srcHeader: string;
   slug: string;
@@ -40,6 +41,8 @@ export const workList: WorkProps[] = [
   {
     client: "benu",
     title: "Benu Bestattung und Vorsorge",
+    description:
+      "<p><strong> Benu</strong> is a funeral company founded in <strong> 2017</strong> in <strong> Vienna</strong>, created to bring <strong> transparency</strong>, <strong> simplicity</strong> and <strong> digital tools</strong> to a traditionally conservative sector. It offers <strong> modern funeral services</strong> with a focus on <strong> clear information</strong>, <strong> online planning</strong> and options that respect different lifestyles. Today, it operates in <strong> Austria and Germany</strong>, with several <strong> physical branches</strong> and a <strong> specialized team</strong>.</p>",
     srcImage:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769210040/portifolio/work/benu_fcgham.jpg",
     srcLogo:
@@ -74,7 +77,17 @@ export const workList: WorkProps[] = [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230378/portifolio/work/benu/benu_site_06_hmkdzq.png",
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230378/portifolio/work/benu/benu_site_07_hstfzv.png",
         ],
-        stack: ["next"],
+        stack: [
+          "next",
+          "strapi",
+          "tailwind",
+          "typescript",
+          "node",
+          "figma",
+          "photoshop",
+          "cypress",
+          "recoil",
+        ],
       },
       {
         title: "Benu Bestattung und Vorsorge",
@@ -88,7 +101,7 @@ export const workList: WorkProps[] = [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230382/portifolio/work/benu/benu_strapi_06_alzxpl.png",
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230383/portifolio/work/benu/benu_strapi_07_ny4ivv.png",
         ],
-        stack: ["next"],
+        stack: ["react", "strapi", "typescript", "node"],
       },
       {
         title: "Benu Bestattung und Vorsorge",
@@ -102,7 +115,7 @@ export const workList: WorkProps[] = [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230374/portifolio/work/benu/benu_old_conf_06_tnziwp.png",
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230374/portifolio/work/benu/benu_old_conf_07_tp0sak.png",
         ],
-        stack: ["next"],
+        stack: ["react", "typescript", "redux", "styled", "node", "selenium"],
       },
       {
         title: "Benu Bestattung und Vorsorge",
@@ -116,7 +129,7 @@ export const workList: WorkProps[] = [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230370/portifolio/work/benu/benu_new_conf_06_le3wpr.png",
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230371/portifolio/work/benu/benu_new_conf_07_uxz1at.png",
         ],
-        stack: ["next"],
+        stack: ["vite", "react", "typescript", "figma", "playwright"],
       },
       {
         title: "Benu Bestattung und Vorsorge",
@@ -130,13 +143,15 @@ export const workList: WorkProps[] = [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230368/portifolio/work/benu/benu_docs_06_lzetzt.png",
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230368/portifolio/work/benu/benu_docs_07_ulmvuo.png",
         ],
-        stack: ["next"],
+        stack: ["figma", "photoshop", "node"],
       },
     ],
   },
   {
     client: "kloster",
     title: "Klosterwald",
+    description:
+      "<p><strong> Klosterwald</strong> is a <strong> forest cemetery</strong> concept that offers <strong> burials in natural areas</strong>, under <strong> trees personally chosen</strong> by the deceased or their family. Instead of headstones and ordered flowers, the <strong> forest itself marks the seasons</strong> with its colors, plants and textures, creating a place of farewell that feels more <strong> intimate</strong>, <strong> organic</strong> and <strong> connected to nature</strong>. The brand works in <strong> partnership with Austrian funeral homes</strong> to offer this alternative for a final resting place.</p>",
     srcImage:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769210046/portifolio/work/kloster_z4zv8u.jpg",
     srcLogo:
@@ -157,7 +172,17 @@ export const workList: WorkProps[] = [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230445/portifolio/work/klosterwald/klosterwald_site_03_oodjqq.png",
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230444/portifolio/work/klosterwald/klosterwald_site_02_koigml.png",
         ],
-        stack: ["next"],
+        stack: [
+          "next",
+          "strapi",
+          "tailwind",
+          "typescript",
+          "node",
+          "figma",
+          "photoshop",
+          "strapi",
+          "cypress",
+        ],
       },
       {
         title: "Klosterwald - Strapi",
@@ -171,7 +196,7 @@ export const workList: WorkProps[] = [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230452/portifolio/work/klosterwald/klosterwald_strapi_06_ld64sl.png",
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230453/portifolio/work/klosterwald/klosterwald_strapi_07_jpnqtn.png",
         ],
-        stack: ["next"],
+        stack: ["react", "strapi", "typescript", "node"],
       },
     ],
     headerImages: [
@@ -192,6 +217,8 @@ export const workList: WorkProps[] = [
   {
     client: "mementry",
     title: "Mementry",
+    description:
+      "<p><strong> Mementry</strong> is a platform designed to <strong> organize and share important information</strong> with <strong> security</strong>, <strong> privacy</strong> and <strong> clear intent</strong>. While still alive, a person defines <strong> what will be shared</strong> and <strong> with whom</strong> after they pass away. It also works as a <strong> central hub for personal data, documents and key records</strong>, helping families in sensitive moments and preventing important information from being lost.</p>",
     srcImage:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769210039/portifolio/work/mementry_vfewxt.jpg",
     srcLogo:
@@ -212,7 +239,15 @@ export const workList: WorkProps[] = [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230382/portifolio/work/benu/benu_strapi_06_alzxpl.png",
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230383/portifolio/work/benu/benu_strapi_07_ny4ivv.png",
         ],
-        stack: ["next"],
+        stack: [
+          "react",
+          "redux",
+          "typescript",
+          "node",
+          "styled",
+          "figma",
+          "photoshop",
+        ],
       },
     ],
     headerImages: [
@@ -233,6 +268,8 @@ export const workList: WorkProps[] = [
   {
     client: "mymc",
     title: "MyMc",
+    description:
+      "<p><strong> MyMc</strong> is an internal platform created for <strong> Arcos Dourados (McDonald's Brazil)</strong>, designed to <strong> connect employees</strong> from different restaurants in a more <strong> casual</strong> and <strong> familiar</strong> digital environment. Inspired by <strong> social networks</strong>, it makes <strong> communication</strong> easier, centralizes <strong> day-to-day information</strong> and strengthens the <strong> sense of community</strong> among teams, especially younger staff. This project was developed in partnership with <strong> ED Interactive</strong>, who works directly with the client.</p>",
     srcImage:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769210038/portifolio/work/mymc_majjqt.jpg",
     srcLogo:
@@ -253,7 +290,7 @@ export const workList: WorkProps[] = [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230490/portifolio/work/mymc/mymc_06_eawmvt.png",
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230493/portifolio/work/mymc/mymc_07_y2sndo.png",
         ],
-        stack: ["next"],
+        stack: ["react", "redux", "node", "styled", "figma", "photoshop"],
       },
     ],
     headerImages: [
@@ -274,6 +311,8 @@ export const workList: WorkProps[] = [
   {
     client: "crescimentum",
     title: "Crescimentum",
+    description:
+      "<p><strong> Crescimentum</strong>, part of the <strong> Cegos Group</strong>, works with <strong> people development and leadership</strong>, going beyond <strong> traditional training</strong>. Its focus is on fostering <strong> awareness</strong>, driving <strong> intentional change</strong> and building solutions <strong> together with people and organizations</strong>. The company offers <strong> programs, journeys and development experiences</strong> that support leaders and teams at different levels. This project was developed in partnership with <strong>Hagens</strong>, who works directly with the client.</p>",
     srcImage:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769210037/portifolio/work/crescimentum_dqrh15.jpg",
     srcLogo:
@@ -294,7 +333,7 @@ export const workList: WorkProps[] = [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230417/portifolio/work/crescimentum/crescimentum_06_vsjggl.png",
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230419/portifolio/work/crescimentum/crescimentum_07_lo0tl1.png",
         ],
-        stack: ["next"],
+        stack: ["figma", "photoshop"],
       },
     ],
     headerImages: [
@@ -315,6 +354,8 @@ export const workList: WorkProps[] = [
   {
     client: "hm",
     title: "HM",
+    description:
+      "<p><strong> HM Engenharia</strong> is a construction company with <strong> almost five decades of experience</strong>, focused on making the <strong> first home</strong> a reality for thousands of families. Its projects are designed to bring together <strong> affordability</strong>, <strong> functionality</strong> and <strong> quality of life</strong>, marking important milestones in clients' lives. Over the years, it has built a <strong> solid reputation</strong> in the <strong> affordable and mid-range housing</strong> segment.This project was developed in partnership with <strong>Hagens</strong>, who works directly with the client.</p>",
     srcImage:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769210036/portifolio/work/eme_y05ozg.jpg",
     srcLogo:
@@ -335,7 +376,7 @@ export const workList: WorkProps[] = [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230432/portifolio/work/hm/hm_06_xeylsf.png",
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230433/portifolio/work/hm/hm_07_vmdpfc.png",
         ],
-        stack: ["next"],
+        stack: ["next", "strapi", "tailwind", "typescript", "node", "strapi"],
       },
       {
         title: "HM - Strapi",
@@ -349,7 +390,7 @@ export const workList: WorkProps[] = [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230452/portifolio/work/klosterwald/klosterwald_strapi_06_ld64sl.png",
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230453/portifolio/work/klosterwald/klosterwald_strapi_07_jpnqtn.png",
         ],
-        stack: ["next"],
+        stack: ["react", "strapi", "typescript", "node"],
       },
     ],
     headerImages: [
@@ -366,5 +407,81 @@ export const workList: WorkProps[] = [
       "https://res.cloudinary.com/faustoalves/image/upload/v1770147984/portifolio/mobiles/hm_02_ap2h2n.png",
       "https://res.cloudinary.com/faustoalves/image/upload/v1770147983/portifolio/mobiles/hm_01_f1k8wu.png",
     ],
+  },
+];
+
+export interface StackListItem {
+  name: StackItem;
+  label: string;
+}
+
+export const stackList: StackListItem[] = [
+  {
+    name: "next",
+    label: "Next.js",
+  },
+  {
+    name: "tailwind",
+    label: "Tailwind CSS",
+  },
+  {
+    name: "typescript",
+    label: "TypeScript",
+  },
+  {
+    name: "react",
+    label: "React",
+  },
+  {
+    name: "react-native",
+    label: "React Native",
+  },
+  {
+    name: "node",
+    label: "Node.js",
+  },
+  {
+    name: "figma",
+    label: "Figma",
+  },
+  {
+    name: "photoshop",
+    label: "Photoshop",
+  },
+  {
+    name: "strapi",
+    label: "Strapi",
+  },
+  {
+    name: "cypress",
+    label: "Cypress",
+  },
+  {
+    name: "vite",
+    label: "Vite",
+  },
+  {
+    name: "selenium",
+    label: "Selenium",
+  },
+  {
+    name: "playwright",
+    label: "Playwright",
+  },
+  {
+    name: "styled",
+    label: "Styled Components",
+  },
+  {
+    name: "zustand",
+    label: "Zustand",
+  },
+  {
+    name: "recoil",
+    label: "Recoil",
+  },
+  {
+    name: "redux",
+    label: "Redux",
   },
 ];
