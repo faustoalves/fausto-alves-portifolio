@@ -4,7 +4,7 @@ import { WorkDetailContent } from "./WorkDetailContent";
 const WorkContent = (props: WorkContentProps) => {
   return (
     <div className="w-full h-full flex flex-col items-center justify-center mt-10 relative top-line bottom-line">
-      <div className="w-full h-full flex flex-col items-center justify-center pattern-bg bottom-line relative py-2">
+      <div className="w-full h-full flex flex-col items-center justify-center pattern-bg bottom-line relative p-4">
         <h2>{props.title}</h2>
       </div>
 
