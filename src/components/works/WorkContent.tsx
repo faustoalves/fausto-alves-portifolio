@@ -1,15 +1,22 @@
 import type { WorkContentProps } from "@/lib/works";
 import { WorkDetailContent } from "./WorkDetailContent";
+import { WorkContentDescription } from "./WorkContentDescription";
 
-const WorkContent = (props: WorkContentProps) => {
+interface Props {
+  index: number;
+}
+
+const WorkContent = (props: WorkContentProps & Props) => {
+  const isOdd = props.index % 2 === 0;
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center mt-10 relative top-line bottom-line">
-      <div className="w-full h-full flex flex-col items-center justify-center pattern-bg bottom-line relative p-4">
+    <div className="w-full h-full flex flex-col items-center justify-start mt-10 relative top-line bottom-line mb-auto">
+      <div className="w-full flex flex-col items-center justify-center pattern-bg bottom-line relative p-4">
         <h2>{props.title}</h2>
       </div>
 
-      <div className="w-full h-full grid grid-cols-1 md:grid-cols-2  gap-4">
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
         <WorkDetailContent {...props} />
+        <WorkContentDescription isOdd={isOdd} {...props} />
       </div>
     </div>
   );

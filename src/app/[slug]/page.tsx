@@ -23,8 +23,8 @@ export default async function Page({
       <Navbar />
       <MainContainer>
         <WorkHeader {...work} />
-        {work.content.map((item) => (
-          <WorkContent key={item.title} {...item} />
+        {work.content.map((item, index) => (
+          <WorkContent key={item.title} {...item} index={index} />
         ))}
       </MainContainer>
       <Footer />

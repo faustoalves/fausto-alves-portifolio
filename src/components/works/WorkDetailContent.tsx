@@ -5,13 +5,13 @@ import { CldImage } from "next-cloudinary";
 
 export const WorkDetailContent = ({ images }: WorkContentProps) => {
   return (
-    <div className="w-full h-full py-12 flex flex-col items-center justify-center ">
+    <div className="w-full h-full py-12 flex flex-col items-center justify-center order-2 ">
       <motion.div
-        initial={{ opacity: 0, scale: 0.5, rotate: 15 }}
+        initial={{ opacity: 0, scale: 0.5, rotate: 80 }}
         whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
         viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 1.7, ease: "easeIn" }}
-        className="w-full px-8 lg:px-16 xl:px-24 grid grid-cols-3 gap-0.5 lg:gap-1.5 mx-auto"
+        transition={{ duration: 1, type: "spring", stiffness: 30, mass: 1 }}
+        className="w-full px-8 lg:px-16 xl:px-12 grid grid-cols-3 gap-0.5 lg:gap-1.5 mx-auto"
       >
         <WorkDetailContentTrack>
           {images && (
@@ -64,22 +64,55 @@ const WorkDetailContentItem = ({
   image: string;
   index: number;
 }) => {
+  const originDirection =
+    index === 0
+      ? "origin-bottom-right"
+      : index === 1
+      ? "origin-bottom"
+      : index === 2
+      ? "origin-bottom-left"
+      : index === 3
+      ? "origin-top-right"
+      : index === 4
+      ? "center"
+      : index === 5
+      ? "origin-top-left"
+      : index === 6
+      ? "origin"
+      : "center";
+
   const shouldScale = index === 4;
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 100, scale: 1 }}
-      whileInView={{ opacity: 1, y: 0, scale: shouldScale ? 1.8 : 1 }}
+      initial={{ opacity: 0, scale: 0 }}
+      whileInView={{
+        opacity: shouldScale ? 1 : 1,
+        y: 0,
+        scale: shouldScale ? 1.8 : 1 - 0.05 * index,
+      }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{
-        duration: 0.9,
+        duration: 1.6,
         delay: 0.1 * index,
-        ease: "easeOut",
+        type: "spring",
+        stiffness: 70,
+        damping: 10,
+        mass: 2,
         ...(shouldScale
-          ? { scale: { delay: 1.7, duration: 0.7, ease: "easeInOut" } }
+          ? {
+              scale: {
+                delay: 0.8,
+                duration: 3,
+                type: "spring",
+                stiffness: 110,
+                damping: 10,
+                mass: 2,
+              },
+            }
           : {}),
       }}
-      className="w-full h-auto flex flex-col items-center justify-center "
+      className={`w-full h-auto flex flex-col items-center justify-center ${originDirection} `}
       style={{ zIndex: index === 4 ? 10 : index }}
     >
       <CldImage
