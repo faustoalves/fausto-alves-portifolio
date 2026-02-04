@@ -5,6 +5,7 @@ import React from "react";
 import Footer from "@/components/sections/Footer";
 import { workList } from "@/lib/works";
 import { notFound } from "next/navigation";
+import WorkContent from "@/components/works/WorkContent";
 
 export default async function Page({
   params,
@@ -22,6 +23,9 @@ export default async function Page({
       <Navbar />
       <MainContainer>
         <WorkHeader {...work} />
+        {work.content.map((item) => (
+          <WorkContent key={item.title} {...item} />
+        ))}
       </MainContainer>
       <Footer />
     </>

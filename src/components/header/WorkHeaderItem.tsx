@@ -9,16 +9,16 @@ type Props = {
 };
 
 const WorkHeaderItem = ({ image, index }: Props) => {
-  const DELAY = 2; // seconds to wait at scale 1 before and after the pulse
-  const PULSE_UP = 0.5; // seconds to scale 1 → 1.1
-  const PULSE_DOWN = 0.5; // seconds to scale 1.1 → 1
+  const DELAY = 5; // seconds to wait at scale 1 before and after the pulse
+  const PULSE_UP = 1; // seconds to scale 1 → 1.1
+  const PULSE_DOWN = 1; // seconds to scale 1.1 → 1
   const CYCLE_DURATION = DELAY + PULSE_UP + PULSE_DOWN + DELAY + 1.8;
 
   const scaleTimes: [number, number, number, number, number] = [
     0,
-    (DELAY + 0.1 * index) / CYCLE_DURATION,
-    (DELAY + PULSE_UP + 0.1 * index) / CYCLE_DURATION,
-    (DELAY + PULSE_UP + PULSE_DOWN + 0.1 * index) / CYCLE_DURATION,
+    (DELAY + 0.2 * index) / CYCLE_DURATION,
+    (DELAY + PULSE_UP + 0.2 * index) / CYCLE_DURATION,
+    (DELAY + PULSE_UP + PULSE_DOWN + 0.2 * index) / CYCLE_DURATION,
     1,
   ];
 
@@ -30,7 +30,7 @@ const WorkHeaderItem = ({ image, index }: Props) => {
         duration: CYCLE_DURATION,
         delay: 0.3 * index,
         times: scaleTimes,
-        ease: "linear",
+        ease: "easeInOut",
         repeat: Infinity,
         repeatType: "loop",
       }}

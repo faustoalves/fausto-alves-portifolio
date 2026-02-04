@@ -60,7 +60,7 @@ const WorkCard = ({
   }, [scale]);
   useEffect(() => {
     return imageScale.on("change", (v) =>
-      setCurrentImageScale(Math.min(Math.max(v, 0), 1)),
+      setCurrentImageScale(Math.min(Math.max(v, 0), 1))
     );
   }, [imageScale]);
 
@@ -71,8 +71,9 @@ const WorkCard = ({
       ref={container}
       className="w-full sticky top-0 px-2 lg:px-0 flex items-end justify-center pt-16 lg:pt-24 "
     >
-      <div
-        className={`w-full lg:w-7/8 aspect-square lg:aspect-21/9 relative flex flex-col-reverse lg:flex-row items-center justify-center origin-top rounded-lg overflow-hidden bg-linear-to-br ${color} drop-shadow-xl border border-purple-200/80 dark:border-purple-800/80`}
+      <a
+        href={`/${slug}`}
+        className={`w-full lg:w-7/8 aspect-square lg:aspect-21/9 relative flex flex-col-reverse lg:flex-row items-center justify-center origin-top rounded-lg overflow-hidden bg-linear-to-br ${color} drop-shadow-xl outline outline-purple-200/80 dark:outline-purple-800/80 cursor-pointer hover:outline-5 hover:outline-purple-300 hover:dark:outline-purple-700`}
         style={{ scale: currentScale, top: `calc(80px + ${index * 20}px)` }}
       >
         <div
@@ -113,7 +114,7 @@ const WorkCard = ({
             }}
           />
         </div>
-      </div>
+      </a>
     </div>
   );
 };
