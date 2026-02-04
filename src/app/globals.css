@@ -112,7 +112,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-heading text-pink-700 dark:text-pink-500  inline-block  font-semibold text-[34px] leading-[80%] sm:text-[42px] md:text-[52px] lg:text-[52px] uppercase;
+  @apply font-heading text-pink-700 dark:text-pink-500  inline-block  font-semibold text-[34px] leading-[80%] sm:text-[42px] md:text-[52px] lg:text-[52px] uppercase text-center;
   font-family: var(--font-heading), var(--font-sans), Arial, Helvetica,
     sans-serif;
 }

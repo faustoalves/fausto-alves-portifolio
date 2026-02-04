@@ -13,7 +13,7 @@ const WorkDescription = ({ description, title }: WorkProps) => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="html-content w-full mt-8 lg:w-1/2 lg:mt-10 lg:!text-center mx-auto relative top-line bottom-line pattern-bg p-4 "
+        className="html-content w-full mt-8 lg:w-1/2 lg:mt-10 lg:text-center! mx-auto relative top-line bottom-line pattern-bg p-4 "
         dangerouslySetInnerHTML={{ __html: description }}
       />
     </>

@@ -10,7 +10,7 @@ const WorkContent = (props: WorkContentProps & Props) => {
   const isOdd = props.index % 2 === 0;
   return (
     <div className="w-full h-full flex flex-col items-center justify-start mt-10 relative top-line bottom-line mb-auto">
-      <div className="w-full flex flex-col items-center justify-center pattern-bg bottom-line relative p-4">
+      <div className="w-full flex flex-col items-center justify-center sticky top-16 z-20 pattern-bg bottom-line p-4 bg-purple-50 dark:bg-purple-900">
         <h2>{props.title}</h2>
       </div>
 

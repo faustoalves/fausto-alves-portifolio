@@ -66,7 +66,7 @@ export const workList: WorkProps[] = [
     ],
     content: [
       {
-        title: "Benu Bestattung und Vorsorge",
+        title: "Website",
         description: "Benu Bestattung und Vorsorge",
         images: [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230375/portifolio/work/benu/benu_site_01_tsjfqa.png",
@@ -90,7 +90,7 @@ export const workList: WorkProps[] = [
         ],
       },
       {
-        title: "Benu Bestattung und Vorsorge",
+        title: "Headless CMS",
         description: "Benu Bestattung und Vorsorge",
         images: [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230379/portifolio/work/benu/benu_strapi_01_w3sosa.png",
@@ -104,7 +104,7 @@ export const workList: WorkProps[] = [
         stack: ["react", "strapi", "typescript", "node"],
       },
       {
-        title: "Benu Bestattung und Vorsorge",
+        title: "Online Configurator",
         description: "Benu Bestattung und Vorsorge",
         images: [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230371/portifolio/work/benu/benu_old_conf_01_hzc9sk.png",
@@ -118,7 +118,7 @@ export const workList: WorkProps[] = [
         stack: ["react", "typescript", "redux", "styled", "node", "selenium"],
       },
       {
-        title: "Benu Bestattung und Vorsorge",
+        title: "Stores Configurator",
         description: "Benu Bestattung und Vorsorge",
         images: [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230368/portifolio/work/benu/benu_new_conf_01_e1ojio.png",
@@ -132,7 +132,7 @@ export const workList: WorkProps[] = [
         stack: ["vite", "react", "typescript", "figma", "playwright"],
       },
       {
-        title: "Benu Bestattung und Vorsorge",
+        title: "Documentation",
         description: "Benu Bestattung und Vorsorge",
         images: [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230367/portifolio/work/benu/benu_docs_01_cr5vbz.png",
@@ -161,7 +161,7 @@ export const workList: WorkProps[] = [
     slug: "klosterwald",
     content: [
       {
-        title: "Klosterwald",
+        title: "Website",
         description: "Klosterwald",
         images: [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230451/portifolio/work/klosterwald/klosterwald_site_04_daquei.png",
@@ -185,7 +185,7 @@ export const workList: WorkProps[] = [
         ],
       },
       {
-        title: "Klosterwald - Strapi",
+        title: "Headless CMS",
         description: "Klosterwald - Strapi",
         images: [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230448/portifolio/work/klosterwald/klosterwald_strapi_01_gnxukw.png",
@@ -218,7 +218,7 @@ export const workList: WorkProps[] = [
     client: "mementry",
     title: "Mementry",
     description:
-      "<p><strong> Mementry</strong> is a platform designed to <strong> organize and share important information</strong> with <strong> security</strong>, <strong> privacy</strong> and <strong> clear intent</strong>. While still alive, a person defines <strong> what will be shared</strong> and <strong> with whom</strong> after they pass away. It also works as a <strong> central hub for personal data, documents and key records</strong>, helping families in sensitive moments and preventing important information from being lost.</p>",
+      "<p><strong> Mementry</strong> is a platform designed to <strong> organize</strong> and <strong>share important information</strong> with <strong> security</strong>, <strong> privacy</strong> and <strong> clear intent</strong>. While still alive, a person defines <strong> what will be shared</strong> and <strong> with whom</strong> after they pass away. It also works as a <strong> central hub for personal data</strong>, <strong>documents and key records</strong>, helping families in sensitive moments and preventing important information from being lost.</p>",
     srcImage:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769210039/portifolio/work/mementry_vfewxt.jpg",
     srcLogo:
@@ -228,7 +228,7 @@ export const workList: WorkProps[] = [
     slug: "mementry",
     content: [
       {
-        title: "Mementry",
+        title: "Web App",
         description: "Mementry",
         images: [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230379/portifolio/work/benu/benu_strapi_01_w3sosa.png",
@@ -279,7 +279,7 @@ export const workList: WorkProps[] = [
     slug: "mymc",
     content: [
       {
-        title: "MyMc",
+        title: "WebApp",
         description: "MyMc",
         images: [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230489/portifolio/work/mymc/mymc_01_y06mh9.png",
@@ -312,7 +312,7 @@ export const workList: WorkProps[] = [
     client: "crescimentum",
     title: "Crescimentum",
     description:
-      "<p><strong> Crescimentum</strong>, part of the <strong> Cegos Group</strong>, works with <strong> people development and leadership</strong>, going beyond <strong> traditional training</strong>. Its focus is on fostering <strong> awareness</strong>, driving <strong> intentional change</strong> and building solutions <strong> together with people and organizations</strong>. The company offers <strong> programs, journeys and development experiences</strong> that support leaders and teams at different levels. This project was developed in partnership with <strong>Hagens</strong>, who works directly with the client.</p>",
+      "<p><strong> Crescimentum</strong>, part of the <strong> Cegos Group</strong>, works with <strong> people development and leadership</strong>, going beyond <strong> traditional training</strong>. Its focus is on fostering <strong> awareness</strong>, driving <strong> intentional change</strong> and building solutions <strong> together with people</strong> and <strong> organizations</strong>. The company offers <strong> programs, journeys and</strong> <strong> development experiences</strong> that support leaders and teams at different levels. This project was developed in partnership with <strong>Hagens</strong>, who works directly with the client.</p>",
     srcImage:
       "https://res.cloudinary.com/faustoalves/image/upload/v1769210037/portifolio/work/crescimentum_dqrh15.jpg",
     srcLogo:
@@ -322,7 +322,7 @@ export const workList: WorkProps[] = [
     slug: "crescimentum",
     content: [
       {
-        title: "Crescimentum",
+        title: "Website",
         description: "Crescimentum",
         images: [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230418/portifolio/work/crescimentum/crescimentum_01_dc1rfh.png",
@@ -365,7 +365,7 @@ export const workList: WorkProps[] = [
     slug: "hm",
     content: [
       {
-        title: "HM",
+        title: "Website",
         description: "HM",
         images: [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230432/portifolio/work/hm/hm_01_udeaq8.png",
@@ -379,7 +379,7 @@ export const workList: WorkProps[] = [
         stack: ["next", "strapi", "tailwind", "typescript", "node", "strapi"],
       },
       {
-        title: "HM - Strapi",
+        title: "Headless CMS",
         description: "HM",
         images: [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230448/portifolio/work/klosterwald/klosterwald_strapi_01_gnxukw.png",
