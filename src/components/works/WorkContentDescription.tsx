@@ -14,6 +14,10 @@ export const WorkContentDescription = (props: WorkContentProps & Props) => {
         isOdd ? "lg:order-3" : "lg:order-1"
       }`}
     >
+      <div
+        className="light-content"
+        dangerouslySetInnerHTML={{ __html: props.description }}
+      />
       <StackList {...props} />
     </div>
   );

@@ -89,7 +89,7 @@ const WorkDetailContentItem = ({
       whileInView={{
         opacity: shouldScale ? 1 : 1,
         y: 0,
-        scale: shouldScale ? 1.8 : 1 - 0.05 * index,
+        scale: shouldScale ? 1.6 : 1 - 0.05 * index,
       }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{

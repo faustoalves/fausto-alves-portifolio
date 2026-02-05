@@ -143,6 +143,14 @@ h6 {
   }
 }
 
+.light-content {
+  @apply flex justify-center items-start flex-col p-4 text-center lg:text-left text-base lg:text-lg lg:leading-8 leading-6 gap-4  mr-auto text-purple-800 dark:text-purple-200 font-normal;
+
+  & strong {
+    @apply font-semibold text-white py-0.5 px-1 bg-pink-600 dark:bg-pink-600 whitespace-nowrap;
+  }
+}
+
 @keyframes rotate {
   to {
     transform: rotate(360deg);

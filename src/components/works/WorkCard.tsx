@@ -86,9 +86,11 @@ const WorkCard = ({
             height={500}
             className="h-2/3 w-3/5 lg:w-3/7 lg:h-auto object-contain"
             loading="lazy"
-            sizes="(max-width: 768px) 50vw,
-                    (max-width: 1200px) 50vw,
-                    33vw"
+            sizes="(max-width: 380px) 100vw,
+                  (max-width: 460px) 90vw,
+                  (max-width: 768px) 80vw,
+                    (max-width: 1200px) 80vw,
+                    50vw"
             style={{
               transform: `translate(${mousePercent.x * 40 - 20}px) translateY(${
                 mousePercent.y * 40 - 20

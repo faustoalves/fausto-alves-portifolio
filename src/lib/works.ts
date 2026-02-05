@@ -67,7 +67,8 @@ export const workList: WorkProps[] = [
     content: [
       {
         title: "Website",
-        description: "Benu Bestattung und Vorsorge",
+        description:
+          "<p>In Benu’s <strong>Website</strong> project, I was involved end to end in <strong>design and frontend</strong>: gathering requirements, creating <strong>wireframes</strong>, defining the <strong>visual identity</strong>, building the <strong>design system</strong> and developing the interface components. From day one, the focus was on <strong>increasing organic traffic and conversion</strong>. We created a dedicated area for <strong>memorials for loved ones</strong>, with a sensitive and easy-to-use experience. Throughout the project, we ran <strong>100+ A/B tests in production</strong> to refine the user journey. On the performance side, even with <strong>1,000+ pages</strong>, we kept <strong>scores above 90</strong> (mobile and desktop) and achieved <strong>+40% conversion</strong> and <strong>+120% organic traffic growth</strong>.</p>",
         images: [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230375/portifolio/work/benu/benu_site_01_tsjfqa.png",
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230375/portifolio/work/benu/benu_site_02_bac1un.png",
@@ -91,7 +92,8 @@ export const workList: WorkProps[] = [
       },
       {
         title: "Headless CMS",
-        description: "Benu Bestattung und Vorsorge",
+        description:
+          "<p>For the <strong>Headless CMS</strong>, I implemented and customized <strong>Strapi</strong> to fit Benu’s specific needs. We integrated the CMS with <strong>Cloudinary</strong>, using its CDN and <strong>automatic image optimization</strong> per device. I modeled content using <strong>components and dynamic zones</strong>, so the content team could create flexible pages instead of being locked into a single template. We also set up a <strong>draft and scheduled publishing</strong> workflow, plus a tight integration with the <strong>Website</strong>, triggering cache invalidation only when truly needed.</p>",
         images: [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230379/portifolio/work/benu/benu_strapi_01_w3sosa.png",
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230379/portifolio/work/benu/benu_strapi_02_iful6c.png",
@@ -105,7 +107,8 @@ export const workList: WorkProps[] = [
       },
       {
         title: "Online Configurator",
-        description: "Benu Bestattung und Vorsorge",
+        description:
+          "<p>On the <strong>Online Configurator</strong>, I worked on evolving the <strong>UI/UX</strong> and implementing new features on top of the existing product. The goal was to make the configuration flow clearer, reducing doubts and unnecessary steps. I also helped set up <strong>unit and E2E tests</strong>, increasing confidence in every release. In addition, I focused on <strong>performance improvements</strong>, optimizing rendering and loading so the configurator stayed fast even with complex business rules.</p>",
         images: [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230371/portifolio/work/benu/benu_old_conf_01_hzc9sk.png",
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230372/portifolio/work/benu/benu_old_conf_02_tuwg1j.png",
@@ -118,8 +121,9 @@ export const workList: WorkProps[] = [
         stack: ["react", "typescript", "redux", "styled", "node", "selenium"],
       },
       {
-        title: "Stores Configurator",
-        description: "Benu Bestattung und Vorsorge",
+        title: "In-store Configurator",
+        description:
+          "<p>For the <strong>In-store Configurator</strong>, I designed a new interface and experience tailored for <strong>face-to-face consultations</strong>. During the conversation with the family, consultants can show <strong>product and service options</strong> in real time, adjusting everything on the spot. The configurator was directly integrated with <strong>Benu’s CRM</strong>, connecting offers, customer data and proposals into a single flow. This simplified the sales process and made the experience clearer and more organized for both the team and clients.</p>",
         images: [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230368/portifolio/work/benu/benu_new_conf_01_e1ojio.png",
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230368/portifolio/work/benu/benu_new_conf_03_zh9efd.png",
@@ -133,7 +137,8 @@ export const workList: WorkProps[] = [
       },
       {
         title: "Documentation",
-        description: "Benu Bestattung und Vorsorge",
+        description:
+          "<p>On the <strong>Digital Documents</strong> side, the goal was to bring consistency and efficiency to Benu’s administrative workflows. I standardized <strong>contracts, quotes and authorizations</strong> into a single model, with wording and structure aligned to the brand. All documents were integrated directly with the company’s <strong>CRM</strong>, reducing rework and manual errors. We also built modules such as <strong>digital signatures</strong>, allowing clients to complete processes remotely, with more agility and less paperwork.</p>",
         images: [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230367/portifolio/work/benu/benu_docs_01_cr5vbz.png",
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230367/portifolio/work/benu/benu_docs_02_rbuann.png",

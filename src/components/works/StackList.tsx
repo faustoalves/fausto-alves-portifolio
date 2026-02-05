@@ -30,7 +30,7 @@ const StackList = ({ title, stack }: WorkContentProps) => {
             delay: 0.05 * index + 0.5,
           }}
           key={title + item}
-          className="bg-pink-700 text-pink-200 uppercase  font-semibold text-xs px-2 py-1 rounded-md flex flex-col items-start justify-center"
+          className="bg-pink-700 text-pink-200 uppercase  font-bold tracking-wider text-xs px-1.5 py-0.75 rounded-md flex flex-col items-start justify-center"
         >
           <p>{stackList.find((stackItem) => stackItem.name === item)?.label}</p>
         </motion.div>
