@@ -93,7 +93,7 @@ export const workList: WorkProps[] = [
       {
         title: "Headless CMS",
         description:
-          "<p>For the <strong>Headless CMS</strong>, I implemented and customized <strong>Strapi</strong> to fit Benu’s specific needs. We integrated the CMS with <strong>Cloudinary</strong>, using its CDN and <strong>automatic image optimization</strong> per device. I modeled content using <strong>components and dynamic zones</strong>, so the content team could create flexible pages instead of being locked into a single template. We also set up a <strong>draft and scheduled publishing</strong> workflow, plus a tight integration with the <strong>Website</strong>, triggering cache invalidation only when truly needed.</p>",
+          "<p>For the <strong>Headless CMS</strong>, I implemented and customized <strong>Strapi</strong> to fit Benu’s specific needs. We integrated the CMS with <strong>Cloudinary</strong>, using its CDN and <strong>automatic image optimization</strong> per device. I modeled content using <strong>components and dynamic zones</strong>, so the content team could create flexible pages instead of being locked into a single template. We also set up a <strong>draft and scheduled publishing</strong> workflow, plus a tight integration with the <strong>Website</strong>, triggering cache revalidation only when truly needed.</p>",
         images: [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230379/portifolio/work/benu/benu_strapi_01_w3sosa.png",
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230379/portifolio/work/benu/benu_strapi_02_iful6c.png",
@@ -167,7 +167,8 @@ export const workList: WorkProps[] = [
     content: [
       {
         title: "Website",
-        description: "Klosterwald",
+        description:
+          "<p>For Klosterwald's <strong>Website</strong>, I handled the entire <strong>design and frontend</strong> process: requirements gathering, <strong>wireframes</strong>, <strong>visual identity</strong> definition, <strong>design system</strong> setup and development of all interface components. The application was built with <strong>Next.js</strong>, <strong>Tailwind CSS</strong> and <strong>TypeScript</strong>, always focusing on <strong>performance</strong>, <strong>SEO</strong> and a <strong>smooth user experience</strong>. Every component was designed to be <strong>highly customizable</strong>, making it easy to evolve the site over time. We also used a <strong>BFF (Backend for Frontend)</strong> to increase <strong>security</strong> and enable <strong>tighter cache control</strong>, ensuring fast responses without sacrificing fresh content.</p>",
         images: [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230451/portifolio/work/klosterwald/klosterwald_site_04_daquei.png",
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230450/portifolio/work/klosterwald/klosterwald_site_01_q9295i.png",
@@ -191,7 +192,8 @@ export const workList: WorkProps[] = [
       },
       {
         title: "Headless CMS",
-        description: "Klosterwald - Strapi",
+        description:
+          "<p>On the <strong>Headless CMS</strong> side, I implemented and customized <strong>Strapi</strong> to match Klosterwald's specific needs. We integrated the CMS with <strong>Cloudinary</strong>, leveraging its <strong>CDN</strong> and <strong>automatic image optimization</strong> based on the user's device. I structured content using <strong>components</strong> and <strong>dynamic zones</strong>, so the team can create flexible pages instead of being limited to a single template. We also set up a workflow with a <strong>draft environment</strong> and <strong>scheduled publishing</strong>, plus a tight integration with the <strong>Website</strong>, triggering <strong>cache revalidation only when needed</strong> to balance performance and editorial control.</p>",
         images: [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230448/portifolio/work/klosterwald/klosterwald_strapi_01_gnxukw.png",
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230447/portifolio/work/klosterwald/klosterwald_strapi_02_nlutdn.png",
@@ -234,15 +236,16 @@ export const workList: WorkProps[] = [
     content: [
       {
         title: "Web App",
-        description: "Mementry",
+        description:
+          "<p>For the <strong>Mementry WebApp</strong>, I led the entire <strong>design and frontend</strong> process, starting with <strong>requirements gathering</strong> and <strong>wireframes</strong>, then defining the <strong>visual identity</strong> and <strong>design system</strong>, and finally building all <strong>interface components</strong>. I was responsible for the whole <strong>frontend of the application</strong>, ensuring a consistent experience for organizing and sharing sensitive information. All components were designed to be <strong>quickly customizable</strong>, allowing content and layout adjustments without heavy refactoring. The solution was built specifically for the <strong>Austrian market</strong>, aligned with its context and local needs.</p>",
         images: [
-          "https://res.cloudinary.com/faustoalves/image/upload/v1770230379/portifolio/work/benu/benu_strapi_01_w3sosa.png",
-          "https://res.cloudinary.com/faustoalves/image/upload/v1770230379/portifolio/work/benu/benu_strapi_02_iful6c.png",
-          "https://res.cloudinary.com/faustoalves/image/upload/v1770230381/portifolio/work/benu/benu_strapi_03_gsn8ik.png",
-          "https://res.cloudinary.com/faustoalves/image/upload/v1770230381/portifolio/work/benu/benu_strapi_04_rdnclo.png",
-          "https://res.cloudinary.com/faustoalves/image/upload/v1770230382/portifolio/work/benu/benu_strapi_05_eoadyp.png",
-          "https://res.cloudinary.com/faustoalves/image/upload/v1770230382/portifolio/work/benu/benu_strapi_06_alzxpl.png",
-          "https://res.cloudinary.com/faustoalves/image/upload/v1770230383/portifolio/work/benu/benu_strapi_07_ny4ivv.png",
+          "https://res.cloudinary.com/faustoalves/image/upload/v1770230471/portifolio/work/mementry/mementry_01_ax9snt.png",
+          "https://res.cloudinary.com/faustoalves/image/upload/v1770230470/portifolio/work/mementry/mementry_02_h7anfq.png",
+          "https://res.cloudinary.com/faustoalves/image/upload/v1770230472/portifolio/work/mementry/mementry_03_yfh5xl.png",
+          "https://res.cloudinary.com/faustoalves/image/upload/v1770230469/portifolio/work/mementry/mementry_04_jb5pok.png",
+          "https://res.cloudinary.com/faustoalves/image/upload/v1770230473/portifolio/work/mementry/mementry_05_l9ghoh.png",
+          "https://res.cloudinary.com/faustoalves/image/upload/v1770230474/portifolio/work/mementry/mementry_06_urxj7y.png",
+          "https://res.cloudinary.com/faustoalves/image/upload/v1770230472/portifolio/work/mementry/mementry_07_ddle6c.png",
         ],
         stack: [
           "react",
@@ -285,7 +288,8 @@ export const workList: WorkProps[] = [
     content: [
       {
         title: "WebApp",
-        description: "MyMc",
+        description:
+          "<p>In the <strong>MyMc WebApp</strong>, I was involved in the entire <strong>project conception</strong>, from the first <strong>briefing</strong> discussions to the final delivery. I created <strong>wireframes</strong>, defined the <strong>visual identity</strong>, structured the <strong>design system</strong> and developed all <strong>interface components</strong>, always aiming for an internal experience that felt like a <strong>social network</strong> for employees. I was also responsible for the entire <strong>frontend of the application</strong>, ensuring a smooth and consistent experience across screens and features.</p>",
         images: [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230489/portifolio/work/mymc/mymc_01_y06mh9.png",
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230488/portifolio/work/mymc/mymc_02_lwyw8u.png",
@@ -328,7 +332,8 @@ export const workList: WorkProps[] = [
     content: [
       {
         title: "Website",
-        description: "Crescimentum",
+        description:
+          "<p>On the <strong>Crescimentum Website</strong>, I worked exclusively on the <strong>UI/UX</strong> side, as the client already had an in-house development team for implementation. I was responsible for translating business needs into a <strong>clear experience focused on people development and leadership</strong>, structuring navigation, content hierarchy and key components. I delivered all <strong>interface assets</strong>, a detailed <strong>implementation guide</strong> and <strong>specific guidance on critical components</strong>, giving the internal team confidence to take the project into production.</p>",
         images: [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230418/portifolio/work/crescimentum/crescimentum_01_dc1rfh.png",
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230418/portifolio/work/crescimentum/crescimentum_02_hyvy9c.png",
@@ -371,7 +376,8 @@ export const workList: WorkProps[] = [
     content: [
       {
         title: "Website",
-        description: "HM",
+        description:
+          "<p>For HM Engenharia's <strong>Website</strong>, the <strong>UI/UX was produced by Hagens</strong>, while I focused on <strong>technical guidance for critical components</strong> and the entire <strong>frontend implementation</strong>. The application was built with <strong>Next.js</strong>, <strong>Tailwind CSS</strong> and <strong>TypeScript</strong>, always prioritizing <strong>performance</strong>, <strong>SEO</strong> and a <strong>smooth user experience</strong>. Every component was structured to be <strong>highly customizable</strong>, enabling quick adjustments as new requirements emerged. We also implemented a <strong>BFF (Backend for Frontend)</strong> to increase <strong>application security</strong> and enable <strong>precise cache control</strong>, ensuring fast responses without compromising content freshness.</p>",
         images: [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230432/portifolio/work/hm/hm_01_udeaq8.png",
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230429/portifolio/work/hm/hm_02_xgbwmp.png",
@@ -385,7 +391,8 @@ export const workList: WorkProps[] = [
       },
       {
         title: "Headless CMS",
-        description: "HM",
+        description:
+          "<p>On the <strong>Headless CMS</strong> side, I implemented and customized <strong>Strapi</strong> to meet HM Engenharia's needs. I integrated the CMS with <strong>Cloudinary</strong>, ensuring <strong>optimized image delivery</strong> via <strong>CDN</strong> and automatic adaptation to the user's device. I structured content using <strong>components and dynamic zones</strong>, allowing the marketing team to create dynamic pages without being locked into fixed templates. I also set up a <strong>draft and scheduled publishing</strong> workflow, plus a smart integration with the <strong>Website</strong> for <strong>on-demand cache revalidation</strong>, balancing performance and editorial control.</p>",
         images: [
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230448/portifolio/work/klosterwald/klosterwald_strapi_01_gnxukw.png",
           "https://res.cloudinary.com/faustoalves/image/upload/v1770230447/portifolio/work/klosterwald/klosterwald_strapi_02_nlutdn.png",
