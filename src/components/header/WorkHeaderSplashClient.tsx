@@ -41,7 +41,7 @@ const WorkHeaderSplashClient = ({
       <motion.div
         className={`${
           nextAnimation
-            ? "w-1/2 h-1/2 lg:w-1/4 lg:h-1/3 rounded-tr-lg -bottom-px -left-px "
+            ? "w-1/2 h-1/2 lg:w-1/4 lg:h-1/3 rounded-tr-xl"
             : "w-full h-full bottom-0 left-0  rounded-tr-none"
         }  absolute bottom-0 left-0 transition-all duration-500 ease-in overflow-hidden z-1 flex items-center justify-center bg-linear-to-br ${color} shadow-2xl`}
       >
@@ -57,7 +57,7 @@ const WorkHeaderSplashClient = ({
             alt={client}
             width={500}
             height={500}
-            className="w-3/4 max-w-60 h-auto object-cover"
+            className="w-2/4 max-w-40 h-auto object-cover"
           />
         </motion.div>
       </motion.div>

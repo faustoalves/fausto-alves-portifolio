@@ -6,9 +6,49 @@ import React from "react";
 type Props = {
   image: string;
   index: number;
+  direction: "top" | "bottom";
 };
 
-const WorkHeaderItem = ({ image, index }: Props) => {
+const WorkHeaderItem = ({ image, index, direction }: Props) => {
+  const rotate = Math.random() * 30 - 15;
+  const translateX = Math.random() * 100 - 50;
+  const translateY = Math.random() * 100 - 50;
+  return (
+    <motion.div
+      initial={{
+        opacity: 0,
+        scale: 1.3,
+        rotateZ: rotate,
+        translateX: translateX,
+        translateY: translateY,
+        y: direction === "top" ? 200 : -200,
+      }}
+      animate={{
+        opacity: 1,
+        scale: 1,
+        rotateZ: 0,
+        y: 0,
+        translateX: 0,
+        translateY: 0,
+      }}
+      transition={{
+        delay: 0.15 * index,
+        type: "spring",
+        stiffness: 90,
+        damping: 30,
+        mass: 1.5,
+      }}
+    >
+      <WorkHeaderItemAnimation
+        image={image}
+        index={index}
+        direction={direction}
+      />
+    </motion.div>
+  );
+};
+
+const WorkHeaderItemAnimation = ({ image, index, direction }: Props) => {
   const DELAY = 5; // seconds to wait at scale 1 before and after the pulse
   const PULSE_UP = 1; // seconds to scale 1 → 1.1
   const PULSE_DOWN = 1; // seconds to scale 1.1 → 1
