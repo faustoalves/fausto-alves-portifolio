@@ -37,7 +37,7 @@ const Menu = ({ isOpen, closeMenu }: Props) => {
                 <X className="w-12 h-12 text-pink-700 hover:text-pink-900 dark:text-pink-300 dark:hover:text-pink-200" />
               </div>
             </div>
-            <div className="flex flex-col items-start justify-center w-full h-full">
+            <div className="flex flex-col items-start justify-center w-full h-full pb-24 lg:pb-12">
               <MenuItem label="Home" href="/" index={0} closeMenu={closeMenu} />
               <MenuItem
                 label="Who I am"
@@ -139,7 +139,9 @@ export const MenuItem = ({
       onClick={closeMenu}
       className="text-cyan-700 dark:text-cyan-500 font-light w-full py-2 lg:py-4 px-8 hover:bg-cyan-100 dark:hover:bg-cyan-800/20"
     >
-      <p className="text-3xl lg:text-5xl leading-7 uppercase">{label}</p>
+      <p className="text-2xl lg:text-5xl leading-6 lg:leading-7 uppercase">
+        {label}
+      </p>
     </motion.a>
   );
 };
