@@ -1,6 +1,7 @@
 import React from "react";
 import { WorkContentProps } from "@/lib/works";
 import StackList from "./StackList";
+import WorkDetailDescription from "./WorkDetailDescription";
 
 type Props = {
   isOdd: boolean;
@@ -14,10 +15,7 @@ export const WorkContentDescription = (props: WorkContentProps & Props) => {
         isOdd ? "lg:order-3" : "lg:order-1"
       }`}
     >
-      <div
-        className="light-content"
-        dangerouslySetInnerHTML={{ __html: props.description }}
-      />
+      <WorkDetailDescription description={props.description} />
       <StackList {...props} />
     </div>
   );

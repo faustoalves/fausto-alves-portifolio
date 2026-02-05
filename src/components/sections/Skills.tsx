@@ -6,7 +6,10 @@ type Props = {};
 
 const Skills = (props: Props) => {
   return (
-    <section className="w-full flex flex-col items-start justify-center relative mt-10 top-line bottom-line ">
+    <section
+      className="w-full flex flex-col items-start justify-center relative mt-10 top-line bottom-line "
+      id="skills"
+    >
       <div className="w-full h-full bottom-line pattern-bg lg:col-span-2 p-4 text-center relative">
         <h2>Skills</h2>
       </div>

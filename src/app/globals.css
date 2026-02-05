@@ -144,10 +144,10 @@ h6 {
 }
 
 .light-content {
-  @apply flex justify-center items-start flex-col p-4 text-center lg:text-left text-base lg:text-lg lg:leading-9 leading-7 gap-4  mr-auto text-purple-800 dark:text-purple-200 font-normal;
+  @apply flex justify-center items-start flex-col p-4 text-center lg:text-left text-base lg:text-lg lg:leading-9 leading-7 gap-4  mr-auto text-purple-800 dark:text-purple-200 font-normal wrap-normal;
 
   & strong {
-    @apply font-semibold text-white py-0.5 px-1 bg-pink-600 dark:bg-pink-600 whitespace-nowrap;
+    @apply font-semibold text-white py-0.5 px-1 bg-pink-600 dark:bg-pink-600;
   }
 }
 

@@ -186,7 +186,6 @@ export const workList: WorkProps[] = [
           "node",
           "figma",
           "photoshop",
-          "strapi",
           "cypress",
         ],
       },
