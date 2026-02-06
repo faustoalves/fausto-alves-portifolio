@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist_Mono, Inter, Urbanist } from "next/font/google";
 import "./globals.css";
 
@@ -61,6 +62,18 @@ export default function RootLayout({
       className={`${inter.variable} ${urbanist.variable} ${geistMono.variable}`}
     >
       <body className="antialiased max-w-screen overflow-x-hidden min-h-screen">
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-9DHSG5WJMB"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-9DHSG5WJMB');
+          `}
+        </Script>
         {children}
       </body>
     </html>
