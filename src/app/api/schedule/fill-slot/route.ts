@@ -1,12 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { getCalendarClient } from "@/lib/google-auth";
 import { toTimezoneRelativeIso } from "@/lib/timezone";
 
-const ALLOWED_ORIGINS = [
-  "https://www.faustoalves.com.br",
-  "https://portifolio.faustoalves.com.br",
-  "https://faustoalves.com.br",
-  "http://localhost:3000",
-];
+import { ALLOWED_ORIGINS } from "@/lib/site";
 
 function getCorsHeaders(origin: string | null): HeadersInit | null | undefined {
   if (!origin) return undefined;

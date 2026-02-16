@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { Geist_Mono, Inter, Urbanist } from "next/font/google";
+import { getSiteUrl } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({
@@ -21,7 +22,10 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
+const siteUrl = getSiteUrl();
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Fausto Alves - Senior Frontend Developer",
   description: "Fausto Alves - Senior Frontend Developer",
   keywords: [
@@ -35,11 +39,17 @@ export const metadata: Metadata = {
     "HTML Developer",
     "CSS Developer",
   ],
-  authors: [{ name: "Fausto Alves", url: "https://faustoalves.com" }],
+  authors: [{ name: "Fausto Alves", url: siteUrl }],
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     title: "Fausto Alves - Senior Frontend Developer",
     description: "Fausto Alves - Senior Frontend Developer",
-    url: "https://faustoalves.com",
+    url: siteUrl,
+    siteName: "Fausto Alves",
+    type: "website",
     images: [
       {
         url: "https://res.cloudinary.com/faustoalves/image/upload/v1769095321/portifolio/about/me-3d_xtl6oc.png",

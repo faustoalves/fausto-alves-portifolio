@@ -1,16 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // app/api/schedule/available-slots/route.ts
 import { getCalendarClient } from "@/lib/google-auth";
+import { ALLOWED_ORIGINS } from "@/lib/site";
 
 const BASE_SLOTS = ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00"];
 
 const AGENDA_TZ = "-03:00"; // Brasília — mesmo fuso dos slots
-
-const ALLOWED_ORIGINS = [
-  "https://www.faustoalves.com.br",
-  "https://portifolio.faustoalves.com.br",
-  "https://faustoalves.com.br",
-  "http://localhost:3000",
-];
 
 function getCorsHeaders(origin: string | null): HeadersInit | null | undefined {
   if (!origin) return undefined;
@@ -51,15 +46,18 @@ function getLockedSlotsForDate(dateStr: string): number[] {
 
   // Define quantos slots travar baseado na proximidade
   let maxLocked: number;
-  if (daysAhead <= 1) maxLocked = 4; // amanhã: 4 travados
-  else if (daysAhead <= 3) maxLocked = 2; // próximos 3 dias: 3 travados
-  else if (daysAhead <= 7) maxLocked = 1; // próxima semana: 2 travados
+  if (daysAhead <= 1)
+    maxLocked = 4; // amanhã: 4 travados
+  else if (daysAhead <= 3)
+    maxLocked = 2; // próximos 3 dias: 3 travados
+  else if (daysAhead <= 7)
+    maxLocked = 1; // próxima semana: 2 travados
   else maxLocked = 0; // depois: 1 travado
 
   // Usa a data como seed pra gerar sempre os mesmos slots travados
   const seed = targetDate.getTime();
   const rng = (s: number) => {
-    let x = Math.sin(s) * 10000;
+    const x = Math.sin(s) * 10000;
     return x - Math.floor(x);
   };
 
