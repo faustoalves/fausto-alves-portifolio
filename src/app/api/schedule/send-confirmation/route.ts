@@ -3,7 +3,9 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-import { ALLOWED_ORIGINS } from "@/lib/site";
+import { ALLOWED_ORIGINS, logCors } from "@/lib/site";
+
+const ROUTE = "/api/schedule/send-confirmation";
 
 function getCorsHeaders(origin: string | null): HeadersInit | null | undefined {
   if (!origin) return undefined;
@@ -18,7 +20,9 @@ function getCorsHeaders(origin: string | null): HeadersInit | null | undefined {
 export async function OPTIONS(req: Request) {
   const origin = req.headers.get("origin");
   const corsHeaders = getCorsHeaders(origin);
-  if (corsHeaders === null) {
+  const allowed = corsHeaders !== null;
+  logCors(ROUTE, "OPTIONS", origin, allowed);
+  if (!allowed) {
     return new Response(null, { status: 403 });
   }
   return new Response(null, { status: 204, headers: corsHeaders });
@@ -27,7 +31,9 @@ export async function OPTIONS(req: Request) {
 export async function POST(req: Request) {
   const origin = req.headers.get("origin");
   const corsHeaders = getCorsHeaders(origin);
-  if (corsHeaders === null) {
+  const allowed = corsHeaders !== null;
+  logCors(ROUTE, "POST", origin, allowed);
+  if (!allowed) {
     return Response.json(
       { success: false, error: "CORS_NOT_ALLOWED" },
       { status: 403 },

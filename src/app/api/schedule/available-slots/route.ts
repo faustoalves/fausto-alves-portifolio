@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // app/api/schedule/available-slots/route.ts
 import { getCalendarClient } from "@/lib/google-auth";
-import { ALLOWED_ORIGINS } from "@/lib/site";
+import { ALLOWED_ORIGINS, logCors } from "@/lib/site";
+
+const ROUTE = "/api/schedule/available-slots";
 
 const BASE_SLOTS = ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00"];
 
@@ -20,7 +22,9 @@ function getCorsHeaders(origin: string | null): HeadersInit | null | undefined {
 export async function OPTIONS(req: Request) {
   const origin = req.headers.get("origin");
   const corsHeaders = getCorsHeaders(origin);
-  if (corsHeaders === null) {
+  const allowed = corsHeaders !== null;
+  logCors(ROUTE, "OPTIONS", origin, allowed);
+  if (!allowed) {
     return new Response(null, { status: 403 });
   }
   return new Response(null, { status: 204, headers: corsHeaders });
@@ -75,7 +79,9 @@ function getLockedSlotsForDate(dateStr: string): number[] {
 export async function GET(req: Request) {
   const origin = req.headers.get("origin");
   const corsHeaders = getCorsHeaders(origin);
-  if (corsHeaders === null) {
+  const allowed = corsHeaders !== null;
+  logCors(ROUTE, "GET", origin, allowed);
+  if (!allowed) {
     return Response.json(
       { success: false, error: "CORS_NOT_ALLOWED" },
       { status: 403 },

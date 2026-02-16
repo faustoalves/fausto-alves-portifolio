@@ -19,3 +19,18 @@ export const ALLOWED_ORIGINS = [
   "https://portifolio.faustoalves.com.br",
   "http://localhost:3000",
 ];
+
+/** Log CORS checks for debugging (e.g. in Vercel function logs). */
+export function logCors(
+  route: string,
+  method: string,
+  origin: string | null,
+  allowed: boolean,
+): void {
+  console.log("[CORS]", {
+    route,
+    method,
+    origin: origin ?? "(none)",
+    allowed,
+  });
+}

@@ -2,7 +2,9 @@
 import { getCalendarClient } from "@/lib/google-auth";
 import { toTimezoneRelativeIso } from "@/lib/timezone";
 
-import { ALLOWED_ORIGINS } from "@/lib/site";
+import { ALLOWED_ORIGINS, logCors } from "@/lib/site";
+
+const ROUTE = "/api/schedule/fill-slot";
 
 function getCorsHeaders(origin: string | null): HeadersInit | null | undefined {
   if (!origin) return undefined;
@@ -17,7 +19,9 @@ function getCorsHeaders(origin: string | null): HeadersInit | null | undefined {
 export async function OPTIONS(req: Request) {
   const origin = req.headers.get("origin");
   const corsHeaders = getCorsHeaders(origin);
-  if (corsHeaders === null) {
+  const allowed = corsHeaders !== null;
+  logCors(ROUTE, "OPTIONS", origin, allowed);
+  if (!allowed) {
     return new Response(null, { status: 403 });
   }
   return new Response(null, { status: 204, headers: corsHeaders });
@@ -52,10 +56,11 @@ async function ensureMeetAllowed(calendar: any) {
 }
 
 export async function POST(req: Request) {
-  console.log("fill-slot");
   const origin = req.headers.get("origin");
   const corsHeaders = getCorsHeaders(origin);
-  if (corsHeaders === null) {
+  const allowed = corsHeaders !== null;
+  logCors(ROUTE, "POST", origin, allowed);
+  if (!allowed) {
     return Response.json(
       { success: false, error: "CORS_NOT_ALLOWED" },
       { status: 403 },
